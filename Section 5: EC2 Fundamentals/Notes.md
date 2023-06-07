@@ -63,7 +63,7 @@ Security Groups Deeper Dive
 - They regulate:
 
   - Access to Ports
-  - Authorized IP ranges — IPv4 and |Pv6é
+  - Authorized IP ranges — IPv4 and IPv6é
   - Control of inbound network (from other to the instance)
   - Control of outbound network (from the instance to other)
 
@@ -97,12 +97,12 @@ Classic Ports to know
 EC2 Instances Purchasing Options
 
 - On-Demand Instances — short workload, predictable pricing, pay by second
-- Reserved (| & 3 years):
+- Reserved (1 & 3 years):
 
   - Reserved Instances — long workloads
   - Convertible Reserved Instances — long workloads with flexible instances
 
-- Savings Plans (| & 3 years) -commitment to an amount of usage, long workload
+- Savings Plans (1 & 3 years) -commitment to an amount of usage, long workload
 - Spot Instances — short workloads, cheap, can lose instances (less reliable)
 - Dedicated Hosts — book an entire physical server, control instance placement
 - Dedicated Instances — no other customers will share your hardware
@@ -125,7 +125,7 @@ EC2 Reserved Instances
 
 - Up to 72% discount compared to On-demand
 - You reserve a specific instance attributes (Instance Type, Region, Tenancy, OS)
-- Reservation Period — | year (+discount) or 3 years (+++discount)
+- Reservation Period — 1 year (+discount) or 3 years (+++discount)
 - Payment Options — No Upfront (+), Partial Upfront (++), All Upfront (+++)
 - Reserved Instance’s Scope — Regional or Zonal (reserve capacity in an AZ)
 - Recommended for steady-state usage applications (think database)
@@ -138,10 +138,10 @@ EC2 Reserved Instances
 EC2 Savings Plans
 
 - Get a discount based on long-term usage (up to 72% - same as Rls)
-- Commit to a certain type of usage ($10/hour for | or 3 years)
+- Commit to a certain type of usage ($10/hour for 1 or 3 years)
 - Usage beyond EC2 Savings Plans is billed at the On-Demand price
 
-- Locked to a specific instance family & AWS region (e.g.,M5 in us-east- |)
+- Locked to a specific instance family & AWS region (e.g.,M5 in us-east- 1)
 - Flexible across:
   - Instance Size (e.g, m5.xlarge, m5.2xlarge)
   - OS (e.g,, Linux, Windows)
@@ -171,7 +171,7 @@ EC2 Dedicated Hosts
 - Purchasing Options:
 
   - On-demand — pay per second for active Dedicated Host
-  - Reserved - | or 3 years (No Upfront, Partial Upfront, All Upfront)
+  - Reserved - 1 or 3 years (No Upfront, Partial Upfront, All Upfront)
 
 - The most expensive option
 
