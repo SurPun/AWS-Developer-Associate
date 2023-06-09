@@ -20,7 +20,7 @@ EBS Volume
 
 - It's locked to an Availability Zone (AZ)
 
-  - An EBS Volume in us-east-|a cannot be attached to us-east-1b
+  - An EBS Volume in us-east-1a cannot be attached to us-east-1b
   - To move a volume across, you first need to snapshot it
 
 - Have a provisioned capacity (size in GBs, and IOPS)

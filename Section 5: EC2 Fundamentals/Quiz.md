@@ -1,4 +1,4 @@
-# Quiz 2 EC2 Fundamentals Quiz
+# Quiz 2: EC2 Fundamentals Quiz
 
 1. Which EC2 Purchasing Option can provide you the biggest discount, but it is not suitable for critical jobs or databases?
 
