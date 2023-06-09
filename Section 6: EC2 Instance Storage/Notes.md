@@ -4,21 +4,18 @@
 
 What’s an EBS Volume?
 
-- An EBS (Elastic Block Store) Volume is a network drive you can attach
-  to your instances while they run
+- An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run
 - It allows your instances to persist data, even after their termination
 - They can only be mounted to one instance at a time (at the CCP level)
 - They are bound to a specific availability zone
 - Analogy: Think of them as a “network USB stick”
-- Free tier: 30 GB of free EBS storage of type General Purpose (SSD) or
-  Magnetic per month
+- Free tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnetic per month
 
 EBS Volume
 
 - It's a network drive (i.e. not a physical drive)
 
-  - It uses the network to communicate the instance, which means there might be a bit of
-    latency
+  - It uses the network to communicate the instance, which means there might be a bit of latency
   - It can be detached from an EC2 instance and attached to another one quickly
 
 - It's locked to an Availability Zone (AZ)
@@ -37,20 +34,16 @@ EBS Snapshots Features
 
 - EBS Snapshot Archive
 
-  - Move a Snapshot to an "archive tier” that is
-    75% cheaper
-  - Takes within 24 to 72 hours for restoring the
-    archive
+  - Move a Snapshot to an "archive tier” that is 75% cheaper
+  - Takes within 24 to 72 hours for restoring the archive
 
 - Recycle Bin for EBS Snapshots
 
-  - Setup rules to retain deleted snapshots so you
-    can recover them after an accidental deletion
+  - Setup rules to retain deleted snapshots so you can recover them after an accidental deletion
   - Specify retention (from | day to | year)
 
 - Fast Snapshot Restore (FSR)
-  - Force full initialization of snapshot to have no
-    latency on the first use ($$$)
+  - Force full initialization of snapshot to have no latency on the first use ($$$)
 
 ## 48 AMI Overview
 
@@ -140,3 +133,73 @@ Hard Disk Drives (HDD)
   - For data that is infrequently accessed
   - Scenarios where lowest cost is important
   - Max throughput 250 MiB/s — max IOPS 250
+
+## 52 EBS Multi-Attach
+
+EBS Multi-Attach — io|/io2 family
+
+- Attach the same EBS volume to multiple EC2 instances in the same AZ
+- Each instance has full read & write permissions to the high-performance volume
+- Use case:
+
+  - Achieve higher application availability in clustered Linux applications (ex: Teradata)
+  - Applications must manage concurrent write operations
+
+- Up to 16 EC2 Instances at a time
+- Must use a file system that’s cluster-aware (not XFS, EXT4, etc...)
+
+## 53 Amazon EFS
+
+Amazon EFS — Elastic File System
+
+- Managed NFS (network file system) that can be mounted on many EC2
+- EFS works with EC2 instances in multi-AZ
+- Highly available, scalable, expensive (3x gp2), pay per use
+
+Amazon EFS — Elastic File System
+
+- Use cases: content management, web serving, data sharing, Wordpress
+- Uses NFSv4.1 protocol
+- Uses security group to control access to EFS
+- Compatible with Linux based AMI (not Windows)
+- Encryption at rest using KMS
+- POSIX file system (~Linux) that has a standard file API
+- File system scales automatically, pay-per-use, no capacity planning!
+
+EFS — Performance & Storage Classes
+
+- EFS Scale
+
+  - 1000s of concurrent NFS clients, 10 GB+ /s throughput
+  - Grow to Petabyte-scale network file system, automatically
+
+- Performance Mode (set at EFS creation time)
+
+  - General Purpose (default) — latency-sensitive use cases (web server, CMS, etc...)
+  - Max I/O — higher latency, throughput, highly parallel (big data, media processing)
+
+- Throughput Mode
+
+  - Bursting — | TB = 50MiB/s + burst of up to |100MIB/s
+  - Provisioned — set your throughput regardless of storage size, ex: 1 GiB/s for 1 TB storage
+  - Elastic — automatically scales throughput up or down based on your workloads
+    - Up to 3GiB/s for reads and 1 GiB/s for writes
+    - Used for unpredictable workloads
+
+EFS — Storage Classes
+
+- Storage Tiers (lifecycle management feature —
+  move file after N days)
+
+  - Standard: for frequently accessed files
+  - Infrequent access (EFS-IA): cost to retrieve files,
+    lower price to store. Enable EFS-IA with a Lifecycle
+    Policy
+
+- Availability and durability
+
+  - Standard: Multi-AZ, great for prod
+  - One Zone: One AZ, great for dev, backup enabled
+    by default, compatible with IA (EFS One Zone-lA)
+
+- Over 90% in cost savings

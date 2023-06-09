@@ -118,8 +118,7 @@ EC2 On Demand
 - Has the highest cost but no upfront payment
 - No long-term commitment
 
-- Recommended for short-term and un-interrupted workloads, where
-  you can't predict how the application will behave
+- Recommended for short-term and un-interrupted workloads, where you can't predict how the application will behave
 
 EC2 Reserved Instances
 
@@ -166,8 +165,7 @@ EC2 Spot Instances
 EC2 Dedicated Hosts
 
 - A physical server with EC2 instance capacity fully dedicated to your use
-- Allows you address compliance requirements and use your existing server
-  bound software licenses (per-socket, per-core, pe—VM software licenses)
+- Allows you address compliance requirements and use your existing server bound software licenses (per-socket, per-core, pe—VM software licenses)
 - Purchasing Options:
 
   - On-demand — pay per second for active Dedicated Host
@@ -191,8 +189,6 @@ EC2 Capacity Reservations
 - Reserve On-Demand instances capacity in a specific AZ for any duration
 - You always have access to EC2 capacity when you need it
 - No time commitment (create/cancel anytime), no billing discounts
-- Combine with Regional Reserved Instances and Savings Plans to benefit
-  from billing discounts
+- Combine with Regional Reserved Instances and Savings Plans to benefit from billing discounts
 - You're charged at On-Demand rate whether you run instances or not
-- Suitable for short-term, uninterrupted workloads that needs to be in a
-  specific AZ
+- Suitable for short-term, uninterrupted workloads that needs to be in a specific AZ
