@@ -108,3 +108,19 @@ Sticky Sessions (Session Affinity)
 - Enabling stickiness may bring imbalance to the load over the backend EC2 instances
 
 ## 67. Elastic Load Balancer - Cross Zone Load Balancing
+
+Cross-Zone Load Balancing
+
+- Application Load Balancer
+
+  - Enabled by default (can be disabled at the Target Group level)
+  - No charges for inter AZ data
+
+- Network Load Balancer & Gateway Load Balancer
+
+  - Disabled by default
+  - You pay charges ($) for inter AZ data if enabled
+
+- Classic Load Balancer
+  - Disabled by default
+  - No charges for inter AZ data if enabled
