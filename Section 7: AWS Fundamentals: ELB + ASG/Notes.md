@@ -124,3 +124,53 @@ Cross-Zone Load Balancing
 - Classic Load Balancer
   - Disabled by default
   - No charges for inter AZ data if enabled
+
+## 68. Elastic Load Balancer - SSL
+
+Elastic Load Balancers — SSL Certificates
+
+- Classic Load Balancer (v1)
+
+  - Support only one SSL certificate
+  - Must use multiple CLB for multiple hostname with multiple SSL certificates
+
+- Application Load Balancer (v2)
+
+  - Supports multiple listeners with multiple SSL certificates
+  - Uses Server Name Indication (SNI) to make it work
+
+- Network Load Balancer (v2)
+
+  - Supports multiple listeners with multiple SSL certificates
+  - Uses Server Name Indication (SNI) to make it work
+
+## 70. Elastic Load Balancer - Connection Draining
+
+Connection Draining
+
+- Feature naming
+
+  - Connection Draining — for CLB
+  - Deregistration Delay — for ALB & NLB
+
+- Time to complete “in-flight requests’’ while the instance is de-registering or unhealthy
+
+- Stops sending new requests to the EC2 instance which is de-registering
+
+- Between | to 3600 seconds (default: 300 seconds)
+
+- Can be disabled (set value to 0)
+
+- Set to a low value if your requests are short
+
+## 75. Auto Scaling Groups - Instance Refresh
+
+Auto Scaling — Instance Refresh
+
+- Goal: update launch template and then re-creating all EC2 instances
+
+- For this we can use the native feature of Instance Refresh
+
+- Setting of minimum healthy percentage
+
+- Specify warm-up time (how long until the instance is ready to use)
