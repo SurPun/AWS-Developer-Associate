@@ -57,3 +57,28 @@ RDS Read Replicas for read scalability
 - Replication is ASYNC, so reads are eventually consistent
 - Replicas can be promoted to their own DB
 - Applications must update the connection string to leverage read replicas
+
+## 79. Amazon Aurora
+
+Amazon Aurora
+
+- Aurora is a proprietary technology from AWS (not open sourced)
+- Postgres and MySQL are both supported as Aurora DB (that means your drivers will work as if Aurora was a Postgres or MySQL database)
+- Aurora is “AWS cloud optimized” and claims 5x performance improvement
+  over MySQL on RDS, over 3x the performance of Postgres on RDS
+- Aurora storage automatically grows in increments of |OGB, up to 128 TB.
+- Aurora can have up to |5 replicas and the replication process is faster than MySQL (sub 10 ms replica lag)
+- Failover in Aurora is instantaneous. It’s HA native.
+- Aurora costs more than RDS (20% more) — but is more efficient
+
+Features of Aurora
+
+- Automatic fail-over
+- Backup and Recovery
+- Isolation and security
+- Industry compliance
+- Push-button scaling
+- Automated Patching with Zero Downtime
+- Advanced Monitoring
+- Routine Maintenance
+- Backtrack: restore data at any point of time without using backups
