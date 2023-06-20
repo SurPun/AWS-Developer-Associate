@@ -96,3 +96,17 @@ RDS & Aurora Security
 - Security Groups: Control Network access to your RDS / Aurora DB
 - No SSH available except on RDS Custom
 - Audit Logs can be enabled and sent to CloudWatch Logs for longer retention
+
+## 82. RDS Proxy
+
+Amazon RDS Proxy
+
+- Fully managed database proxy for RDS
+- Allows apps to pool and share DB connections established with the database
+- Improving database efficiency By reducing the stress on database resources (e.g., CPU, RAM) and minimize open connections (and timeouts)
+- Serverless, autoscaling, highly available (multi-AZ)
+- Reduced RDS & Aurora failover time by up 66%
+- Supports RDS (MySQL, PostgreSQL, MariaDB, MS Sol Server) al fore (MysOL PostgreSQL)
+- No code changes required for most apps
+- Enforce IAM Authentication for DB, and securely store credentials in AWS Secrets Manager
+- RDS Proxy is never publicly accessible (must be accessed from VPC)
