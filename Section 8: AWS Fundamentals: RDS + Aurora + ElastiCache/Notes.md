@@ -110,3 +110,15 @@ Amazon RDS Proxy
 - No code changes required for most apps
 - Enforce IAM Authentication for DB, and securely store credentials in AWS Secrets Manager
 - RDS Proxy is never publicly accessible (must be accessed from VPC)
+
+## 83. RDS Overview
+
+Amazon ElastiCache Overview
+
+- The same way RDS is to get managed Relational Databases...
+- ElastiCache is to get managed Redis or Memcached
+- Caches are in-memory databases with really high performance, low latency
+- Helps reduce load off of databases for read intensive workloads
+- Helps make your application stateless
+- AWS takes care of OS maintenance / patching, optimizations setup, configuration, monitoring, failure recovery and backups
+- Using ElastiCache involves heavy application code changes
