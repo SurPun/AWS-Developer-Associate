@@ -123,7 +123,7 @@ Amazon ElastiCache Overview
 - AWS takes care of OS maintenance / patching, optimizations setup, configuration, monitoring, failure recovery and backups
 - Using ElastiCache involves heavy application code changes
 
-## 84. ElastiCache Strategies
+## 85. ElastiCache Strategies
 
 - Lazy Loading/Cache-Aside/Lazy Population Python Pseudocode
 
@@ -131,7 +131,8 @@ Amazon ElastiCache Overview
 # Python
 
 def get_user(user_id):
-# Check the cache
+
+  # Check the cache
   record = cache.get(user_id)
 
   if record is None:
@@ -141,9 +142,9 @@ def get_user(user_id):
     # Populate the cache
     cache.set(user_id, record)
 
-  return record
+    return record
   else:
-  return record
+    return record
 
 # App code
 user = get_user(17)
@@ -154,6 +155,7 @@ user = get_user(17)
 ```py
 # Python
 def save_user(user_id, values):
+
   # Save to DB
   record = db. query (“update users ... where id = ?", user_id, values)
 
@@ -170,3 +172,29 @@ user = save_user(17, {"name": "Nate Dogg"})
 - Write-through is usually combined with Lazy Loading as targeted for the queries or workloads that benefit from this optimization
 - Setting aTTL is usually not a bad idea, except when you're using Write-through. Set it to a sensible value for your application
 - Only cache the data that makes sense (user profiles, blogs, etc...)
+
+## 86. Amazon MemoryDB for Redis - Overview
+
+Amazon MemoryDB for Redis
+
+- Redis-compatible, durable, in-memory database service
+- Ultra-fast performance with over |60 millions requests/second
+- Durable in-memory data storage with Multi-AZ transactional log
+- Scale seamlessly from 10s GBs to 100s TBs of storage
+- Use cases: web and mobile apps, online gaming, media streaming, ...
+
+Microservices Applications:
+
+    Web, mobile, retail, gaming, media and entertainment, banking, finance, and more ..
+
+Amazon MemoryDB for Redis:
+
+    Redis-compatible, durable, in-memory database
+
+In-Memory Speed:
+
+    Stores data in-memory across up to hundreds of nodes for ultra-fast performance
+
+Multi-AZ Transactional Log:
+
+    Stores data across multiple Availability Zones to provide durability and fast recovery
