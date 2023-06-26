@@ -122,3 +122,51 @@ Amazon ElastiCache Overview
 - Helps make your application stateless
 - AWS takes care of OS maintenance / patching, optimizations setup, configuration, monitoring, failure recovery and backups
 - Using ElastiCache involves heavy application code changes
+
+## 84. ElastiCache Strategies
+
+- Lazy Loading/Cache-Aside/Lazy Population Python Pseudocode
+
+```py
+# Python
+
+def get_user(user_id):
+# Check the cache
+  record = cache.get(user_id)
+
+  if record is None:
+    # Run a DB query
+    record = db.query("select * from users where id = ?", user_id)
+
+    # Populate the cache
+    cache.set(user_id, record)
+
+  return record
+  else:
+  return record
+
+# App code
+user = get_user(17)
+```
+
+- Write-Through Python Pseudocode
+
+```py
+# Python
+def save_user(user_id, values):
+  # Save to DB
+  record = db. query (“update users ... where id = ?", user_id, values)
+
+  # Push into cache
+  cache.set(user_id, record)
+
+  return record
+
+# App code
+user = save_user(17, {"name": "Nate Dogg"})
+```
+
+- Lazy Loading / Cache aside is easy to implement and works for many situations as a foundation, especially on the read side
+- Write-through is usually combined with Lazy Loading as targeted for the queries or workloads that benefit from this optimization
+- Setting aTTL is usually not a bad idea, except when you're using Write-through. Set it to a sensible value for your application
+- Only cache the data that makes sense (user profiles, blogs, etc...)
