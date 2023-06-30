@@ -29,3 +29,19 @@ http://api.www.example.com.
         example. = SLD
         .com = TLD
         . = Root
+
+## 88. Route 53 Overview
+
+Amazon Route 53
+
+- A highly available, scalable, fully managed and Authoritative DNS
+
+  - Authoritative = the customer (you) can update the DNS records
+
+- Route 53 is also a Domain Registrar
+
+- Ability to check the health of your resources
+
+- The only AWS service which provides 100% availability SLA
+
+- Why Route 53? 53 is a reference to the traditional DNS port
