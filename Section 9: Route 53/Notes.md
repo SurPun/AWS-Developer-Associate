@@ -2,7 +2,7 @@
 
 ## 87. What is a DNS?
 
-- Domain Name System which translates the human friendly hostnames into the machine IP addresses
+- Domain Name System which translates the human friendly host names into the machine IP addresses
 - www.google.com => 172.217.18.36
 - DNS is the backbone of the Internet
 - DNS uses hierarchical naming structure
@@ -45,3 +45,19 @@ Amazon Route 53
 - The only AWS service which provides 100% availability SLA
 
 - Why Route 53? 53 is a reference to the traditional DNS port
+
+## 92. Route 53 - TTL
+
+Route 53 — Records TTL (Time To Live)
+
+- High TTL - e.g, 24 hr
+    - Less traffic on Route 53
+    - Possibly outdated records
+
+- LowTTL-e.g,, 60 sec.
+    - More traffic on Route 53 ($$)
+    - Records are outdated for less time
+    - Easy to change records
+
+- Except for Alias records, TTL is mandatory for each DNS record
+
