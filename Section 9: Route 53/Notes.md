@@ -87,23 +87,39 @@ Route 53 — Alias Records
 - Alias Record is always of type A/AAAA for AWS resources (IPv4 / IPv6)
 - You can’t set the TTL
 
-Route 53 — Alias Records |
+Route 53 — Alias Records Targets
 
-* Elastic Load Balancers
+- Elastic Load Balancers
+- CloudFront Distributions
+- API Gateway
+- Elastic Beanstalk environments
+- S3 Websites
+- VPC Interface Endpoints
+- Global Accelerator accelerator
+- Route 53 record in the same hosted zonr
+- You cannot set an ALIAS record for an EC2 DNS name
 
-¢ CloudFront Distributions
+## 94. Routing Policy - Simple
 
-° API Gateway
+Route 53 — Routing Policies
 
-e Elastic Beanstalk environments
+- Define how Route 53 responds to DNS queries
+- Don't get confused by the word “Routing”
+  - It's not the same as Load balancer routing which routes the traffic
+  - DNS does not route any traffic, it only responds to the DNS queries
+- Route 53 Supports the following Routing Policies
+  - Simple
+  - Weighted
+  - Failover
+  - Latency based
+  - Geolocation
+  - Multi-Value Answer
+  - Geoproximity (using Route 53 Traffic Flow feature)
 
-° S3 Websites
+Routing Policies — Simple
 
-* VPC Interface Endpoints
-
-* Global Accelerator accelerator
-
-* Route 53 record in the same hosted zor
-
-¢ You cannot set an ALIAS record for an E
-
+- Typically, route traffic to a single resource
+- Can specify multiple values in the same record
+- If multiple values are returned, a random one is chosen by the client
+- When Alias enabled, specify only one AWS resource
+- Can't be associated with Health Checks
