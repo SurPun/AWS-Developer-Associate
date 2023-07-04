@@ -123,3 +123,5 @@ Routing Policies — Simple
 - If multiple values are returned, a random one is chosen by the client
 - When Alias enabled, specify only one AWS resource
 - Can't be associated with Health Checks
+
+## 95. Routing Policy - Weighted
