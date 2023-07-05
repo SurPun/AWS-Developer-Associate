@@ -137,3 +137,14 @@ Routing Policies — Weighted
 - Use cases: load balancing between regions, testing new application versions...
 - Assign a weight of 0 to a record to stop sending traffic to a resource
 - If all records have weight of 0, then all records will be returned equally
+
+## 96. Routing Policy - Latency
+
+Routing Policies — Latency-based
+
+- Redirect to the resource that has the least latency close to us
+- Super helpful when latency for users IS a priority
+- Latency is based on traffic between users and AWS
+Regions
+- Germany users may be directed to the US “if that’s the lowest latency
+- Can be associated with Health Checks (has a failover capability)
