@@ -200,3 +200,14 @@ Health Checks — Private Hosted Zones
 - They can’t access private endpoints (private VPC or on-premises resource)
 
 - You can create a CloudWatch Metric and associate a CloudWatch Alarm, then create a Health Check that checks the alarm itself
+
+## 100. Routing Policy - Geolocation
+
+Routing Policies — Geolocation
+
+- Different from Latency-based!
+- This routing is based on user location
+- Specify location by Continent, Country or by US State (if there's overlapping, most precise location selected)
+- Should create a “Default” record (in case there's no match on location)
+- Use cases: website localization, restrict content distribution, load balancing, ...
+- Can be associated with Health Checks
