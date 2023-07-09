@@ -225,3 +225,13 @@ Geoproximity Routing Policy
   - AWS resources (specify AWS region)
   - Non-AWS resources (specify Latitude and Longitude)
 - You must use Route 53 Traffic Flow (advanced) to use this feature
+
+## 102. Routing Policy - Traffic Flow & Geoproximity Hands On
+
+Route 53 — Traffic flow
+
+- Simplify the process of creating and maintaining records in large and complex configurations
+- Visual editor to manage complex routing decision trees
+- Configurations can be saved as Traffic Flow Policy
+  - Can be applied to different Route 53 Hosted Zones (different domain names)
+  - Supports versioning
