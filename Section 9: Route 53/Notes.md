@@ -235,3 +235,12 @@ Route 53 — Traffic flow
 - Configurations can be saved as Traffic Flow Policy
   - Can be applied to different Route 53 Hosted Zones (different domain names)
   - Supports versioning
+
+  ## 103. Routing Policy - IP-based
+
+Routing Policies — IP-based Routing
+
+- Routing is based on clients’ IP addresses
+- You provide a list of CIDRs for your clients and the corresponding endpoints/locations (user-IP-to-endpoint mappings)
+- Use cases: Optimize performance, reduce network costs...
+- Example: route end users from a particular ISP to a specific endpoint
