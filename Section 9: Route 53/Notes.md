@@ -244,3 +244,13 @@ Routing Policies — IP-based Routing
 - You provide a list of CIDRs for your clients and the corresponding endpoints/locations (user-IP-to-endpoint mappings)
 - Use cases: Optimize performance, reduce network costs...
 - Example: route end users from a particular ISP to a specific endpoint
+
+## 104. Routing Policy - Multi Value
+
+Routing Policies — Multi-Value
+
+- Use when routing traffic to multiple resources
+- Route 53 return multiple values/resources
+- Can be associated with Health Checks (return only values for healthy resources)
+- Up to 8 healthy records are returned for each Multi-Value query
+- Multi-Value is not a substitute for having an ELB
