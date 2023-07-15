@@ -1,6 +1,6 @@
 # Section 10: VOC Fundamentals
 
-## 107. VPC, Subnets, IGW and NAT
+## 108. VPC, Subnets, IGW and NAT
 
 VPC & Subnets Primer
 
@@ -15,3 +15,5 @@ Internet Gateway & NAT Gateways
 - Internet Gateways helps our VPC instances connect with the internet
 - Public Subnets have a route to the internet gateway.
 - NAT Gateways (AWS-managed) & NAT Instances (self-managed) allow your instances in your Private Subnets to access the internet while remaining private
+
+## 109. NACL, SG, VPC Flow Logs
