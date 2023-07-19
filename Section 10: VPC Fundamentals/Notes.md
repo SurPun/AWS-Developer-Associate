@@ -92,3 +92,15 @@ VPC Closing Comments
 - VPC Flow Logs: network traffic logs
 - Site to Site VPN: VPN over public internet between on-premises DC and AWS
 - Direct Connect: direct private connection to a AWS
+
+## 112. Three Tier Architecture
+
+LAMP Stack on EC2
+
+- Linux: OS for EC2 instances
+- Apache: Web Server that run on Linux (EC2)
+- MySQL: database on RDS
+- PHP: Application logic (running on EC2)
+
+- Can add Redis / Memcached (ElastiCache) to include a caching tech
+- To store local application data & software: EBS drive (root)
