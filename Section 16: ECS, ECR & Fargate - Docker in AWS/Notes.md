@@ -102,3 +102,59 @@ EC2 Launch Type — Auto Scaling EC2 Instances
 ECS Rolling Updates
 
 - When updating from v1 to v2, we can control how many tasks can be started and stopped, and in which order
+
+## 174. Amazon ECS Task Definitions - Deep Dive
+
+Amazon ECS — Task Definitions
+
+- Task definitions are metadata in JSON form to tell ECS how to run a Docker container
+
+- It contains crucial information, such as:
+ - Image Name
+ - Port Binding for Container and Host
+ - Memory and CPU required
+ - Environment variables
+ - Networking information
+ - IAM Role
+ - Logging configuration (ex CloudWatch)
+
+- Can define up to 10 containers in a Task Definition
+
+Amazon ECS — Load Balancing (EC2 Launch Type)
+
+- We get a Dynamic Host Port Mapping if you define only the container port in the task definition
+- The ALB finds the right port on your EC2 Instances
+- You must allow on the EC2 instance’s Security Group any port from the ALB's Security Group
+
+Amazon ECS — Load Balancing (Fargate)
+
+- Each task has a unique private IP
+- Only define the container port (host port is not applicable)
+
+- Example
+ - ECS ENI Security Group
+  - Allow port 80 from the ALB
+ - ALB Security Group
+  - Allow port 80/443 from web
+
+Amazon ECS — Environment Variables
+
+- Environment Variable
+ - Hardcoded — e.g, URLs
+ - SSM Parameter Store — sensitive variables (e.g,, API keys, shared configs)
+ - Secrets Manager — sensitive variables (e.g., DB passwords)
+- Environment Files (bulk) — Amazon $3
+
+Amazon ECS — Data Volumes (Bind Mounts)
+
+- Share data between multiple containers in the same Task Definition
+- Works for both EC2 and Fargate tasks
+- EC2 Tasks — using EC2 instance storage
+ - Data are tied to the lifecycle of the EC2 instance
+- Fargate Tasks — using ephemeral storage
+ - Data are tied to the container(s) using them
+ - 20 GiB — 200 GiB (default 20 GiB)
+
+- Use cases:
+ - Share ephemeral data between multiple containers
+ - “Sidecar” container pattern, where the “'sidecar” container used to send metrics/logs to other destinations (separation of conerns)
