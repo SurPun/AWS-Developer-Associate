@@ -26,3 +26,35 @@ EFS volume can be shared between different EC2 instances and different ECS Tasks
 
 - Create an IAM task role for the new application
 
+6. You are migrating your on-premises Docker-based applications to Amazon ECS. You were using Docker Hub Container Image Library as your container image repository. Which is an alternative AWS service which is fully integrated with Amazon ECS?
+
+- Elastic Container Registry (ECR)
+
+Amazon ECR is a fully managed container registry that makes it easy to store, manage, share, and deploy your container images. It won't help in running your Docker-based applications.
+
+7. You have a Classic ECS cluster that you want to enable IAM roles for your ECS tasks so that they can make API requests to AWS services. Which ECS configuration option should you enable in /etc/ecs/ecs.config?
+
+- ECS_ENABLE_TASK_IAM_ROLE
+
+Although this wasn't discussed during the hands-on, you need to know about that important setting in the "ecs.config" file.
+
+8. You have a CodePipeline pipeline, which contains a build stage that uses AWS CodeBuild. This build stage builds your Docker images and pushes them to Amazon Elastic Container Registry (ECR). The build stage fails with an authorization issue. What is the issue?
+
+- Double-check your IAM role and permissions for the AWS CodeBuild service
+
+Any permissions issues against ECR are most likely due to IAM permissions. Your CodeBuild service must have the required permissions to push Docker images to ECR repositories.
+
+9. You are looking to run multiple copies of the same application on the same EC2 instance and expose it with a load balancer. The application is available as a Docker image. You should use ............................
+
+- Application Load Balanacer + ECS
+
+Thanks to the Dynamic Port Mapping feature.
+
+10. You have a containerized application stored as Docker images in an ECR repository, that you want to run on an ECS cluster. You're trying to launch two copies of the same Docker container on the same EC2 container instance. The first container successfully starts, but the second container doesn't. You have checked that there's enough CPU and RAM on the EC2 container instance. What is the problem here?
+
+- The host port defined in the task definition
+
+To enable random host port, set host port = 0 (or empty), which allows multiple containers of the same type to launch on the same EC2 container instance.
+
+
+- 
