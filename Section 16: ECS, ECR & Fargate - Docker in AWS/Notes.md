@@ -158,3 +158,63 @@ Amazon ECS — Data Volumes (Bind Mounts)
 - Use cases:
  - Share ephemeral data between multiple containers
  - “Sidecar” container pattern, where the “'sidecar” container used to send metrics/logs to other destinations (separation of conerns)
+
+ ## 176. Amazon ECS - Task Placements
+
+ECS Tasks Placement
+
+- When a task of type EC2 is launched, ECS must determine where to place it, with the constraints of CPU, memory, and available port.
+- Similarly, when a service scales in, ECS needs to determine which task to terminate.
+- To assist with this, you can define a task placement strategy and task placement constraints
+- Note: this is only for ECS with EC2, not for Fargate
+
+ECS Task Placement Process
+
+- Task placement strategies are a best effort
+
+- When Amazon ECS places tasks, it uses the following process to select container instances:
+
+1. Identify the instances that satisfy the CPU, memory, and port requirements in the task definition.
+
+2. Identify the instances that satisfy the task placement constraints.
+
+3. Identify the instances that satisfy the task placement strategies.
+
+4. Select the instances for task placement.
+
+ECS Task Placement Strategies
+
+- Binpack
+ - Place tasks based on the least available amount of CPU or memory
+ - This minimizes the number of instances in use (cost savings)
+
+- Random
+ - Place the task randomly
+
+- Spread
+ - Place the task evenly based on the specidied value
+ - Example: instanceId, attribute:ecs.availability-zone
+
+- You can mix strategies together
+
+ECS Task Placement Constraints
+
+- distinctInstance: place each task on a different container instance
+    ```
+    "placementConstraints": [
+        {
+            "type": "distinctInstance"
+        }
+    ]
+    ```
+- memberOf: places task on instances that statisy an expression
+ - Uses the Cluster Query Language (advanced)
+
+    ```
+    “placementConstraints": [
+        {
+            “expression": “attribute:ecs.instance-type =~ t2.*",
+            "type": “memberOf"
+        }
+    ]
+    ```
