@@ -66,7 +66,7 @@ Amazon ECS — Data Volumes (EFS)
 - Note:
  - Amazon S3 cannot be mounted as a file system
 
- ## 171. Amazon ECS - Auto Scaling
+## 171. Amazon ECS - Auto Scaling
 
 ECS Service Auto Scaling
 
@@ -96,3 +96,9 @@ EC2 Launch Type — Auto Scaling EC2 Instances
  - Used to automatically provision and scale the infrastructure for your ECS Tasks
  - Capacity Provider paired with an Auto Scaling Group
  - Add EC2 Instances when you're missing capacity (CPU, RAM...)
+
+## 172. Amazon ECS - Rolling Updates
+
+ECS Rolling Updates
+
+- When updating from v1 to v2, we can control how many tasks can be started and stopped, and in which order
