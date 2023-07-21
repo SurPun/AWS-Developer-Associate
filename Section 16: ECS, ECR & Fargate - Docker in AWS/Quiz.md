@@ -57,4 +57,27 @@ Thanks to the Dynamic Port Mapping feature.
 To enable random host port, set host port = 0 (or empty), which allows multiple containers of the same type to launch on the same EC2 container instance.
 
 
-- 
+11. A newly launched EC2 container instance can't be registered with your ECS cluster. What is NOT a reason for this issue?
+
+- The security group on the EC2 instance does not allow inbound traffic
+
+Security Groups do not matter when an EC2 instance registers with the ECS service. By default, Security Groups allow all outbound traffic.
+
+12. You want to pull Docker images from a private ECR repository. Which AWS CLI command can you use?
+
+```
+$(aws ecr get-login --no-include-email)
+docker pull $ECR_IMAGE_URL
+```
+
+13. You have an ECS cluster where you want to run 4 ECS services. Each ECS service needs to interact with various AWS services. Which of the following is the best practice while giving permissions to these ECS services?
+
+- Create 4 ECS Task roles and attach them to the relevant ECS Task definition
+
+14. Which ECS Task Placement strategy is the MOST cost-efficient?
+
+- binpack
+
+15. Which ECS ECS Task Placement constraint allows you to place each ECS Task on a different EC2 container instance?
+
+- distinctInstance
