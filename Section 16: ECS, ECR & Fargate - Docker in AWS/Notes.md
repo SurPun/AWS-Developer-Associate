@@ -218,3 +218,14 @@ ECS Task Placement Constraints
         }
     ]
     ```
+
+## 177. Amazon ECR
+
+Amazon ECR
+
+- ECR = Elastic Container Registry
+- Store and manage Docker images on AWS
+- Private and Public repository (Amazon ECR Public Gallery https://gallery.ecraws)
+- Fully integrated with ECS, backed by Amazon $3
+- Access is controlled through IAM (permission errors => policy)
+- Supports image vulnerability scanning, versioning, image tags, image lifecycle, ...
