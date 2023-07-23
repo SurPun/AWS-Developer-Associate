@@ -11,3 +11,7 @@ Goals :
 NOTES :
 
 - [AWS Regional Services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4)
+
+Logs :
+
+- [ ] Get Associate Developer Cert by October 2023
