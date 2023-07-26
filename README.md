@@ -16,3 +16,4 @@ Logs :
 
 - [ ] Get Associate Developer Cert by October 2023
 - [ ] Learn EKS Fargate
+- [ ] Learn Docker Image
