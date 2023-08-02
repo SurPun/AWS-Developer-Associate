@@ -77,3 +77,5 @@ Amazon S3 — Replication (Notes)
 - There is no “chaining” of replication
  - If bucket | has replication into bucket 2, which has replication into bucket 3
  - Then objects created in bucket | are not replicated to bucket 3
+
+ ## 124. S3 Storage Classes Overview
