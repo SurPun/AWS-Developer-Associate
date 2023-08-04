@@ -148,3 +148,16 @@ Amazon S3 — Replication (Notes)
 - There is no “chaining” of replication
  - If bucket | has replication into bucket 2, which has replication into bucket 3
  - Then objects created in bucket | are not replicated to bucket 3
+
+## 124. S3 Storage Classes Overview
+
+S3 Storage Classes
+
+- Amazon S3 Standard - General Purpose
+- Amazon S3 Standard-Infrequent Access (IA)
+- Amazon S3 One Zone-Infrequent Access
+- Amazon $3 Glacier Instant Retrieval
+- Amazon S3 Glacier Flexible Retrieval
+- Amazon $3 Glacier Deep Archive
+- Amazon $3 Intelligent Tiering
+- Can move between classes manually or using S3 Lifecycle configurations
