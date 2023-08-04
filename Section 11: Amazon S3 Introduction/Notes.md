@@ -132,3 +132,19 @@ Amazon S3 — Replication (CRR & SRR)
 - Use cases:
  - CRR— compliance, lower latency access, replication across accounts
  - SRR — log aggregation, live replication between production and test accounts
+
+## 122. S3 Replication Notes
+
+Amazon S3 — Replication (Notes)
+
+- After you enable Replication, only new objects are replicated
+- Optionally, you can replicate existing objects using $3 Batch Replication
+- Replicates existing objects and objects that failed replication
+
+- For DELETE operations
+ - Can replicate delete markers from source to target (optional setting)
+ - Deletions with a version ID are not replicated (to avoid malicious deletes)
+
+- There is no “chaining” of replication
+ - If bucket | has replication into bucket 2, which has replication into bucket 3
+ - Then objects created in bucket | are not replicated to bucket 3
