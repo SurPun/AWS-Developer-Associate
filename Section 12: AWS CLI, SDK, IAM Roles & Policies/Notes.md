@@ -13,3 +13,11 @@ IAM Role for that purpose.
 retrieve the IAM Policy.
 -Metadata = Info about the EC2 instance
 -Userdata = launch script of the EC2 instance
+
+## MFA with CLI
+
+MFA with CLI
+
+- To use MFA with the CLI, you must create a temporary session
+- To do so, you must run the STS GetSessionToken API call
+- aws sts get-session-token --serial-number arn-of-the-mfa-device --token- code code-from-token --duration-seconds 3600
