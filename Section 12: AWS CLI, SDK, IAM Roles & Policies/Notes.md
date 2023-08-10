@@ -56,3 +56,7 @@ Exponential Backoff (any AWS service)
 - Must implement yourself if using the AWS API as-is or in specific cases
  - Must only implement the retries on 5xx server errors and throttling
  - Do not implement on the 4x client errors
+
+ ## 132. AWS Credentials Provider & Chain
+
+ 
