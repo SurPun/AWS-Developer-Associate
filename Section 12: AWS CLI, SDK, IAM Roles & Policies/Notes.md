@@ -90,8 +90,7 @@ AWS Credentials Scenario
 - The application only uses one S3 bucket, so according to best practices:
  - An IAM Role & EC2 Instance Profile was created for the EC2 instance
  - The Role was assigned the minimum permissions to access that one S3 bucket
-- The IAM Instance Profile was assigned to the EC2 instance, but it still had access to all S3 buckets. Why?
-    the credentials chain is still giving priorities to the environment variables
+- The IAM Instance Profile was assigned to the EC2 instance, but it still had access to all S3 buckets. Why? the credentials chain is still giving priorities to the environment variables
 
 AWS Credentials Best Practices
 
@@ -104,3 +103,17 @@ AWS Credentials Best Practices
  - => Lambda Roles for Lambda functions
 
 - If working outside of AWS, use environment variables / named profiles
+
+## 133. AWS Signature v4 Signing (Sigv4)
+
+Signing AWS API requests
+
+- When you call the AWS HTTP API, you sign the request so that AWS can identify you, using your AWS credentials (access key & secret key)
+- Note: some requests to Amazon $3 don't need to be signed
+- If you use the SDK or CLI, the HTTP requests are signed for you
+- You should sign an AWS HTTP request using Signature v4 (SigV4)
+
+SigV4 Request examples
+
+- HTTP Header option (Signature in Authorization header)
+- Query String option, ex: S3 pre-signed URLs (signature in X-Amz-Signature)
