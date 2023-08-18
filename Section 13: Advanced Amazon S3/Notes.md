@@ -51,4 +51,18 @@ Amazon S3 Analytics — Storage Class Analysis
 - 24 to 48 hours to start seeing data analysis
 - Good first step to put together Lifecycle Rules (or improve them)!
 
-## 135. S3 Lifecycle Rules - Hands On
+## 136. S3 Event Notifications
+
+S3 Event Notifications
+
+- S3:ObjectCreated, S3:ObjectRemoved, S3:ObjectRestore, S3:Replication...
+- Object name filtering possible (*.jpg)
+- Use case: generate thumbnails of images uploaded to $3
+- Can create as many “‘S3 events” as desired
+- S3 event notifications typically deliver events in seconds but can sometimes take a minute or longer
+
+S3 Event Notifications with Amazon EventBridge
+
+- Advanced filtering options with JSON rules (metadata, object size, name...)
+- Multiple Destinations — ex Step Functions, Kinesis Streams / Firehose...
+- EventBridge Capabilities — Archive, Replay Events, Reliable delivery
