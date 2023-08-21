@@ -96,3 +96,11 @@ S3 Performance — S3 Byte-Range Fetches
 
 - Parallelize GETs by requesting specific byte ranges
 - Better resilience in case of failures
+
+## 139. S3 Select & Glacier Select
+
+S3 Select & Glacier Select
+
+- Retrieve less data using SQL by performing server-side filtering
+- Can filter by rows & columns (simple SQL statements)
+- Less network transfer, less CPU cost client-side
