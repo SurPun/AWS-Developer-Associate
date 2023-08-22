@@ -104,3 +104,22 @@ S3 Select & Glacier Select
 - Retrieve less data using SQL by performing server-side filtering
 - Can filter by rows & columns (simple SQL statements)
 - Less network transfer, less CPU cost client-side
+
+## 140. S3 Object Tags & Metadata
+
+S3 User-Defined Object Metadata & S3 Object Tags
+
+- S3 User-Defined Object Metadata
+ - When uploading an object, you can also assign metadata
+ - Name-value (key-value) pairs
+ - User-defined metadata names must begin with "x-amz-meta-”
+ - Amazon S3 stores user-defined metadata keys in lowercase
+ - Metadata can be retrieved while retrieving the object
+
+- S3 Object Tags
+ - Key-value pairs for objects in Amazon S3
+ - Useful for fine-grained permissions (only access specific objects with specific tags)
+ - Useful for analytics purposes (using S3 Analytics to group by tags)
+
+- You cannot search the object metadata or object tags
+- Instead, you_must use an external DB as a search index such as DynamoDB
