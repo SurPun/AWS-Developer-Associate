@@ -68,3 +68,12 @@ Amazon s3 — Encryption in transit (SSL/TLS)
 
 - DSSE-KMS is just "double encrypion based on KMS".
 
+# 144. S3 Default Encryption
+
+Amazon S3 — Default Encryption vs. Bucket Policies
+
+- SSE-S3 encryption is automatically applied to new objects stored in S3 bucket
+
+- Optionally, you can “force encryption” using a bucket policy and refuse any API call to PUT an $3 object without encryption headers (SSE-KMS or SSE-C)
+
+- Note: Bucket Policies are evaluated before ‘Default Encryption”
