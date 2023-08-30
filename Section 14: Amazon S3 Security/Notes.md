@@ -77,3 +77,21 @@ Amazon S3 — Default Encryption vs. Bucket Policies
 - Optionally, you can “force encryption” using a bucket policy and refuse any API call to PUT an $3 object without encryption headers (SSE-KMS or SSE-C)
 
 - Note: Bucket Policies are evaluated before ‘Default Encryption”
+
+# 145. S3 CORS
+
+What is CORS?
+
+- Cross-Origin Resource Sharing (CORS)
+- Origin = scheme (protocol) + host (domain) + port
+ - example: https://www.example.com (implied port is 443 for HTTPS, 80 for HTTP)
+- Web Browser based mechanism to allow requests to other origins while visiting the main origin
+- Same origin: http://example.com/app | & Sh le.com/app2
+- Different origins: http://www.example.com & http://otherexample.com
+- The requests won't be fulfilled unless the other origin allows for the requests, using CORS Headers (example: Access-Control-Allow-Origin)
+
+Amazon s3 — CORS
+
+- If a client makes a cross-origin request on our S3 bucket, we need to enable the correct CORS headers
+- It's a popular exam question
+- You can allow for a specific origin or for * (all origins)
