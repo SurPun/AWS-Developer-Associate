@@ -110,3 +110,19 @@ device (usually a mobile phone or hardware) before doing important operations on
  - List deleted versions
 - To use MFA Delete, Versioning must be enabled on the bucket
 - Only the bucket owner (root account) can enable/disable MFA Delete
+
+# 149. S3 Access Logs
+
+S3 Access Logs
+
+- For audit purpose, you may want to log all access to s3 buckets
+- Any request made to s3, from any account, authorized or denied, will be logged into another s3 bucket
+- That data can be analyzed using data analysis tools...
+- The target logging bucket must be in the same AWS region
+- The log format is at:
+ - https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
+
+S3 Access Logs: Warning
+
+- Do not set your logging bucket to be the monitored bucket
+- It will create a logging loop, and your bucket will grow exponentially
