@@ -15,8 +15,8 @@ NOTES :
 Logs :
 
 - [ ] Get Associate Developer Cert by October 2023
-- [ ] Learn EKS Fargate
-- [ ] Learn Docker Image
+- [x] Learn EKS Fargate
+- [x] Learn Docker Image
 
 ## 116. S3 Website Overview
 
