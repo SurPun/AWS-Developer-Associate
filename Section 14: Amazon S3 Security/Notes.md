@@ -126,3 +126,21 @@ S3 Access Logs: Warning
 
 - Do not set your logging bucket to be the monitored bucket
 - It will create a logging loop, and your bucket will grow exponentially
+
+## 151. S3 Pre-signed URLs
+
+Amazon S3 — Pre-Signed URLs
+
+- Generate pre-signed URLs using the s3 Console, AWS CLI or SDK
+
+- URL Expiration
+ - s3 Console — | min up to 720 mins (12 hours)
+ - AWS CLI — configure expiration with —expires-in parameter in seconds (default 3600 secs, max. 604800 secs ~ 168 hours)
+
+- Users given a pre-signed URL inherit the permissions of the user
+that generated the ORL for GET / PUT
+
+- Examples:
+ - Allow only logged-in users to download a premium video from your s3 bucket
+ - Allow an ever-changing list of users to download files by generating URLs dynamically
+ - Allow temporarily a user to upload a file to a precise location in your s3 bucket
