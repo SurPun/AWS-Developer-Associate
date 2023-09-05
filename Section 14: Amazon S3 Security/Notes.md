@@ -144,3 +144,20 @@ that generated the ORL for GET / PUT
  - Allow only logged-in users to download a premium video from your s3 bucket
  - Allow an ever-changing list of users to download files by generating URLs dynamically
  - Allow temporarily a user to upload a file to a precise location in your s3 bucket
+
+ # 153. S3 Access Points
+
+S3 - Access Points
+
+- Access Points simplify security management for S3 Buckets
+- Each Access Point has:
+ - its own DNS name (Internet Origin or VPC Origin)
+ - an access point policy (similar to bucket policy) — manage security at scale
+
+S3 - Access Points - VPC Origin
+
+- We can define the access point to be accessible only from within the VPC
+
+- You must create aVPC Endpoint to access the Access Point (Gateway or Interface Endpoint)
+
+- The VPC Endpoint Policy must allow access to the target bucket and Access Point
