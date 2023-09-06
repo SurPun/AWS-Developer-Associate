@@ -64,11 +64,11 @@ Amazon s3 — Encryption in transit (SSL/TLS)
 - HTTPS is mandatory for SSE-C
 - Most clients would use the HTTPS endpoint by default
 
-# 142. About DSSE-KMS
+## 142. About DSSE-KMS
 
 - DSSE-KMS is just "double encrypion based on KMS".
 
-# 144. S3 Default Encryption
+## 144. S3 Default Encryption
 
 Amazon S3 — Default Encryption vs. Bucket Policies
 
@@ -78,7 +78,7 @@ Amazon S3 — Default Encryption vs. Bucket Policies
 
 - Note: Bucket Policies are evaluated before ‘Default Encryption”
 
-# 145. S3 CORS
+## 145. S3 CORS
 
 What is CORS?
 
@@ -96,7 +96,7 @@ Amazon s3 — CORS
 - It's a popular exam question
 - You can allow for a specific origin or for * (all origins)
 
-# 147. S3 MFA Delete
+## 147. S3 MFA Delete
 
 Amazon S3 — MFA Delete
 
@@ -111,7 +111,7 @@ device (usually a mobile phone or hardware) before doing important operations on
 - To use MFA Delete, Versioning must be enabled on the bucket
 - Only the bucket owner (root account) can enable/disable MFA Delete
 
-# 149. S3 Access Logs
+## 149. S3 Access Logs
 
 S3 Access Logs
 
@@ -145,7 +145,7 @@ that generated the ORL for GET / PUT
  - Allow an ever-changing list of users to download files by generating URLs dynamically
  - Allow temporarily a user to upload a file to a precise location in your s3 bucket
 
- # 153. S3 Access Points
+## 153. S3 Access Points
 
 S3 - Access Points
 
@@ -162,7 +162,7 @@ S3 - Access Points - VPC Origin
 
 - The VPC Endpoint Policy must allow access to the target bucket and Access Point
 
-# 154. S3 Object Lambda
+## 154. S3 Object Lambda
 
 S3 Object Lambda
 
