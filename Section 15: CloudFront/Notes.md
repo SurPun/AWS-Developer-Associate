@@ -221,3 +221,13 @@ CloudFront — Field Level Encryption
 - Usage:
  - Specify set of fields in POST requests that you want to be encrypted (up to 10 fields)
  - Specify the public key to encrypt them
+
+## 166. CloudFront - Real Time Logs
+
+CloudFront — Real Time Logs
+
+- Get real-time requests received by CloudFront sent to Kinesis Data Streams
+- Monitor, analyze, and take actions based on content delivery performance
+- Allows you to choose:
+ - Sampling Rate — percentage of requests for which you want to receive
+ - Specific fields and specific Cache Behaviors (path patterns)
