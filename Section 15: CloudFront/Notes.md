@@ -108,8 +108,20 @@ CloudFront Policies — Origin Request Policy
 
 ## 158. CloudFront - Cache Invalidations
 
-CloudFront — Cache Invalidatio
+CloudFront — Cache Invalidate
 
 - In case you update the back-end origin, CloudFront doesn’t know about it and will only get the refreshed content after the TTL has expired
 - However, you can force an entire or partial cache refresh (thus bypassing the TTL) by performing a CloudFront Invalidation
 - You can invalidate all files (*) or a special path (/images/*)
+
+## 159. CloudFront - Cache Behaviours
+
+CloudFront — Cache Behaviors
+
+- Configure different settings for a given URL path pattern
+- Example: one specific cache behavior to images/*.jpg files on your origin web server
+- Route to different kind of origins/origin groups based on the content type or path pattern
+ - /images/*
+ - /api/*
+ - /* (default cache behavior)
+- When adding additional Cache Behaviors, the Default Cache Behavior is always the last to be processed and is always /*
