@@ -105,3 +105,11 @@ CloudFront Policies — Origin Request Policy
 - Ability to add CloudFront HTTP headers and Custom Headers to an origin request that were not included in the viewer request
 
 - Create your own policy or use Predefined Managed Policies
+
+## 158. CloudFront - Cache Invalidations
+
+CloudFront — Cache Invalidatio
+
+- In case you update the back-end origin, CloudFront doesn’t know about it and will only get the refreshed content after the TTL has expired
+- However, you can force an entire or partial cache refresh (thus bypassing the TTL) by performing a CloudFront Invalidation
+- You can invalidate all files (*) or a special path (/images/*)
