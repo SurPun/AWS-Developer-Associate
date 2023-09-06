@@ -125,3 +125,15 @@ CloudFront — Cache Behaviors
  - /api/*
  - /* (default cache behavior)
 - When adding additional Cache Behaviors, the Default Cache Behavior is always the last to be processed and is always /*
+
+## 162. Cloudfront - Geo Restriction
+
+CloudFront Geo Restriction
+
+- You can restrict who can access your distribution
+- Allowiist: Allow your users to access your content only if they're in one of the countries on a list of approved countries.
+- Blocklist: Prevent your users from accessing your content if they're in one of the countries on a list of banned countries.
+
+- The “country” is determined using a 3"? party Geo-IP database
+- Use case: Copyright Laws to control access to content
+
