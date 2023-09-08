@@ -1,6 +1,6 @@
 # Section 17: AWS Elastic Beanstalk
 
-## 183. AWS Elastic Beanstalk Overview
+## 184. AWS Elastic Beanstalk Overview
 
 Developer problems on AWS
 
@@ -51,3 +51,65 @@ Elastic Beanstalk — Supported Platforms
 
 - If not supported, you can write your custom platform (advanced)
 
+# 187. Beanstalk Deployment Modes
+
+Beanstalk Deployment Options for Updates
+
+- All at once (deploy all in one go) — fastest, but instances aren't available to serve traffic for a bit (downtime)
+- Rolling: update a few instances at a time (bucket), and then move onto the next bucket once the first bucket is healthy
+- Rolling with additional batches: like rolling, but spins up new instances to move the batch (so that the old application is still available)
+- Immutable: spins up new instances in a new ASG, deploys version to these instances, and then swaps all the instances when everything is healthy
+- Blue Green: create a new environment and switch over when ready
+- Traffic Splitting: canary testing — send a small % of traffic to new deployment
+
+Elastic Beanstalk Deployment All at once
+
+- Fastest deployment
+- Application has downtime
+- Great for quick iterations in development environment
+
+Elastic Beanstalk Deployment Rolling
+
+- Application is running below capacity
+- Can set the bucket size
+- Application is running both versions simultaneously
+- No additional cost
+- Long deployment
+
+Elastic Beanstalk Deployment Rolling with additional batches
+
+- Application is running at capacity
+- Can set the bucket size
+- Application is running both versions simultaneously
+- Small additional cost
+- Additional batch is removed at the end of the deployment
+- Longer deployment Good for prod
+
+Elastic Beanstalk Deployment Immutable
+
+- Zero downtime
+- New Code is deployed to new instances on a temporary ASG
+- High cost, double capacity
+- Longest deployment
+- Quick rollback in case of failures (just terminate new ASG)
+- Great for prod
+
+Elastic Beanstalk Deployment Blue / Green
+
+- Not a “direct feature” of Elastic Beanstalk
+- Zero downtime and release facility
+- Create a new ‘stage’ environment and deploy v2 there
+- The new environment (green) can be validated independently and roll back if issues
+- Route 53 can be setup als weighted policies to redirect a little bit of traffic to the stage environment
+- Using Beanstalk, “swap URLs’ when done with the environment test
+
+Elastic Beanstalk - Traffic Splitting
+
+- Canary Testing
+- New application version is deployed to a temporary ASG with the same capacity
+- A small % of traffic is sent to the temporary ASG for a configurable amount of time
+- Deployment health is monitored
+- If there's a deployment failure, this triggers an automated rollback (very quick)
+- No application downtime
+- New instances are migrated from the temporary to the original ASG
+- Old application version is then terminated
