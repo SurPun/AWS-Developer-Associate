@@ -138,7 +138,7 @@ Amazon S3 — Pre-Signed URLs
  - AWS CLI — configure expiration with —expires-in parameter in seconds (default 3600 secs, max. 604800 secs ~ 168 hours)
 
 - Users given a pre-signed URL inherit the permissions of the user
-that generated the ORL for GET / PUT
+that generated the URL for GET / PUT
 
 - Examples:
  - Allow only logged-in users to download a premium video from your s3 bucket
