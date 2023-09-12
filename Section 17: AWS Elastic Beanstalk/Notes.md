@@ -140,3 +140,15 @@ Elastic Beanstalk Deployment Process
 - Console: upload zip file (creates new app version), and then deploy
 - CLI: create new app version using CLI (uploads zip), and then deploy
 - Elastic Beanstalk will deploy the zip on each EC2 instance, resolve dependencies and start the application
+
+## 190. Beanstalk Lifecycle Policy Overview + Hands On
+
+Beanstalk Lifecycle Policy
+
+- Elastic Beanstalk can store at most |000 application versions
+- If you don't remove old versions, you won't be able to deploy anymore
+- To phase out old application versions, use a lifecycle policy
+ - Based on time (old versions are removed)
+ - Based on space (when you have too many versions)
+- Versions that are currently used won't be deleted
+- Option not to delete the source bundle in S3 to prevent data loss
