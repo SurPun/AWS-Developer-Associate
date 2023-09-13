@@ -198,7 +198,7 @@ Elastic Beanstalk Migration: Load Balancer
 
 - After creating an Elastic Beanstalk environment, you cannot change the Elastic Load Balancer type (only the configuration)
 - To migrate:
- 1. create a new environment with the same configuration except LB (can't elone)
+ 1. create a new environment with the same configuration except LB (can't clone)
 
  2. deploy your application onto the new environment
 
