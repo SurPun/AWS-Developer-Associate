@@ -42,3 +42,35 @@ In this mode, a full set of new instances running the new version of the applica
 
 - Create an elasticache.config file in the .ebextensions folder which is at the root of the code zip file and provides appropriate configuration
 
+10. Your deployments on Elastic Beanstalk have been painfully slow. After checking the logs, you realize that this is due to the fact that your application dependencies are resolved on each instance each time you deploy. What can you do to speed up the deployment process with minimal impact?
+
+- Resolve the dependencies beforehand and package them in the zip file uploaded to Elastic Beanstalk
+
+11. Which AWS service does Elastic Beanstalk use under the hood?
+
+- AWS CloudFormation
+
+12. Due to compliance regulations, you have been tasked to enable HTTPS for your application hosted on Elastic Beanstalk. This allows in-flight encryption between your clients and web servers. What must be done to set up HTTPS on Elastic Beanstalk?
+
+- Create an .ebextension/securelistener-alb.config file to configure the Application Load Balancer
+
+13. Which feature in Elastic Beanstalk allows you to automate deletions of old application versions so that new application versions can be created?
+
+- Use a Lifecycle Policy
+
+14. You're using Elastic Beanstalk and you would like to schedule tasks to run periodically and asynchronously. These tasks typically take more than 1 hour to complete. Which Elastic Beanstalk environment should you choose?
+
+- Worker environment and a corn.yaml file
+
+15. You have created a test environment in Elastic Beanstalk and as part of the environment, you have created an RDS DB instance. How can you make sure the database can be used after you delete the environment?
+
+- Make a snapshot of the RDS DB instance before it gets deleted
+
+16. You're running an application on Elastic Beanstalk. You have just finished a major update to your application. You want to deploy the new version then direct a small percentage of traffic to the new version so you can test and fall back if there're any issues. Which Elastic Beanstalk deployment option should you choose?
+
+- Traffic Splitting
+
+17. You have been hired by a company to run some tests on their application hosted on Elastic Beanstalk. You can't run these tests on the current environment as this is the production environment, so you have to create another environment similar to the one already running. Which Elastic Beanstalk feature allows you to do this?
+
+- Elastic Beanstalk Cloning
+
