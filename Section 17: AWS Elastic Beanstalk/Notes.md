@@ -168,3 +168,12 @@ Elastic Beanstalk Extensions
 
 - Resources managed by .ebextensions get deleted if the environment goes away
 
+## 192. Beanstalk & Cloudformation
+
+Elastic Beanstalk Under the Hood
+
+- Under the hood, Elastic Beanstalk relies on CloudFormation
+- CloudFormation is used to provision other AWS services (we'll see later)
+
+- Use case: you can define CloudFormation resources in your  ebextensions to provision ElastiCache, an S3 bucket, anything you want!
+- Let's have a sneak peak into it!
