@@ -177,3 +177,49 @@ Elastic Beanstalk Under the Hood
 
 - Use case: you can define CloudFormation resources in your  ebextensions to provision ElastiCache, an S3 bucket, anything you want!
 - Let's have a sneak peak into it!
+
+## 193. Beanstalk Cloning
+
+Elastic Beanstalk Cloning
+
+- Clone an environment with the exact same configuration
+- Useful for deploying a "test" version of your application
+
+- All resources and configuration are preserved:
+ - Load Balancer type and configuration
+ - RDS database type (but the data is not preserved)
+ - Environment variables
+
+- After cloning an environment, you can change settings
+
+## 194. Beanstalk Migrations
+
+Elastic Beanstalk Migration: Load Balancer
+
+- After creating an Elastic Beanstalk environment, you cannot change the Elastic Load Balancer type (only the configuration)
+- To migrate:
+ 1. create a new environment with the same configuration except LB (can't elone)
+
+ 2. deploy your application onto the new environment
+
+ 3. perform a CNAME swap or Route 53 update
+
+RDS with Elastic Beanstalk
+
+- RDS can be provisioned with Beanstalk, which is great for dev / test
+- This is not great for prod as the database lifecycle is tied to the Beanstalk environment lifecycle
+- The best for prod is to separately create an RDS database and provide our EB application with the connection string
+
+Elastic Beanstalk Migration: Decouple RDS
+
+1. Create a snapshot of RDS DB (as a safeguard)
+
+2. Go to the RDS console and protect the RDS database from deletion
+
+3. Create a new Elastic Beanstalk environment, without RDS, point your application to existing RDS
+
+4. perform a CNAME swap (blue/green) or Route 53 update, confirm working
+
+5. Terminate the old environment (RDS won't be deleted)
+
+6. Delete CloudFormation stack (in DELETE_FAILED state)
