@@ -87,3 +87,17 @@ Templates helpers:
 2. Functions
 
 ## 200. YAML Crash Course
+
+YAML Crash Course
+
+- YAML and JSON are the languages you can use for CloudFormation.
+
+- JSON is horrible for CF
+
+- YAML is great in so many ways
+
+- Let's learn a bit about it!
+    - Key value Pairs
+    - Nested objects
+    - Support Arrays
+    - Multi line strings
