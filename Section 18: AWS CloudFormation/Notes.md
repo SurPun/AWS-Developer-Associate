@@ -101,3 +101,33 @@ YAML Crash Course
     - Nested objects
     - Support Arrays
     - Multi line strings
+
+## 201. CloudFormation Resources
+
+What are resources?
+
+- Resources are the core of your CloudFormation template (MANDATORY)
+- They represent the different AWS Components that will be created and configured
+- Resources are declared and can reference each other
+- AWS figures out creation, updates and deletes of resources for us
+- There are over 224 types of resources (!)
+- Resource types identifiers are of the form:
+ - AWS: :aws-product-name: :data-type-name
+
+How do i find resources documentation?
+
+- All the resources can be found here:
+- http://docs.aws.amazon.com/AW/SCloudFormation/latest/UserGuide/aw s-template-resource-type-ref.html
+
+- Then, we just read the docs
+- Example here (for an EC2 instance):
+ - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aw s-properties-ec2-instance.html
+
+FAO for resources
+
+- Can i create a dynamic amount of resources?
+ - No, you can’t. Everything in the CloudFormation template has to be declared. You can’t perform code generation there
+
+- Is every AWS Service supported?
+ - Almost. Only a select few niches are not there yet
+ - You can work around that using AWS Lambda Custom Resources
