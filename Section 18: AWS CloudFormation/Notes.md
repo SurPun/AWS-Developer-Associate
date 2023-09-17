@@ -386,3 +386,11 @@ CloudFormation Drift
  - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html
 
 ## 211. CloudFormation Stack Policies
+
+CloudFormation Stack Policies
+
+- During a CloudFormation Stack update, all update actions are allowed on all resources (default)
+- A Stack Policy is a JSON document that defines the update actions that are allowed on specific resources during Stack updates
+- Protect resources from unintentional updates
+- When you set a Stack Policy, all resources in the Stack are protected by default
+- Specify an explicit ALLOW for the resources you want to be allowed to be updated
