@@ -331,4 +331,15 @@ CloudFormation Rollbacks
  - The stack automatically rolls back to the previous known working state
  - Ability to see in the log what happened and error messages
 
- 
+## 208. CloudFormation Stack Notification
+
+CloudFormation Stack Notifications
+
+- Send Stack events to SNS Topic (Email, Lambda, ...)
+- Enable SNS Integration using Stack Options
+
+## 209. CloudFormation ChangeSets, Nested Stacks & StackSet
+
+## 210. CloudFormation Drift
+
+## 211. CloudFormation Stack Policies
