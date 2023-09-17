@@ -319,4 +319,16 @@ Condition Functions
  - Fn::Not
  - Fn::Or
 
+## 207. CloudFormation Rollbacks
+
+CloudFormation Rollbacks
+
+- Stack Creation Fails:
+ - Default: everything rolls back (gets deleted). We can look at the log
+ - Option to disable rollback and troubleshoot what happened
+
+- Stack Update Fails:
+ - The stack automatically rolls back to the previous known working state
+ - Ability to see in the log what happened and error messages
+
  
