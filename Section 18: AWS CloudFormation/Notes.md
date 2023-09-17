@@ -131,3 +131,51 @@ FAO for resources
 - Is every AWS Service supported?
  - Almost. Only a select few niches are not there yet
  - You can work around that using AWS Lambda Custom Resources
+
+## 202. CloudFormation Parameters
+
+What are parameters?
+
+- Parameters are a way to provide inputs to your AWS CloudFormation template
+- They're important to know about if:
+ - You want to reuse your templates across the company
+ - Some inputs can not be determined ahead of time
+
+- Parameters are extremely powerful, controlled, and can prevent errors from happening in your templates thanks to types.
+
+When should you use a parameter?
+- Ask yourself this:
+ - Is this CloudFormation resource configuration likely to change in the future?
+- If so, make it a parameter.
+
+- You won't have to re-upload a template to change its content 
+
+Parameters Settings
+
+Parameters can be controlled by all these settings:
+
+- Type:
+ - String
+ - Number
+ - CommaDelimitedList
+ - List<Type>
+ - AWS Parameter (to help catch invalid values — match against existing values in the AWS Account)
+
+- Description
+- Constraints
+- ConstraintDescription (String)
+- Min/MaxLength
+- Min/MaxValue
+
+How to Reference a Parameter
+
+- The Fn::Ref function can be leveraged to reference parameters
+- Parameters can be used anywhere in a template.
+- The shorthand for this in YAML is !Ref
+- The function can also reference other elements within the template
+
+Concept: Pseudo Parameters
+
+- AWS offers us pseudo parameters in any CloudFormation template.
+- These can be used at any time and are enabled by default
+
