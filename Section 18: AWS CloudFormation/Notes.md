@@ -376,4 +376,13 @@ CloudFormation - StackSets
 
 ## 210. CloudFormation Drift
 
+CloudFormation Drift
+
+- CloudFormation allows you to create infrastructure
+- But it doesn’t protect you against manual configuration changes
+- How do we know if our resources have drifted?
+- We can use CloudFormation drift!
+- Not all resources are supported yet:
+ - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html
+
 ## 211. CloudFormation Stack Policies
