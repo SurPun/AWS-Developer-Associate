@@ -261,3 +261,62 @@ Using a Condition
 
 - Conditions can be applied to resources / outputs / etc...
 
+## 206. CloudFormation Intrinsic
+
+CloudFormation Must Know Intrinsic Functions
+
+- Ref
+- Fn::GetAtt
+- Fn::FindInMap
+- Fn::ImportValue
+- Fn::join
+- Fn::Sub
+- Condition Functions (Fn::If, Fn::Not, Fn::Equals, etc...)
+
+Fn::Ref
+
+- The Fn::Ref function can be leveraged to reference
+ - Parameters => returns the value of the parameter
+ - Resources => returns the physical ID of the underlying resource (ex: EC2 ID)
+- The shorthand for this inYAML is !Ref
+
+Fn::GetAtt
+
+- Attributes are attached to any resources you create
+- To know the attributes of your resources, the best place to look at is the documentation.
+- For example: the AZ of an EC2 machine!
+
+Fn::FindInMap Accessing Mapping Values
+
+- We use Fn: :FindInMap to return a named value from a specific key
+- !FindInMap [ MapName, TopLevelKey, SecondLevelKey ]
+
+Fn::ImportValue
+
+- Import values that are exported in other templates
+- For this, we use the Fn::ImportValue function
+
+Fn::Join
+
+- Join values with a delimiter
+ - `!Join [ delimiter, [ comma-delimited list of values ] ]`
+- This creates “a:b:c”
+ -  `!Join [ “:", [ a, b, c ) ]`
+
+Function Fn::Sub
+
+- Fn::Sub, or !Sub as a shorthand, is used to substitute variables from a text. It's a very handy function that will allow you to fully customize your templates.
+- For example, you can combine Fn::Sub with References or AWS Pseudo variables!
+- String must contain ${VariableName} and will substitute them
+
+Condition Functions
+
+- The logical ID is for you to choose. It's how you name condition
+- The intrinsic function (logical) can be any of the following:
+ - Fn::And
+ - Fn::Equals
+ - Fn::If
+ - Fn::Not
+ - Fn::Or
+
+ 
