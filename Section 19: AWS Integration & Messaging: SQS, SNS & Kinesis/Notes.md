@@ -1,6 +1,6 @@
 # Section 19: AWS Integration & Messaging: SQS, SNS & Kinesis
 
-## 212. Introduction to Messaging
+## 213. Introduction to Messaging
 
 AWS Integration & Messaging (SQS, SNS & Kinesis)
 
@@ -24,3 +24,5 @@ Section Introduction
  - using SNS: pub/sub model
  - using Kinesis: real-time streaming model
 - These services can scale independently from our application!
+
+## 214. Amazon SQS - Standard Queues
