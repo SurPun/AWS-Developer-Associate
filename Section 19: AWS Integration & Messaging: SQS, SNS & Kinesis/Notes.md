@@ -81,3 +81,12 @@ Amazon SQS - Security
 - SQS Access Policies (similar to $3 bucket policies)
  - Useful for cross-account access to SQS queues
  - Useful for allowing other services (SNS, S3...) to write to an SQS queue
+
+## 216. SQS Queue Access Policy
+
+SQS Queue Access Policy
+
+- Cross Account Access
+
+- Publish S3 Event Notifications to SQS Queue
+
