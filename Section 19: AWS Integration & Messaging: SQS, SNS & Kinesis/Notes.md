@@ -90,3 +90,16 @@ SQS Queue Access Policy
 
 - Publish S3 Event Notifications to SQS Queue
 
+## 217. SQS - Message Visibility Timeout
+
+SQS — Message Visibility Timeout
+
+- After a message is polled by a consumer, it becomes invisible to other consumers
+- By default, the “message visibility timeout’ is 30 seconds
+- That means the message has 30 seconds to be processed
+- After the message visibility timeout is over, the message is “Visible” in SQS
+
+- If a message is not processed within the visibility timeout, it will be processed twice
+- A consumer could call the ChangeMessageVisibility API to get more time
+- If visibility timeout is high (hours), and consumer crashes, re-processing will take time
+- If visibility timeout is too low (seconds), we may get duplicates
