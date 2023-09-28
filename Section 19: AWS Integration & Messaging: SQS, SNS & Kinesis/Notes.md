@@ -103,3 +103,19 @@ SQS — Message Visibility Timeout
 - A consumer could call the ChangeMessageVisibility API to get more time
 - If visibility timeout is high (hours), and consumer crashes, re-processing will take time
 - If visibility timeout is too low (seconds), we may get duplicates
+
+## Amazon SQS — Dead Letter Queue (DLQ)
+
+- If a consumer fails to process a message within the Visibility Timeout... the message goes back to the queue!
+- We can set a threshold of how many times a message can go back to the queue
+- After the MaximumReceives threshold is exceeded, the message goes into a dead letter queue (DLQ)
+- Useful for debugging!
+- DLQ of a FIFO queue must also be a FIFO queue
+- DLQ of a Standard queue must also be a Standard queue
+- Make sure to process the messages in the DLQ before they expire:
+ - Good to set a retention of |4 days in the DLQ
+
+SQS DLO — Redrive to Source
+
+- Feature to help consume messages in the DLQ to understand what is wrong with them
+- When our code is fixed, we can redrive the messages from the DLQ back into the source queue (or any other queue) in batches without writing custom code
