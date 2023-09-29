@@ -119,3 +119,12 @@ SQS DLO — Redrive to Source
 
 - Feature to help consume messages in the DLQ to understand what is wrong with them
 - When our code is fixed, we can redrive the messages from the DLQ back into the source queue (or any other queue) in batches without writing custom code
+
+## 229. SQS - Delay Queues
+
+Amazon SQS — Delay Queue
+
+- Delay a message (consumers don't see it immediately) up to 15 minutes
+- Default is 0 seconds (message is available right away)
+- Can set a default at queue level
+- Can override the default on send using the DelaySeconds parameter
