@@ -154,3 +154,12 @@ SOS — Must know API
 - ReceiveMessageWaitTimeSeconds: Long Polling
 - ChangeMessageVisibility: change the message timeout
 - Batch APls for SendMessage, DeleteMessage, ChangeMessage Visibility helps decrease your costs
+
+## 222. SQS - FIFO Queues
+
+Amazon SQS — FIFO Queue
+
+- FIFO = First In First Out (ordering of messages in the queue)
+- Limited throughput: 300 msg/s without batching, 3000 msg/s with
+- Exactly-once send capability (by removing duplicates)
+- Messages are processed in order by the consumer
