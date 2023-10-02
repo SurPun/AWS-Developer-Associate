@@ -128,3 +128,29 @@ Amazon SQS — Delay Queue
 - Default is 0 seconds (message is available right away)
 - Can set a default at queue level
 - Can override the default on send using the DelaySeconds parameter
+
+## 221. SQS - Certified Developer
+
+Amazon SQS - Long Polling
+
+- When a consumer requests messages from the queue, it can optionally “wait” for messages to arrive if there are none in the queue
+- This is called Long Polling
+- LongPolling decreases the number of API calls made to SOS while increasing the efficiency and latency of your application.
+- The wait time can be between | sec to 20 sec (20 sec preferable)
+- Long Polling is preferable to Short Polling
+- Long polling can be enabled at the queue level or at the API level using ReceiveMessageWait TimeSeconds
+
+SOS Extended Client
+
+- Message size limit is 256KB, how to send large messages, e.g. 1 GB?
+- Using the SQS Extended Client (Java Library)
+
+SOS — Must know API
+
+- CreateQueue (MessageRetentionPeriod), DeleteQueue
+- PurgeQueue: delete all the messages in queue
+- SendMessage (DelaySeconds), ReceiveMessage, DeleteMessage
+- MaxNumberOfMessages: default 1, max 10 (for ReceiveMessage API)
+- ReceiveMessageWaitTimeSeconds: Long Polling
+- ChangeMessageVisibility: change the message timeout
+- Batch APls for SendMessage, DeleteMessage, ChangeMessage Visibility helps decrease your costs
