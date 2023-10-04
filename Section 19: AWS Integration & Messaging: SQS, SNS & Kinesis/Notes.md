@@ -224,3 +224,5 @@ Amazon SNS — Security
 - SNS Access Policies (similar to S3 bucket policies)
  - Useful for cross-account access to SNS topics
  - Useful for allowing other services ( S3...) to write to an SNS topic
+
+ ## 225. Amazon SNS and SQS - Fan Out Pattern
