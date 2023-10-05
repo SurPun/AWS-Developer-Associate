@@ -266,4 +266,16 @@ SNS — Message Filtering
 - JSON policy used to filter messages sent to SNS topic’s subscriptions
 - If a subscription doesn't have a filter policy, it receives every message
 
+## 227. Kinesis Overview
+
+Kinesis Overview
+
+-Makes it easy to collect, process, and analyze streaming data in real-time
+- Ingest real-time data such as: Application logs, Metrics, Website click streams, IoT telemetry data...
+
+- Kinesis Data Streams: capture, process, and store data streams
+- Kinesis Data Firehose: load data streams into AWS data stores
+- Kinesis Data Analytics: analyze data streams with SQL or Apache Flink
+- Kinesis Video Streams: capture, process, and store video streams
+
 
