@@ -314,3 +314,21 @@ Kinesis Data Streams Security
 - VPC Endpoints available for Kinesis to access within VPC
 - Monitor API calls using CloudTrail
 
+## 229. Kinesis Producers
+
+Kinesis Producers
+
+- Puts data records into data streams
+- Data record consists of.
+ - Sequence number (unique per partition-key within shard)
+ - Partition key (must specify while put records into stream)
+ - Data blob (up to 1 MB)
+- Producers:
+ - AWS SDK: simple producer
+ - Kinesis Producer Library (KPL): C++, Java, batch, compression retries
+ - Kinesis Agent: monitor log files
+
+- Write throughput: 1 MB/sec or 1000 records/sec per shard
+- PutRecord API
+- Use batching with PutRecords API to reduce costs & increase throughput
+
