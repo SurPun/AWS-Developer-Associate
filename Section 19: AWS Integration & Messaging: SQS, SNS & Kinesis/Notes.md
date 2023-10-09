@@ -372,7 +372,7 @@ Kinesis Consumers — AWS Lambda
 - If error occurs, Lambda retries until succeeds or data expired
 - Can process up to 10 batches per shard simultaneously
 
-## 231. Kinesis Consumers
+## 232. Kinesis Client Library
 
 Kinesis Client Library (KCL)
 
