@@ -371,3 +371,20 @@ Kinesis Consumers — AWS Lambda
 - Can configure batch size and batch window
 - If error occurs, Lambda retries until succeeds or data expired
 - Can process up to 10 batches per shard simultaneously
+
+## 231. Kinesis Consumers
+
+Kinesis Client Library (KCL)
+
+- A Java library that helps read record from a Kinesis Data Stream with distributed applications sharing the read workload
+- Each shard is to be read by only one KCL instance
+ - 4 shards = max. 4 KCL instances
+ - 6 shards = max. 6 KCL instances
+
+- Progress is checkpointed into DynamoDB (needs IAM access)
+- Track other workers and share the work amongst shards using DynamoDB
+- KCL can run on EC2, Elastic Beanstalk, and on-premises
+- Records are read in order at the shard level
+- Versions:
+ - KCL 1.x (supports shared consumer)
+ - KCL 2.x (supports shared & enhanced fan-out consumer)
