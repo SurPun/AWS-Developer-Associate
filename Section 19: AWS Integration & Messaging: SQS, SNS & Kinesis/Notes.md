@@ -406,3 +406,39 @@ Kinesis Operation — Merging Shards
 - Old shards are closed and will be deleted once the data is expired
 - Can't merge more than two shards in a single operation
 
+## 234. Kinesis Data Firehose Overview
+
+Kinesis Data Firehose
+
+- Fully Managed Service, no administration, automatic scaling, serverless
+ - AWS: Redshift / Amazon $3 / OpenSearch
+ - 3rd party partner: Splunk / MongoDB / DataDog / NewRelic / ...
+ - Custom: send to any HTTP endpoint
+
+- Pay for data going through Firehose
+- Near Real Time
+ - 60 seconds latency minimum for non full batches
+ - Or minimum 1 MB of data at a time
+
+- Supports many data formats, conversions, transformations, compression
+- Supports custom data transformations using AWS Lambda
+- Can send failed or all data to a backup S3 bucket
+
+Kinesis Data Streams vs Firehose
+
+- Streaming service for ingest at scale
+- Write custom code (producer / consumer)
+- Real-time (~200 ms)
+- Manage scaling (shard splitting / merging)
+- Data storage for 1 to 365 days
+- Supports replay capability
+
+Kinesis Data Firehose
+
+- Load streaming data into $3 / Redshift / OpenSearch / 3 party / custom HTTP
+- Fully managed
+- Near real-time (buffer time min. 60 sec)
+- Automatic scaling
+- No data storage
+- Doesn't support replay capability
+
