@@ -33,3 +33,37 @@ SQS FIFO (First-In-First-Out) Queues have all the capabilities of the SQS Standa
 - Use SNS + SQS Fan Out Pattern
 
 This is a common pattern where only one message is sent to the SNS topic and then "fan-out" to multiple SQS queues. This approach has the following features: it's fully decoupled, no data loss, and you have the ability to add more SQS queues (more applications) over time.
+
+7. You have a Kinesis data stream with 6 shards provisioned. This data stream usually receiving 5 MB/s of data and sending out 8 MB/s. Occasionally, your traffic spikes up to 2x and you get a ProvisionedThroughputExceededException exception. What should you do to resolve the issue?
+
+- Add more Shards
+
+The capacity limits of a Kinesis data stream are defined by the number of shards within the data stream. The limits can be exceeded by either data throughput or the number of reading data calls. Each shard allows for 1 MB/s incoming data and 2 MB/s outgoing data. You should increase the number of shards within your data stream to provide enough capacity.
+
+8. You have a website where you want to analyze clickstream data such as the sequence of clicks a user makes, the amount of time a user spends, and where the navigation begins, and how it ends. You decided to use Amazon Kinesis, so you have configured the website to send these clickstream data all the way to a Kinesis data stream. While you checking the data sent to your Kinesis data stream, you found that the users' data is not ordered and the data for one individual user is spread across many shards. How would you fix this problem?
+
+- For each record sent to Kinesis add a partition key that represents the identity of the user
+
+Kinesis Data Stream uses the partition key associated with each data record to determine which shard a given data record belongs to. When you use the identity of each user as the partition key, this ensures the data for each user is ordered hence sent to the same shard.
+
+9. Which AWS service is most appropriate when you want to perform real-time analytics on streams of data?
+
+- Amazon Kinesis Data Analytics
+
+Use Kinesis Data Analytics with Kinesis Data Streams as the underlying source of data.
+
+10. You are running an application that produces a large amount of real-time data that you want to load into S3 and Redshift. Also, these data need to be transformed before being delivered to their destination. What is the best architecture would you choose?
+
+- Kinesis Data Streams + Kinesis Data Firehose
+
+This is a perfect combo of technology for loading data near real-time data into S3 and Redshift. Kinesis Data Firehose supports custom data transformations using AWS Lambda.
+
+11. Which of the following is NOT a supported subscriber for AWS SNS?
+
+- Amazon Kinesis Data Streams
+
+Note: Kinesis Data Firehose is now supported, but not Kinesis Data Streams.
+
+12. Which AWS service helps you when you want to send email notifications to your users?
+
+- Amazon SNS
