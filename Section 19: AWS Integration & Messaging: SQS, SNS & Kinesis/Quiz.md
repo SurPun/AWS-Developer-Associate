@@ -67,3 +67,33 @@ Note: Kinesis Data Firehose is now supported, but not Kinesis Data Streams.
 12. Which AWS service helps you when you want to send email notifications to your users?
 
 - Amazon SNS
+
+13. You have an SNS topic with 1000s of subscribers and you want to send some messages to certain subscribers and not others. What SNS feature allows you to do so?
+
+- SNS Message Filtering
+
+SNS Message Filtering allows you to filter messages sent to SNS topic's subscriptions.
+
+14. You have an e-commerce website and you are preparing for Black Friday which is the biggest sale of the year. You expect that your traffic will increase by 100x. Your website already using an SQS Standard queue. Due to the spike in traffic, consumers may fail multiple times while processing messages within the Visibility Timeout, due to some constrains to the application database. What else should you do to handle failed messages?
+
+- Implement a Dead Letter Queue (DLQ) with a redrive policy
+
+15. Your SQS costs are extremely high. Upon closer look, you notice that your consumers are polling your SQS queues too often and getting empty data as a result. What should you do?
+
+- Enable Long Polling
+
+16. SQS message size limit is 256 KB, but you want to send messages of 1 MB. You should ........................
+
+- Use the SQS Extended Client Library
+
+17. You can configure an SQS queue to keep messages for a maximum of .................. days.
+
+- 14 Days
+
+You can configure the Amazon SQS message retention period to a value from 1 minute to 14 days. The default is 4 days.
+
+
+18. Which SQS FIFO message attribute allows multiple messages belong to the same group to be processed in order?
+
+- MessageGroupId
+
