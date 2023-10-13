@@ -97,3 +97,34 @@ You can configure the Amazon SQS message retention period to a value from 1 minu
 
 - MessageGroupId
 
+19. Which SQS FIFO message attribute prevents messages with the same deduplication ID to be delivered during a 5-minutes period?
+
+- messageDeduplicationId
+
+20. A Kinesis Data Stream that you manage experiencing an increase in traffic due to a sale day. Your Kinesis Data Streams currently has 6 shards, and you have been asked to split shards to become 10 shards. You have been using a consuming application based on Kinesis Client Library (KCL) and are running on a set of EC2 instances. What's the maximum number of EC2 instances that can be deployed to process the messages in shards?
+
+- 10
+
+When using Kinesis Client Library, each shard is to be read-only by one KCL instance. So, if you have 10 shards, then the maximum KCL instances you can have is 10.
+
+21. You are running an SQS FIFO queue with 10 message groups (defined by MessageGroupID). What's the maximum number of consumers can consume simultaneously?
+
+- 10
+
+ou can have as many consumers as "MessageGroupID" for your SQS FIFO queues.
+
+22. You can configure a Kinesis Data Stream to keep records for a maximum of .................. days.
+
+- 365 Days
+
+23. You have a Kinesis Data Stream where you intermittently get a ProvisionedThroughputExceededException exception in your producers' applications. The following can be used to resolve the error, EXCEPT .......................
+
+- Contact AWS Support to increase your Kinesis Data Stream's Capacity
+
+24. What should you use to increase the read throughput for Kinesis Data Streams consumers up to 2 MB/s per consumer per shard?
+
+- Enhanced Fan-out Consumer
+
+25. You have a hot shard in a Kinesis Data Stream, thus causing many ProvisionedThroughputExceededException exceptions. What operation allows you to increase the number of shards?
+
+- Shard Splitting
