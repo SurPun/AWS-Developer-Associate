@@ -96,3 +96,6 @@ AWS Lambda Pricing: example
  - After that $1.00 for 600,000 GB-seconds
 
 - It is usually very cheap to run AWS Lambda so it’s very popular
+
+## 270. AWS Lambda Synchronous Invocations
+
