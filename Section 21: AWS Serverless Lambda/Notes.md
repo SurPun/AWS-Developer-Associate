@@ -97,7 +97,7 @@ AWS Lambda Pricing: example
 
 - It is usually very cheap to run AWS Lambda so it’s very popular
 
-## 270. AWS Lambda Synchronous Invocations
+## 271. AWS Lambda Synchronous Invocations
 
 Lambda — Synchronous Invocations
 
@@ -122,4 +122,15 @@ Lambda - Synchronous Invocations - Services
  - Amazon Alexa
  - Amazon Kinesis Data Firehose
 
- 
+## 273. Lambda & Application Load Balancer
+
+Lambda Integration with ALB
+
+- To expose a Lambda function as an HTTP(S) endpoint...
+- You can use the Application Load Balancer (or an API Gateway)
+- The Lambda function must be registered in a target group
+
+ALB Multi-Header Values
+
+- ALB can support multi header values (ALB setting)
+- When you enable multi-value headers, HTTP headers and query string parameters that are sent with multiple values are shown as arrays within the AWS Lambda event and response objects.
