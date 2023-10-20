@@ -176,3 +176,5 @@ S3 Events Notifications
 - S3 event notifications typically deliver events in seconds but can sometimes take a minute or longer
 - If two writes are made to a single non-versioned object at the same time, it is possible that only a single event notification will be sent
 - If you want to ensure that an event notification is sent for every successful write, you can enable versioning on your bucket.
+
+## 281. Lambda Event Source Mapping
