@@ -18,7 +18,7 @@ Logs :
 - [x] Learn EKS Fargate
 - [x] Learn Docker Image
 - [x] Learn CloudFormation
-- [ ] Learn Kinesis
+- [x] Learn Kinesis
 
 ## 116. S3 Website Overview
 
