@@ -19,6 +19,7 @@ Logs :
 - [x] Learn Docker Image
 - [x] Learn CloudFormation
 - [x] Learn Kinesis
+- [x] Learn Lambda
 
 ## 116. S3 Website Overview
 
