@@ -166,7 +166,7 @@ Lambda - Asynchronous Invocations - Services
 - AWS loT
 - AWS loT Events
 
-## 279. Lambda & S3 Event Notifications
+## 280. Lambda & S3 Event Notifications
 
 S3 Events Notifications
 
@@ -177,7 +177,7 @@ S3 Events Notifications
 - If two writes are made to a single non-versioned object at the same time, it is possible that only a single event notification will be sent
 - If you want to ensure that an event notification is sent for every successful write, you can enable versioning on your bucket.
 
-## 281. Lambda Event Source Mapping
+## 282. Lambda Event Source Mapping
 
 Lambda - Event Source Mapping
 
@@ -238,3 +238,19 @@ Lambda Event Mapper Scaling
 - SQS FIFO:
  - Messages with the same GroupID will be processed in order
  - The Lambda function scales to the number of active message groups
+
+## 284. Lambda Event & Context
+
+Lambda — Event and Context Objects
+
+- Event Object
+ - JSON-formatted document contains data for the function to process
+ - Contains information from the invoking service (e.g., EventBridge, custom, ...)
+ - Lambda runtime converts the event to an object (e.g., dict type in Python)
+ - Example: input arguments, invoking service arguments, ...
+
+- Context Object
+ - Provides methods and properties that provide information about the invocation, function, and runtime environment
+ - Passed to your function by Lambda at runtime
+ - Example: aws_request_id, function_name, memory_limit_in_mb, ...
+
