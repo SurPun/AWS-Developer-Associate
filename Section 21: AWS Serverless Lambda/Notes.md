@@ -254,3 +254,20 @@ Lambda — Event and Context Objects
  - Passed to your function by Lambda at runtime
  - Example: aws_request_id, function_name, memory_limit_in_mb, ...
 
+## 285. Lambda Destinations
+
+Lambda — Destinations
+
+- Nov 2019: Can configure to send result to destination
+- Asynchronous invocations - can define destinations for successful and failed event:
+ - Amazon SQS
+ - Amazon SNS
+ - AWS Lambda
+ - Amazon EventBridge bus
+
+- Note: AWS recommends you use destinations instead of DLQ now (but both can be used at the same time)
+- Event Source mapping: for discarded event batches
+ - Amazon SQS
+ - Amazon SNS
+- Note: you can send events to a DLQ directly from SQS
+
