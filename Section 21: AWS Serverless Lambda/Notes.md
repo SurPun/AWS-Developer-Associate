@@ -469,3 +469,12 @@ Lambda Layers
  - Ex: Rust https://github.com/awslabs/aws-lambda-rust-runtime
 
 - Externalize Dependencies to re-use them
+
+## 300. Lambda File Systems Mounting
+
+Lambda — File Systems Mounting
+
+- Lambda functions can access EFS file systems if they are running in aVPC
+- Configure Lambda to mount EFS file systems to local directory during initialization
+- Must leverage EFS Access Points
+- Limitations: watch out for the EFS connection limits (one function instance = one connection) and connection burst limits
