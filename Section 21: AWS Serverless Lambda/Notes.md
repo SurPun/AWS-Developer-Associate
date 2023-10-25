@@ -459,3 +459,13 @@ Lambda Functions /tmp space
 - The directory content remains when the execution context is frozen, providing transient cache that can be used for multiple invocations (helpful to checkpoint your work)
 - For permanent persistence of object (non temporary), use s3
 - To encrypt content on /tmp, you must generate KMS Data Keys
+
+## 298. Lambda Layers
+
+Lambda Layers
+
+- Custom Runtimes
+ - Ex C++ https://github.com/awslabs/aws-lambda-cpp
+ - Ex: Rust https://github.com/awslabs/aws-lambda-rust-runtime
+
+- Externalize Dependencies to re-use them
