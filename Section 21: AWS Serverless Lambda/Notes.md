@@ -513,4 +513,15 @@ Cold Starts & Provisioned Concurrency
  - Note: cold starts in VPC have been dramatically reduced in Oct & Nov 2019
  - https://aws.ama
 
- 
+## 303. Lambda External Dependencies
+
+Lambda Function Dependencies
+
+- If your Lambda function depends on external libraries: for example AWS X-Ray SDK, Database Clients, etc...
+- You need to install the packages alongside your code and zip it together
+ - For Node,js, use npm & “node_modules” directory
+ - For Python, use pip --target options
+ - For Java, include the relevant Jar files
+- Upload the zip straight to Lambda if less than 50MB, else to S3 first
+- Native libraries work: they need to be compiled on Amazon Linux
+- AWS SDK comes by default with every Lambda function
