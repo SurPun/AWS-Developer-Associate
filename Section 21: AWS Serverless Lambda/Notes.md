@@ -525,3 +525,20 @@ Lambda Function Dependencies
 - Upload the zip straight to Lambda if less than 50MB, else to S3 first
 - Native libraries work: they need to be compiled on Amazon Linux
 - AWS SDK comes by default with every Lambda function
+
+## 305. Lambda and CloudFormation
+
+Lambda and CloudFormation - inline
+
+- Inline functions are very simple
+- Use the Code.ZipFile property
+- You cannot include function dependencies with inline functions
+
+Lambda and CloudFormation — through s3
+
+- You must store the Lambda zip in s3
+- You must refer the S3 zip location in the CloudFormation code
+ - S3Bucket
+ - S3Key: full path to zip
+ - S3ObjectVersion: if versioned bucket
+- If you update the code in $3, but don’t update S3Bucket, S3Key or S3ObjectVersion, CloudFormation won't update your function
