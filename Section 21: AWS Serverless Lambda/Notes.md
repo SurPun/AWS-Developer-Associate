@@ -542,3 +542,45 @@ Lambda and CloudFormation — through s3
  - S3Key: full path to zip
  - S3ObjectVersion: if versioned bucket
 - If you update the code in $3, but don’t update S3Bucket, S3Key or S3ObjectVersion, CloudFormation won't update your function
+
+## 307. Lambda Container Images
+
+Lambda Container Images
+
+- Deploy Lambda function as container images of up to |OGB from ECR
+- Pack complex dependencies, large dependencies in a container
+- Base images are available for Python, Nodejs, Ba .NET, Go, Ruby
+- Can create your own image as lon es it implements the Lambda Runtime
+- Test the containers locally using ne Lambda Runtime Interface Emulator
+- Unified workflow to build apps
+
+Lambda Container Images
+
+- Example: build from the base images provided by AWS:
+```
+# Use an image that implements the Lambda Runtime API
+FROM amazon/aws—lLambda-nodejs:12
+
+# Copy your application code and files
+COPY app.js package*.json ./
+
+# Install the dependencies in the container
+RUN npm install
+
+# Function to run when the Lambda function is invoked
+CMD [ “app. lambdaHandler" ]
+```
+
+Lambda Container Images — Best Practices
+
+- Strategies for optimizing container images:
+ - Use AWS-provided Base Images
+  - Stable, Built on Amazon Linux 2, cached by Lambda service
+ - Use Multi-Stage Builds
+  - Build your code in larger preliminary images, copy only the artifacts you need in your final container image, discard the preliminary steps
+ - Build from Stable to Frequently Changing
+  - Make your most frequently occurring changes as late in your Dockerfile as possible
+- Use a Single Repository for Functions with Large Layers
+ - ECR compares each layer of a container image when it is pushed to avoid uploading and storing duplicates
+
+- Use them to upload large Lambda Functions (up to 10 GB)
