@@ -629,3 +629,40 @@ Lambda & CodeDeploy — AppSpec.yml
 - Alias (required) — the name of the alias to the Lambda function
 - CurrentVersion (required) — the version of the Lambda function traffic currently points to
 - TargetVersion (required) — the version of the Lambda function traffic is shifted to
+
+## 311. Lambda Function URL
+
+Lambda — Function URL
+
+- Dedicated HTTP(S) endpoint for your Lambda function
+- A unique URL endpoint is generated for you (never changes)
+ - https//<url-id>.lambda-url.<region>.on.aws (dual-stack IPv4 & IPV6)
+
+- Invoke via a web browser, curl, Postman, or any HTTP client
+- Access your function URL through the public Internet only
+ - Doesn't support PrivateLink (Lambda functions do support)
+- Supports Resource-based Policies & CORS configurations
+- Can be applied to any function alias or to $LATEST (can't be applied to other function versions)
+- Create and configure using AWS Console or AWS API
+- Throttle your function by using Reserved Concurrency
+
+Lambda — Function URL Security
+
+- Resource-based Policy
+ - Authorize other accounts / specific CIDR / IAM principals
+
+- Cross-Origin Resource Sharing (CORS)
+ - If you call your Lambda function URL from a different domain
+
+Lambda — Function URL Security
+
+- AuthType NONE — allow public and unauthenticated access
+ - Resource-based Policy is always in effect (must grant public access)
+
+Lambda — Function URL Security
+
+- AuthType AWS_IAM — IAM is used to authenticate and authorize requests
+ - Both Principal's Identity-based Policy & Resource-based Policy are evaluated
+ - Principal must have lambda:InvokeFunctionUrl permissions
+ - Same account — Identity-based Policy OR Resource-based Policy as ALLOW
+ - Cross account — Identity-based Policy AND Resource Based Policy as ALLOW
