@@ -606,3 +606,26 @@ AWS Lambda Aliases
 - Aliases enable stable configuration of our event triggers / destinations
 - Aliases have their own ARNs
 - Aliases cannot reference aliases
+
+
+## 310. Lambda and CodeDeploy
+
+Lambda & CodeDeploy
+
+- CodeDeploy can a you automate traffic shift for Lambda aliases
+- Feature is integrated within the SAM framework
+- Linear: grow traffic every N minutes until 100%
+ - Linear 1OPercentEvery3Minutes
+ - Linear 1OPercentEvery 1OMinutes
+- Canary: try X percent then 100%
+ - Canary 1OPercent5Minutes
+ - Canary 1OPercent30Minutes
+- AllAtOnce: immediate
+- Can create Pre & Post Traffic hooks to check the health of the Lambda function
+
+Lambda & CodeDeploy — AppSpec.yml
+
+- Name (required) — the name of the Lambda function to deploy
+- Alias (required) — the name of the alias to the Lambda function
+- CurrentVersion (required) — the version of the Lambda function traffic currently points to
+- TargetVersion (required) — the version of the Lambda function traffic is shifted to
