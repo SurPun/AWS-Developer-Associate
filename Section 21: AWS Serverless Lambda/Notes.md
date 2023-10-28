@@ -666,3 +666,16 @@ Lambda — Function URL Security
  - Principal must have lambda:InvokeFunctionUrl permissions
  - Same account — Identity-based Policy OR Resource-based Policy as ALLOW
  - Cross account — Identity-based Policy AND Resource Based Policy as ALLOW
+
+## 313. Lambda - CodeGuru Integration
+
+Lambda and CodeGuru Profiling IN
+
+- Gain insights into runtime performance of your Lambda functions using CodeGuru Profiler
+- CodeGuru creates a Profiler Group for your Lambda function
+- Supported for Java and Python runtimes
+- Activate from AWS Lambda Console
+- When activated, Lambda adds:
+ - CodeGuru Profiler layer to your function
+ - Environment variables to your function
+ - AmazonCodeGuruProfilerAgentAccess policy to your function
