@@ -26,4 +26,24 @@ This is good as SQS will hold the failed messages for some days so we have time 
 
 - Check IAM permissions in your lambda function's execution role
 
-6. 
+6. While updating a Lambda function, you get the following exception An error occurred: InvalidParameterValueException when calling the UpdateFunctionCode operation: Unzipped size must be smaller than 262144000 bytes. How should you solve this issue?
+
+- The uncompressed deployment package .zip exceeds AWS Lambda Limits
+
+<!-- TO CHECK Answer -->
+
+7. A Lambda function makes requests to 3rd party API. To successfully make the requests, the 3rd party API requires you to send a token which is a long string of 8 KB. Where should you place this token?
+
+- Place it in the deployment package .zip file
+
+8. Every time you release a Lambda function version, it gets a new number and you have to manually update all the AWS resources linked to your function (e.g., event triggers). What should you do?
+
+- Use Lambda Aliases, and update the Alias to point to the new version
+
+9. You have updated a Lambda function and created a new version. Now, you want to test out the new version and ensure it can sustain production traffic. You are risk-averse and don't want to take down your whole application. What should you do?
+
+- Use Lambda Aliases, and point to the new and old versions, then assign weights
+
+10. You have a Lambda function used to retrieve data from an RDS DB instance. Each time the Lambda function is invoked, it establishes a new connection to your database. These connections make a load on your database and degrade its performance. So, you tell your developers to use long-lived database connections. They tell you that .......................................
+
+- They will move the database connection object outside of the function handler
