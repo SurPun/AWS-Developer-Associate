@@ -30,8 +30,6 @@ This is good as SQS will hold the failed messages for some days so we have time 
 
 - The uncompressed deployment package .zip exceeds AWS Lambda Limits
 
-<!-- TO CHECK Answer -->
-
 7. A Lambda function makes requests to 3rd party API. To successfully make the requests, the 3rd party API requires you to send a token which is a long string of 8 KB. Where should you place this token?
 
 - Place it in the deployment package .zip file
@@ -92,3 +90,26 @@ Because it's asynchronous.
 
 - Use Lambda Destinations
 
+21. AWS Lambda natively supports the following programming languages, EXCEPT .......................
+
+- C++
+
+22. You have a Lambda function written in Python which has a lot of dependencies. Each time you update and deploy your function, it takes 15 minutes to natively compile these dependencies and therefore deployments have been really slow. What do you suggest?
+
+- Create a Lambda Layer and include all the dependencies in it
+
+23. You want to give another AWS account access to invoke a Lambda function in your AWS account. Which of the following can NOT be used to do so?
+
+- Lambda Execution Role
+
+24. You have a CloudFormation template that declares a Lambda function. The Lambda function's code is stored in an S3 bucket with Versioning enabled. You use S3Bucket, S3Key, and S3ObjectVersion in the CloudFormation template to reference the code. You have updated the Lambda function's code then uploaded it to S3, but the function hasn't been updated. What should you do?
+
+- Update S30bjectVersion to reference the updated code
+
+25. Which of the following Lambda features can NOT be used to create a custom runtime if it isn't natively supported by AWS Lambda?
+
+- Lambda Destinations
+
+26. You are using CodeDeploy for automated deployments to your Lambda function. You updated your Lambda function's code and want to deploy the new version, test it with a small amount of traffic, then totally shift to the new version. Which CodeDeploy deployment type do you recommend?
+
+- Canary
