@@ -68,3 +68,27 @@ This is good as SQS will hold the failed messages for some days so we have time 
 
 - 10240 MB
 
+16. Which of the following AWS services allows you to schedule your Lambda function to be invoked every hour?
+
+- Amazon EventBridge
+
+https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchevents.html
+
+17. To use your Lambda function with an Application Load Balancer, the Lambda function must be registered with ...........................
+
+- A Target Group
+
+18. You have enabled and configured Event Notifications in your S3 bucket to invoke a Lambda function every time an object is uploaded to your S3 bucket. You have noticed that there's duplicate logging into CloudWatch Logs with the same request ID. What do you think is the reason for this?
+
+- The Lambda function has failed and retries have happened
+
+19. Which of the following AWS service does NOT require a Lambda Event Source Mapping?
+
+- Simple Notification Service (SNS)
+
+Because it's asynchronous.
+
+20. Which of the following is the recommended way to send the result of an asynchronous Lambda function to an SQS queue?
+
+- Use Lambda Destinations
+
