@@ -47,3 +47,24 @@ This is good as SQS will hold the failed messages for some days so we have time 
 10. You have a Lambda function used to retrieve data from an RDS DB instance. Each time the Lambda function is invoked, it establishes a new connection to your database. These connections make a load on your database and degrade its performance. So, you tell your developers to use long-lived database connections. They tell you that .......................................
 
 - They will move the database connection object outside of the function handler
+
+11. Your Lambda function written in Node.js wants to connect to an RDS PostgreSQL database in your VPC. The Lambda function must use the Node.js driver for PostgreSQL to connect to the database. How do you bundle your Lambda function to add the dependencies?
+
+- Put the function and the dependencies in one folder and zip them together
+
+12. How do you declare a Lambda function in a CloudFormation template?
+
+- Upload all the code asa_ .zip file to an S3 bucket and refer to the object in AWS: : Lambda: : Function block
+
+13. Which of the following allows you to deploy your Lambda function globally so that requests made to a CloudFront distribution are filtered at the AWS Edge Locations?
+
+- Lambda@Edge
+
+14. What is the recommended way to store temporary files used by your Lambda function that will be discarded when the function stops execution?
+
+- Use the local directory /tmp
+
+15. The maximum size for a Lambda function /tmp space is .........................
+
+- 10240 MB
+
