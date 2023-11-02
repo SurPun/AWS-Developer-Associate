@@ -72,3 +72,5 @@ DynamoDB -— Partition Keys (Exercise)
 
 - “movie_id” has the highest cardinality so it’s a good candidate
 - “movie_language”’ doesn’t take many values and may be skewed towards English so it’s not a great choice for the Partition Key
+
+## 319. DynamoDB WCU & RCU - Throughput
