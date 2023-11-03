@@ -74,3 +74,46 @@ DynamoDB -— Partition Keys (Exercise)
 - “movie_language”’ doesn’t take many values and may be skewed towards English so it’s not a great choice for the Partition Key
 
 ## 319. DynamoDB WCU & RCU - Throughput
+
+DynamoDB — Read/Write Capacity Modes
+
+- Control how you manage your table's capacity (read/write throughput)
+
+- Provisioned Mode (default)
+ - You specify the number of reads/writes per second
+ - You need to plan capacity beforehand
+ - Pay for provisioned read & write capacity units
+
+- On-Demand Mode
+ - Read/writes automatically scale up/down with your workloads
+ - No capacity planning needed
+ - Pay for what you use, more expensive ($$$)
+
+- You can switch between different modes once every 24 hours
+
+R/W Capacity Modes — Provisioned
+
+- Table must have provisioned read and write capacity units
+- Read Capacity Units (RCU) — throughput for reads
+- Write Capacity Units (WCU) — throughput for writes
+- Option to setup auto-scaling of throughput to meet demand
+- Throughput can be exceeded temporarily using “Burst Capacity”
+- If Burst Capacity has been consumed, you'll get a “ProvisionedThroughputExceededException”
+- It's then advised to do an exponential backoff retry
+
+DynamoDB — Write Capacity Units (WCU)
+
+- One Write Capacity Unit (WCU) represents one write per second for an item up to 1 KB in size
+- If the items are larger than 1 KB, more WCUs are consumed
+
+Strongly Consistent Read vs. Eventually Consistent Read
+
+- Eventually Consistent Read (default)
+ - If we read just after a write, it’s possible we'll get some stale data because of replication
+
+- Strongly Consistent Read
+ - If we read just after a write, we will get the correct data
+ - Set “ConsistentRead” parameter to True in API calls (GetItem, BatchGetItem, Query, Scan)
+ - Consumes twice the RCU
+
+ 
