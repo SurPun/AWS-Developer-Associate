@@ -116,4 +116,36 @@ Strongly Consistent Read vs. Eventually Consistent Read
  - Set “ConsistentRead” parameter to True in API calls (GetItem, BatchGetItem, Query, Scan)
  - Consumes twice the RCU
 
- 
+DynamoDB — Read Capacity Units (RCU)
+
+- One Read Capacity Unit (RCU) represents one Strongly Consistent Read per second, or two Eventually Consistent Reads per second, for an item up to 4 KB in size
+- If the items are larger than 4 KB, more RCUs are consumed
+
+DynamoDB -— Partitions Internal
+
+- Data is stored in partitions
+- Partition Keys go through a hashing algorithm to know to which partition they go to
+- WCUs and RCUs are spread evenly across partitions
+
+DynamoDB -— Throttling
+
+- If we exceed provisioned RCUs or WCUs, we get “ProvisionedThroughputExceededException”
+- Reasons:
+ - Hot Keys — one partition key is being read too many times (e.g., popular item)
+ - Hot Partitions
+ - Very large items, remember RCU and WCU depends on size of items
+- Solutions:
+ - Exponential backoff when exception is encountered (already in SDK)
+ - Distribute partition keys as much as possible
+ - If RCU issue, we can use DynamoDB Accelerator (DAX)
+
+R/W Capacity Modes — On-Demand
+
+- Read/writes automatically scale up/down with your workloads
+- No capacity planning needed (WCU / RCU)
+- Unlimited WCU & RCU, no throttle, more expensive
+- You're charged for reads/writes that you use in terms of RRU and WRU
+- Read Request Units (RRU) — throughput for reads (same as RCU)
+- Write Request Units (WRU) — throughput for writes (same as WCU)
+- 2.5x more expensive than provisioned capacity (use with care)
+- Use cases: unknown workloads, unpredictable application traffic, ...
