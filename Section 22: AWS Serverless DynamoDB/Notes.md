@@ -149,3 +149,99 @@ R/W Capacity Modes — On-Demand
 - Write Request Units (WRU) — throughput for writes (same as WCU)
 - 2.5x more expensive than provisioned capacity (use with care)
 - Use cases: unknown workloads, unpredictable application traffic, ...
+
+## 321. DynamoDB - Basic Operations
+
+DynamoDB — Writing Data
+
+- Putltem
+ - Creates a new item or fully replace an old item (same Primary Key)
+ - Consumes WCUs
+
+- Updateltem
+ - Edits an existing item's attributes or adds a new item if it doesn't exist
+ - Can be used to implement Atomic Counters — a numeric attribute that's unconditionally incremented
+
+- Conditional Writes
+ - Accept a write/update/delete only if conditions are met, otherwise returns an error
+ - Helps with concurrent access to items
+ - No performance impact
+
+DynamoDB — Reading Data
+
+- Getltem
+ - Read based on Primary key
+ - Primary Key can be HASH or HASH+RANGE
+ - Eventually Consistent Read (default)
+ - Option to use Strongly Consistent Reads (more RCU - might take longer)
+ - ProjectionExpression can be specified to retrieve only certain attributes
+
+DynamoDB — Reading Data (Query)
+
+- Query returns items based on:
+ - KeyConditionExpression
+  - Partition Key value (must be = operator) — required
+  - Sort Key value (=, <, <=, >, >=, Between, Begins with) — optional
+ - FilterExpression
+  - Additional filtering after the Query operation (before data returned to you)
+  - Use only with non-key attributes (does not allow HASH or RANGE attributes)
+
+- Returns:
+ - The number of items specified in Limit
+ - Or up to 1 MB of data
+
+- Ability to do pagination on the results
+- Can query table, a Local Secondary Index, or a Global Secondary Index
+
+
+DynamoDB — Reading Data (Scan)
+
+- Scan the entire table and then filter out data (inefficient)
+- Returns up to 1 MB of data — use pagination to keep on reading
+- Consumes a lot of RCU
+- Limit impact using Limit or reduce the size of the result and pause
+- For faster performance, use Parallel Scan
+ - Multiple workers scan multiple data segments at the same time
+ - Increases the throughput and RCU consumed
+ - Limit the impact of parallel scans just like you would for Scans
+- Can use ProjectionExpression & FilterExpression (no changes to RCU)
+
+DynamoDB — Deleting Data
+
+- Deleteltem
+ - Delete an individual item
+ - Ability to perform a conditional delete
+
+- Delete Table
+ - Delete a whole table and all its items
+ - Much quicker deletion than calling Deleteltem on all items
+
+DynamoDB — Batch Operations
+
+- Allows you to save in latency by reducing the number of API calls
+- Operations are done in parallel for better efficiency
+- Part of a batch can fail; in which case we need to try again for the failed items
+
+- BatchWriteltem
+ - Up to 25 Putltem and/or Deleteltem in one call
+ - Up to 16 MB of data written, up to 400 KB of data per item
+ - Can't update items (use Updateltem)
+ - Unprocesseditems for failed write operations (exponential backoff or add WCU)
+
+- BatchGetltem
+ - Return items from one or more tables
+ - Up to 100 items, up to 16 MB of data
+ - Items are retrieved in parallel to minimize latency
+ - UnprocessedKeys for failed read operations (exponential backoff or add RCU)
+
+DynamoDB — PartiQL
+
+- SQL-compatible query language for DynamoDB
+- Allows you to select, insert, update, and delete data in DynamoDB using SQL
+- Run queries across multiple DynamoDB tables
+- Run PartiQL queries from:
+ - AWS Management Console
+ - NoSQL Workbench for DynamoDB
+ - DynamoDB APIs
+ - AWS CLI
+ - AWS SDK
