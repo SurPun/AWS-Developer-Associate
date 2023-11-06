@@ -245,3 +245,40 @@ DynamoDB — PartiQL
  - DynamoDB APIs
  - AWS CLI
  - AWS SDK
+
+## 323. DynamoDB - Conditional Writes
+
+DynamoDB — Conditional Writes
+
+- For Putltem, Updateltem, Deleteltem, and BatchWriteltem
+- You can specify a Condition expression to determine which items should be modified:
+ - attribute_exists
+ - attribute_not_exists
+ - attribute_type
+ - contains (for string)
+ - begins_with (for string)
+ - ProductCategory IN (:cat1, :cat2) and Price between :low and :high
+ - size (string length)
+
+- Note: Filter Expression fitters the results of read queries, while Condition Expressions are for write operations
+
+Conditional Writes — Example on Delete Item
+
+- attribute_not_exists
+ - Only succeeds if the attribute doesn’t exist yet (no value)
+
+- attribute_exists
+ - Opposite of attribute_not_exists
+
+Conditional Writes — Do Not Overwrite Elements
+
+- attribute_not_exists(partition_key)
+ - Make sure the item isn’t overwritten
+
+- attribute_not_exists(partition_key) and attribute_not_exists(sort_key)
+ - Make sure the partition / sort key combination is not overwritten
+
+Conditional Writes — Example of String Comparisons
+
+- begins_with — check if prefix matches
+- contains — check if string is contained in another string
