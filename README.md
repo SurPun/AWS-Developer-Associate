@@ -8,6 +8,7 @@ Goals :
 
 - [ ] Complete Udemy Course
 - [ ] Developer Associate Certification
+- [ ] Aws DynamoDB
 
 NOTES :
 
