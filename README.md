@@ -10,6 +10,7 @@ Goals :
 - [ ] Developer Associate Certification
 - [ ] Aws DynamoDB
 - [ ] CICD
+- [ ] Api Gateway
 
 NOTES :
 
