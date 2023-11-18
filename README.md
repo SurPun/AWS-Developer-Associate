@@ -6,7 +6,11 @@ AWS Developer Associate
 
 Goals :
 
+- [ ] Complete Udemy Course
 - [ ] Developer Associate Certification
+- [ ] Aws DynamoDB
+- [ ] CICD
+- [ ] Api Gateway
 
 NOTES :
 
@@ -14,6 +18,7 @@ NOTES :
 
 Logs :
 
+- [ ] Get Cert by 2024
 - [ ] Get Associate Developer Cert by October 2023
 - [x] Learn EKS Fargate
 - [x] Learn Docker Image
