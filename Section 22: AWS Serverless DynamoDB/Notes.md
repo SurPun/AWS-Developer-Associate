@@ -313,3 +313,15 @@ DynamoDB -— Indexes and Throttling
 - Local Secondary Index (LSI):
  - Uses the WCUs and RCUs of the main table
  - No special throttling considerations
+
+## 326. DynamoDB PartiQL
+
+DynamoDB - PartiQL
+
+- Use a SQL-like syntax to manipulate DynamoDB tables
+- Supports some (but not all) statements:
+ - INSERT
+ - UPDATE
+ - SELECT
+ - DELETE
+- It supports Batch operations
