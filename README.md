@@ -11,6 +11,7 @@ Goals :
 - [ ] Aws DynamoDB
 - [ ] CICD
 - [ ] Api Gateway
+- [ ] Codecommit
 
 NOTES :
 
