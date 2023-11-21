@@ -333,3 +333,16 @@ DynamoDB — Optimistic Locking
 - DynamoDB has a feature called ‘Conditional Writes”
 - A strategy to ensure an item hasn't changed before you update/delete it
 - Each item has an attribute that acts as a version number
+
+## 328. DynamoDB DAX
+
+DynamoDB Accelerator (DAX)
+
+- Fully-managed, highly available, seamless in-memocache for DynamoDB
+- Microseconds latency for cached reads & queries
+- Doesn't require application logic modification (compatible with existing DynamoDB APIs)
+- Solves the “Hot Key” problem (too many reads)
+- 5 minutes TTL for cache (default)
+- Up to 10 nodes in the cluster
+- Multi-AZ (3 nodes minimum recommended for production)
+- Secure (Encryption at rest with KMS,VPC, IAM, CloudTrail, ...)
