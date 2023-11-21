@@ -325,3 +325,11 @@ DynamoDB - PartiQL
  - SELECT
  - DELETE
 - It supports Batch operations
+
+## 327. DynamoDB Optimistic
+
+DynamoDB — Optimistic Locking
+
+- DynamoDB has a feature called ‘Conditional Writes”
+- A strategy to ensure an item hasn't changed before you update/delete it
+- Each item has an attribute that acts as a version number
