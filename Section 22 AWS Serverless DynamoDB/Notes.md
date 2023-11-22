@@ -381,3 +381,16 @@ DynamoDB Streams & AWS Lambda
 - You need to define an Event Source Mapping to read from a DynamoDB Streams
 - You need to ensure the Lambda function has the appropriate permissions
 - Your Lambda function is invoked synchronously
+
+## 332. DynamoDB TTL
+
+DynamoDB — Time To Live (TTL)
+
+- Automatically delete items after an expiry timestamp
+- Doesn't consume any WCUs (i.e., no extra cost)
+- The TTL attribute must be a “Number” data type with “Unix Epoch timestamp” value
+- Expired items deleted within 48 hours of expiration
+- Expired items, that haven't been deleted, appears in reads/queries/scans (if you don't want them, filter them out)
+- Expired items are deleted from both LSls and GSls
+- A delete a for each expired item enters the Remar Streams (can help recover expired items)
+- Use cases: reduce stored data by keeping onlycurrent items, adhere to regulatory obligations, ...
