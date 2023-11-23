@@ -394,3 +394,5 @@ DynamoDB — Time To Live (TTL)
 - Expired items are deleted from both LSls and GSls
 - A delete a for each expired item enters the Remar Streams (can help recover expired items)
 - Use cases: reduce stored data by keeping onlycurrent items, adhere to regulatory obligations, ...
+
+## 333. DynamoDB CLI
