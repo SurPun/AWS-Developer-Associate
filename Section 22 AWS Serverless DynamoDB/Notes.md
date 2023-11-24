@@ -392,7 +392,17 @@ DynamoDB — Time To Live (TTL)
 - Expired items deleted within 48 hours of expiration
 - Expired items, that haven't been deleted, appears in reads/queries/scans (if you don't want them, filter them out)
 - Expired items are deleted from both LSls and GSls
-- A delete a for each expired item enters the Remar Streams (can help recover expired items)
-- Use cases: reduce stored data by keeping onlycurrent items, adhere to regulatory obligations, ...
+- A delete a for each expired item enters the DynamoDB Streams (can help recover expired items)
+- Use cases: reduce stored data by keeping only current items, adhere to regulatory obligations, ...
 
 ## 333. DynamoDB CLI
+
+DynamoDB CLI — Good to Know
+
+- --projection-expression: one or more attributes to retrieve
+- --filter-expression: filter items before returned to you
+
+- General AWS CLI Pagination options (e.g., DynamoDB, S3, ...)
+ - --page-size: specify that AWS CLI retrieves the full list of items but with a larger number of API calls instead of one API call (default: 1000 items)
+ - --max-items: max. number of items to show in the CLI (returns NextToken)
+ - --starting-token: specify the last NextToken to retrieve the next set of items
