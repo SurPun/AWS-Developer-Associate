@@ -406,3 +406,30 @@ DynamoDB CLI — Good to Know
  - --page-size: specify that AWS CLI retrieves the full list of items but with a larger number of API calls instead of one API call (default: 1000 items)
  - --max-items: max. number of items to show in the CLI (returns NextToken)
  - --starting-token: specify the last NextToken to retrieve the next set of items
+
+## 334. DynamoDB Transactions
+
+DynamoDB Transactions
+
+- Coordinated, all-or-nothing operations (add/update/delete) to multiple items across one or more tables
+- Provides Atomicity, Consistency, Isolation, and Durability (ACID)
+- Read Modes — Eventual Consistency, Strong Consistency, Transactional
+- Write Modes — Standard, Transactional
+- Consumes 2x WCUs & RCUs
+ - DynamoDB performs 2 operations for every item (prepare & commit)
+
+- Two operations:
+ - TransactGetitems — one or more Getitem operations
+ - TransactWriteitems — one or more Putitem, Updateitem, and Deleteitem operations
+
+- Use cases: financial transactions, managing orders, multiplayer games, ...
+
+DynamoDB Transactions — Capacity Computations
+- Important for the exam!
+
+- Example 1: 3 Transactional writes per second, with item size 5 KB
+  - We need 3 * (5kb / 1kb) * 2 (transactional cost) = 30 WCUs
+
+- Example 2: 5 Transaction reads per second , with item size 5 KB
+  - We need 5 * (8kb / 4kb) * 2 (transactional cost) = 20 RCUs
+  - (5 gets rounded to upper 4KB)
