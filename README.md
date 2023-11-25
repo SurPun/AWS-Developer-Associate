@@ -12,6 +12,7 @@ Goals :
 - [ ] CICD
 - [ ] Api Gateway
 - [ ] Codecommit
+- [ ] StepFunction & AppSync
 
 NOTES :
 
