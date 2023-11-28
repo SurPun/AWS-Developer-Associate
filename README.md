@@ -15,6 +15,7 @@ Goals :
 - [ ] StepFunction & AppSync
 - [ ] Aws SAM
 - [ ] Aws CDK
+- [ ] Aws Clodwatch
 
 NOTES :
 
