@@ -433,3 +433,20 @@ DynamoDB Transactions — Capacity Computations
 - Example 2: 5 Transaction reads per second , with item size 5 KB
   - We need 5 * (8kb / 4kb) * 2 (transactional cost) = 20 RCUs
   - (5 gets rounded to upper 4KB)
+
+## 335. DynamoDB Session State
+
+DynamoDB as Session State Cache
+
+- It's common to use DynamoDB to store session state
+- vs ElastiCache:
+  - ElastiCache is in-memory, but DynamoDB is serverless
+  - Both are key/value stores
+- vs EFS:
+  - EFS must be attached to EC2 instances as a network drive
+- vs EBS & Instance Store:
+  - EBS & Instance Store can only be used for local caching, not shared caching
+- vs S3:
+  - S3 is higher latency, and not meant for small objects
+
+  
