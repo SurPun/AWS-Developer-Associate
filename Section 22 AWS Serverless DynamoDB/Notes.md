@@ -449,4 +449,18 @@ DynamoDB as Session State Cache
 - vs S3:
   - S3 is higher latency, and not meant for small objects
 
-  
+## 336. DynamoDB Partitioning
+
+DynamoDB Write Sharding
+
+- Imagine we have a voting application with two candidates, candidate A and candidate B
+
+- If Partition Key is “Candidate_ID”, this results into two partitions, which will generate issues (e.g., Hot Partition)
+
+- A strategy that allows better distribution of items evenly across partitions
+
+- Add a suffix to Partition Key value
+
+- Two methods:
+ - Sharding Using Random Suffix
+ - Sharding Using Calculated Suffix
