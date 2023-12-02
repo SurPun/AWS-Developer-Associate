@@ -10,7 +10,7 @@ Goals :
 - [ ] Developer Associate Certification
 - [x] Aws DynamoDB
 - [ ] CICD
-- [ ] Api Gateway
+- [x] Api Gateway
 - [ ] Codecommit
 - [ ] StepFunction & AppSync
 - [ ] Aws SAM
