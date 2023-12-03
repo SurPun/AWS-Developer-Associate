@@ -476,3 +476,11 @@ DynamoDB - Write Types
 
 ## 338. DynamoDB Patterns with S3
 
+DynamoDB - Indexing S3 Objects Metadata
+
+Application - upload => S3 - invoke => Lambda - store object's metadata => DynamoDB:
+  - Application (API for objects' metadata)
+    - Search by date
+    - Total storage used by a customer
+    - List of all objects with certain attributes
+    - Find all objects uploaded within a date range
