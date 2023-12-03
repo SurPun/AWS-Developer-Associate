@@ -464,3 +464,13 @@ DynamoDB Write Sharding
 - Two methods:
  - Sharding Using Random Suffix
  - Sharding Using Calculated Suffix
+
+## 337. DynamoDB Conditional Writes, Concurrent Writes & Atomic Writes
+
+DynamoDB - Write Types
+
+- Concurrent Writes
+- Conditional Writes
+- Atmonic Writes
+- Batch Writes
+
