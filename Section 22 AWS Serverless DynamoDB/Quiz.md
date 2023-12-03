@@ -48,3 +48,4 @@ DynamoDB Streams allows you to capture a time-ordered sequence of item-level mod
 
 - 96
 
+12 * (8 KB / 1 KB) = 96 WCU.
