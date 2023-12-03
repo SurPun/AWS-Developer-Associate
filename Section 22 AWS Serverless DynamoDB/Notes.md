@@ -484,3 +484,20 @@ Application - upload => S3 - invoke => Lambda - store object's metadata => Dynam
     - Total storage used by a customer
     - List of all objects with certain attributes
     - Find all objects uploaded within a date range
+
+## 339. DynamoDB Operations
+
+DynamoDB Operations
+
+- Table Cleanup
+ - Option 1: Scan + Deleteltem
+ - Very slow, consumes RCU & WCU, expensive
+- Option 2: Drop Table + Recreate table
+ - Fast, efficient, cheap
+
+- Copying a DynamoDB Table
+ - Option 1: Using AWS Data Pipeline
+- Option 2: Backup and restore into a new table
+ - Takes some time
+- Option 3:Scan + Putltem or BatchWriteltem
+ - Write your own code
