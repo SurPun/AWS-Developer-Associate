@@ -27,3 +27,24 @@ DynamoDB Streams allows you to capture a time-ordered sequence of item-level mod
 5. You are running an application in production that is leveraging DynamoDB as its datastore and is experiencing smooth sustained usage. There is a need to make the application run in development mode as well, where it will experience an unpredictable volume of requests. What is the most cost-effective solution that you recommend?
 
 - Use Provisioned Capacity Mode with Auto Scaling enabled for production and use On- Demand Capacity Mode for development
+
+6. The maximum size of an item in a DynamoDB table is ...................
+
+- 400kb
+
+7. DynamoDB tables scale ..........................
+
+- Horizontally
+
+8. When your DynamoDB table's Primary Key is a combination of Partition Key + Sort Key, then ...................... must be unique.
+
+- Partition Key + Sort Key
+
+9. You have taken the decision to use DynamoDB as the database for a blog posts website. While designing the blog posts table, which column should you use as the Partition Key for optimal distribution?
+
+- blog_id
+
+10. An application writes 12 items per second into a DynamoDB table, with each item 8 KB in size. What WCU should you choose?
+
+- 96
+
