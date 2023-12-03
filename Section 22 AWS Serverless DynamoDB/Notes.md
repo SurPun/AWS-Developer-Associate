@@ -474,3 +474,5 @@ DynamoDB - Write Types
 - Atmonic Writes
 - Batch Writes
 
+## 338. DynamoDB Patterns with S3
+
