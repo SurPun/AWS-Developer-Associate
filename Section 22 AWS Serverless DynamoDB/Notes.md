@@ -501,3 +501,35 @@ DynamoDB Operations
  - Takes some time
 - Option 3:Scan + Putltem or BatchWriteltem
  - Write your own code
+
+## 340. DynamoDB Security & Other
+
+DynamoDB — Security & Other Features
+
+- Security
+ - VPC Endpoints available to access DynamoDB without using the Internet
+ - Access fully controlled by IAM
+ - Encryption at rest using AWS KMS and in-transit using SSL/TLS
+
+- Backup and Restore feature available
+ - Point-in-time Recovery (PITR) like RDS
+ - No performance impact
+
+- Global Tables
+ - Multi-region, multi-active, fully replicated, high performance
+
+- DynamoDB Local
+ - Develop and test apps locally without accessing the DynamoDB web service (without Internet)
+
+- AWS Database Migration Service (AWS DMS) can be used to migrate to
+ - DynamoDB (from MongoDB, Oracle, MySQL, S3, ...)
+
+DynamoDB - Fine-Grained Access Control
+
+- Using Web Identity Federation or Cognito Identity Pools, each user gets AWS credentials
+
+- You can assign an IAM Role to these users with a Condition to limit their API access to DynamoDB
+
+- LeadingKeys — limit row-level access for users on the Primary Key
+
+- Attributes — limit specific attributes the user can see 
