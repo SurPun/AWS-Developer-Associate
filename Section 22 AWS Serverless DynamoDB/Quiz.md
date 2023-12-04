@@ -98,3 +98,32 @@ https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html
 
 - Conditional Writes
 
+21. You have an application running for over a year now using a DynamoDB table, with Provisioned RCUs and WCUs, without any throttling issues. There's a requirement for your table to support second type of queries, so you have decided to use the existing Local Secondary Index (LSI) and create a new Global Secondary Index (GSI) to support these queries. One month later, the table begins to experience throttling issues. After checking the table's CloudWatch metrics, you found that you haven't exceeded the table's Provisioned RCU and WCU. What should you do?
+
+- The GSI is throttling so you need to provision more RCU and WCU to the GSI
+
+Global Secondary Index (GSI) uses an independent amount of RCU and WCU and if they are throttled due to insufficient capacity, then the main table will also be throttled.
+
+22. Which feature in DynamoDB allows you to automatically delete expired items from the table?
+
+- TTL
+
+23. Which of the following AWS CLI options allows you to retrieve a subset of the item's attributes coming from a DynamoDB Scan operation?
+
+- Projection-expression
+
+24. You would like to paginate the results of a DynamoDB Scan operation in order to minimize the number of items returned in the CLI's output. Which of the following AWS CLI options should you use?
+
+- --max-items & --starting-token
+
+25. You are developing a banking application that uses DynamoDB to store its data. You want to update both the Exchanges and the AccountBalance tables at the same time or not at all. Which DynamoDB feature allows you to do so?
+
+- DynamoDB Transactions
+
+26. DynamoDB Streams records can be sent to the following, EXCEPT ............................
+
+- Simple Queue Service (SQS)
+
+27. You have configured a DynamoDB table with a TTL attribute to delete expired user's sessions, but you noticed that some expired items still exist in queries you make. What should you do to resolve this problem?
+
+- Do nothing, DynamoDB automatically delete expired items within 48 hours of the expiration
