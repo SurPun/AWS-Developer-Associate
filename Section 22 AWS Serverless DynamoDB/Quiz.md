@@ -49,3 +49,29 @@ DynamoDB Streams allows you to capture a time-ordered sequence of item-level mod
 - 96
 
 12 * (8 KB / 1 KB) = 96 WCU.
+
+11. An application doing Strongly Consistent reads of 10 items per second, with each item 10 KB in size. What RCU do you choose?
+
+- 30
+
+10 KB gets rounded to 12 KB. 10 * (12 KB / 4 KB) = 30 RCU.
+
+12. An application doing Eventually Consistent reads of 12 items per second, with each item 16 KB in size. What RCU do you choose?
+
+- 24
+
+We can do 2 Eventually Consistent reads per seconds for items of 4 KB with 1 RCU. 12 * (16 KB / 4 KB) = 48 / 2 = 24 RCU.
+
+13. An application begins to receive a lot of ProvisionedThroughputExceededException exceptions from a DynamoDB table that you manage. After checking the CloudWatch metrics, you found that you haven't exceeded the total provisioned RCU. What is a possible cause for this?
+
+- You have a Hot Partition / Hot key
+
+Remember RCUs and WCUs are spread across all the table's partitions.
+
+14. You are using GetItem API call to retrieve items from a DynamoDB table. Which of the following allows you to select only certain attributes from the item?
+
+- ProjectionExpression
+
+15. What is the best way to delete all the data in a DynamoDB table?
+
+- DeleteTable and then CreateTable
