@@ -75,3 +75,26 @@ Remember RCUs and WCUs are spread across all the table's partitions.
 15. What is the best way to delete all the data in a DynamoDB table?
 
 - DeleteTable and then CreateTable
+
+16. You want to perform a Scan operation on a DynamoDB table to retrieve all the items. What should you do to increase the performance of your scan operation?
+
+- Use Parallel Scans
+
+17. You would like to make a Query to a DynamoDB table using an attribute that's NOT part of your table's Primary Key. What should you do to make this query efficient?
+
+- Create a Global Secondary Index
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html
+
+18. You are working on designing a new DynamoDB table where you want to make a Query using an attribute that's NOT part of your table's Primary Key. You need to use the >= predicate while keeping the same Partition Key. What should you do to make this query efficient?
+
+- Create a Local Secondary Index
+
+19. Which Concurrency Model can be implemented using DynamoDB?
+
+- Optimistic Locking
+
+20. Which feature of DynamoDB allows you to achieve Optimistic Locking?
+
+- Conditional Writes
+
