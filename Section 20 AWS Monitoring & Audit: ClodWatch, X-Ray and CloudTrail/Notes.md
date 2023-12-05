@@ -144,3 +144,16 @@ CloudWatch Unified Agent — Metrics
 - Processes (total, dead, bloqued, idle, running, sleep)
 - Swap Space (free, used, used %)
 - Reminder: out-of-the box metrics for EC2 — disk, CPU, network (high level)
+
+# 247. CloudWatch Logs - Metric Filters
+
+CloudWatch Logs Metric Filter
+
+- CloudWatch Logs can use filter expressions
+ - For example, find a specific IP inside of a log
+ - Or count occurrences of ERROR’ in your logs
+ - Metric filters can be used to trigger alarms
+
+- Filters do not retroactively filter data. Filters only publish the metric data points for events that happen after the filter was created.
+
+- Ability to specify up to 3 Dimensions for the Metric Filter (optional)
