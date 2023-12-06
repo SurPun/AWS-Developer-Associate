@@ -16,6 +16,7 @@ Goals :
 - [ ] Aws SAM
 - [ ] Aws CDK
 - [ ] Aws Clodwatch
+- [ ] Aws Cognito
 
 NOTES :
 
