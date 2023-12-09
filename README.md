@@ -11,7 +11,7 @@ Goals :
 - [x] Aws DynamoDB
 - [ ] CICD
 - [x] Api Gateway
-- [ ] Codecommit
+- [x] Codecommit
 - [ ] StepFunction & AppSync
 - [ ] Aws SAM
 - [ ] Aws CDK
