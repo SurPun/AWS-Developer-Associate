@@ -9,7 +9,7 @@ Goals :
 - [ ] Complete Udemy Course
 - [ ] Developer Associate Certification
 - [x] Aws DynamoDB
-- [ ] CICD
+- [x] CICD
 - [x] Api Gateway
 - [x] Codecommit
 - [ ] StepFunction & AppSync
