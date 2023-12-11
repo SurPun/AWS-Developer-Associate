@@ -14,7 +14,7 @@ Goals :
 - [x] Codecommit
 - [ ] StepFunction & AppSync
 - [ ] Aws SAM
-- [ ] Aws CDK
+- [x] Aws CDK
 - [x] Aws Clodwatch
 - [ ] Aws Cognito
 
