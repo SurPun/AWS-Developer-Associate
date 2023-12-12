@@ -201,3 +201,14 @@ CloudWatch Alarm: good to know
 - Alarms can be created based on CloudWatch Logs Metrics Filters
 
 - To test alarms and notifications, set the alarm state to Alarm using CLI aws cloudwatch set-alarm-state --alarm-name "myalarm" --state-value ALARM --state-reason "testing purposes"
+
+## 251. CloudWatch Synthetics
+
+- Configurable script that monitor your APIs, URLs, Websites, ...
+- Reproduce what your customers do programmatically to find issues before customers are impacted
+- Checks the availability and latency of your endpoints and_can store load time data and screenshots of the U
+- Integration with CloudWatch Alarms
+- Scripts written in Node.js or Python
+- Programmatic access to a headless Google Chrome browser
+- Can run once or on a regular schedule
+
