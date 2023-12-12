@@ -9,13 +9,13 @@ Goals :
 - [ ] Complete Udemy Course
 - [ ] Developer Associate Certification
 - [x] Aws DynamoDB
-- [ ] CICD
+- [x] CICD
 - [x] Api Gateway
-- [ ] Codecommit
+- [x] Codecommit
 - [ ] StepFunction & AppSync
 - [ ] Aws SAM
-- [ ] Aws CDK
-- [ ] Aws Clodwatch
+- [x] Aws CDK
+- [x] Aws Clodwatch
 - [ ] Aws Cognito
 
 NOTES :
