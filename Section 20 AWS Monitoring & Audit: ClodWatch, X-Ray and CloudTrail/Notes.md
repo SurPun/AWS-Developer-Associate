@@ -446,3 +446,20 @@ X-Ray Read APIs — continued
 - GetTraceSummaries: Retrieves IDs and annotations for traces available for a pace time frame using an optional filter To get the full traces, pass the trace IDs to BatchGet Traces.
 - GetTraceGraph: Retrieves a service graph for one or more specific trace IDs.
 
+## 260. X-Ray with Elastic Beanstalk
+
+X-Ray with Elastic Beanstalk
+
+- AWS Elastic Beanstalk platforms include the X-Ray daemon
+- You can run the daemon by setting an option in the Elastic Beanstalk console or with a configuration file (in.ebextensions/xray-daemon.config)
+
+    ```
+    option_settings:
+        aws:elasticbeanstalk: xray:
+            XRayEnabled: true
+    ```
+
+- Make sure to give your instance profile the correct IAM permissions so that the X-Ray daemon can function correctly
+- Then make sure your application code is instrumented with the X-Ray SDK
+- Note: The X-Ray daemon is not provided for Multicontainer Docker
+
