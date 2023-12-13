@@ -463,3 +463,14 @@ X-Ray with Elastic Beanstalk
 - Then make sure your application code is instrumented with the X-Ray SDK
 - Note: The X-Ray daemon is not provided for Multicontainer Docker
 
+## 261. X-Ray & ECS
+
+- ECS Cluster
+    - X-Ray Container as a Daemon
+
+- ECS Cluster
+    - X-Ray Container as a "Side Car"
+
+- Fargate Cluster
+    - X-Ray Container as a "Side Car"
+
