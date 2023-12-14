@@ -93,3 +93,19 @@ By default, they never expire.
 - Create an IAM role in the central account, then create IAM roles in the other accounts to assume this IAM role
 
 This is a best practice.
+
+21. You would like to add additional information to your X-Ray traces with the ability to search and filter through this information efficiently. What should you use?
+
+- AAnnotations
+
+22. Which AWS service allows you to get cross-account tracing and visualization for your applications?
+
+- AWS X-Ray
+
+23. The following APIs can be used to write to X-Ray, EXCEPT .........................
+
+- BatchGetTraces
+
+24. By default, the X-Ray SDK records the first request .................., and .................. of any additional requests.
+
+- each second, 5%
