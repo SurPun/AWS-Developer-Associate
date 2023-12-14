@@ -50,3 +50,24 @@ AWS CloudTrail allows you to log, continuously monitor, and retain account activ
 
 You can use the CloudTrail Console to view the last 90 days of recorded API activity. For events older than 90 days, use Athena to analyze CloudTrail logs stored in the S3 bucket.
 
+11. Someone changed the configuration of a resource and made it non-compliant. Which AWS service can you use to find out who made the change?
+
+- AWS CloudTrail
+
+12. You would like to test out a complex CloudWatch Alarm that responds to globally increased traffic on your application. You are in a test environment. How can you test out this alarm in a cost-effective manner and efficiently?
+
+- Use the set-alarm-state CLI command
+
+13. You want to continuously monitor RAM usage for an application hosted on an EC2 instance. By default, CloudWatch doesn't push RAM usage, so you will use a CloudWatch custom metric. Which API call allows you to push custom metric data to CloudWatch?
+
+- PutMetricData
+
+14. By default, all logs stored in CloudWatch Logs are automatically expiring after 7 days.
+
+- False
+
+By default, they never expire.
+
+15. In CloudWatch Logs, Log Retention Policy defined at ........................... level.
+
+- Log Groups
