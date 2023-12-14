@@ -23,3 +23,30 @@ The number of EC2 instances in an ASG can not go below the minimum capacity, eve
 5. How would you monitor your EC2 instance memory usage in CloudWatch?
 
 - Use Unified CloudWatch Agent to push memory usage as a custom metric to CloudWatch
+
+6. A CloudWatch Alarm set on a High-Resolution Custom Metric can be triggered as often as ......................
+
+- 10 seconds
+
+If you set an alarm on a high-resolution metric, you can specify a high-resolution alarm with a period of 10 seconds or 30 seconds, or you can set a regular alarm with a period of any multiple of 60 seconds.
+
+7. You have made a configuration change and would like to evaluate the impact of it on the performance of your application. Which AWS service should you use?
+
+- Amazon CloudWatch
+
+8. Someone has terminated an EC2 instance in your AWS account last week, which was hosting a critical database that contains sensitive data. Which AWS service helps you find who did that and when?
+
+- AWS CloudTrail
+
+AWS CloudTrail allows you to log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. It provides the event history of your AWS account activity, audit API calls made through the AWS Management Console, AWS SDKs, AWS CLI. So, the EC2 instance termination API call will appear here. You can use CloudTrail to detect unusual activity in your AWS accounts.
+
+9. You have CloudTrail enabled for your AWS Account in all AWS Regions. What should you use to detect unusual activity in your AWS Account?
+
+- CloudTrail Insights
+
+10. One of your teammates terminated an EC2 instance 4 months ago which has critical data. You don't know who made this so you are going to review all API calls within this period using CloudTrail. You already have CloudTrail set up and configured to send logs to the S3 bucket. What should you do to find out who made this?
+
+- Analyze CloudTrail logs in S3 bucket using Amazon Athena
+
+You can use the CloudTrail Console to view the last 90 days of recorded API activity. For events older than 90 days, use Athena to analyze CloudTrail logs stored in the S3 bucket.
+
