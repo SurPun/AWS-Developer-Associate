@@ -71,3 +71,25 @@ By default, they never expire.
 15. In CloudWatch Logs, Log Retention Policy defined at ........................... level.
 
 - Log Groups
+
+16. You have configured your application to use X-Ray to trace and troubleshoot your application requests. Your application traces appear in X-Ray when you run the application on your laptop, but it doesn't appear when you deploy the application to Elastic Beanstalk. What is possible a cause for this issue?
+
+- A config file .ebextensions/xray-daemon.config is missing in your code
+
+17. You have configured your application to use X-Ray to trace and troubleshoot your application requests. Your application traces appear in X-Ray when you run the application on your laptop, but it doesn't appear when you deploy the application to an EC2 instance using AWS CodeDeploy. What is possible a cause for this issue?
+
+- The X-Ray daemon is not running on the EC2 instance
+
+18. You have configured your application to use X-Ray to trace and troubleshoot your application requests. Your application traces appear in X-Ray when you run the application on your laptop, but it doesn't appear when you deploy the application to an EC2 instance using AWS CodeDeploy. After investigation, you confirmed that the X-Ray Daemon is up and running on the EC2 instance. What is possible a cause for this issue?
+
+- The IAM role attached to your EC2 instance doesn't have the required permissions to send data to X-Ray
+
+19. You're using CodePipeline to deploy your application to an Elastic Beanstalk. All of a sudden, the CodePipeline breaks with an error states that it can't find the target Elastic Beanstalk environment. What should you do to find who deleted this Elastic Beanstalk environment?
+
+- Check CloudTrail for a Delete event in Elastic Beanstalk
+
+20. What should you do to configure X-Ray Daemon to send traces from multiple AWS accounts to a central AWS account?
+
+- Create an IAM role in the central account, then create IAM roles in the other accounts to assume this IAM role
+
+This is a best practice.
