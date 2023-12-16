@@ -13,7 +13,7 @@ Goals :
 - [x] Api Gateway
 - [x] Codecommit
 - [ ] StepFunction & AppSync
-- [ ] Aws SAM
+- [x] Aws SAM
 - [x] Aws CDK
 - [x] Aws Clodwatch
 - [x] Aws Cognito
