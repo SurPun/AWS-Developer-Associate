@@ -12,11 +12,11 @@ Goals :
 - [x] CICD
 - [x] Api Gateway
 - [x] Codecommit
-- [ ] StepFunction & AppSync
-- [ ] Aws SAM
+- [x] StepFunction & AppSync
+- [x] Aws SAM
 - [x] Aws CDK
 - [x] Aws Clodwatch
-- [ ] Aws Cognito
+- [x] Aws Cognito
 
 NOTES :
 
