@@ -52,3 +52,39 @@ API Gateway — Security
  - If using Edge-Optimized endpoint, then the certificate must be in us-east- |
  - If using Regional endpoint, the certificate must be in the API Gateway region
  - Must setup CNAME or A-alias record in Route 53
+
+## 344. API Gateway Stages and Deployment
+
+API Gateway — Deployment Stages
+
+- Making changes in the API Gateway does not mean they're effective
+- You need to make a "deployment” for them to be in effect
+- It's a common source of confusion
+- Changes are deployed to “Stages" (as many as you want)
+- Use the naming you like for stages (dev, test, prod)
+- Each stage has its own configuration parameters
+- Stages can be rolled back as a history of deployments is kept
+
+API Gateway — Stage Variables
+
+- Stage variables are like environment variables for API Gateway
+- Use them to change often changing configuration values
+- They can be used in:
+ - Lambda function ARN
+ - HTTP Endpoint
+ - Parameter mapping templates
+
+- Use cases:
+ - Configure HTTP endpoints your stages talk to (dey, test, prod...)
+ - Pass configuration parameters to AWS Lambda through mapping templates
+
+- Stage variables are passed to the context’ object in AWS Lambda
+- Format: ${stageVariables.variableName}
+
+API Gateway Stage Variables & Lambda Aliases
+
+- We create a stage variable to indicate the corresponding Lambda alias
+- Our API gateway will automatically invoke the right Lambda function!
+
+
+ 
