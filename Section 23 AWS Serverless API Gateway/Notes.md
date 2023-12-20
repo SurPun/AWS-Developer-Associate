@@ -86,5 +86,14 @@ API Gateway Stage Variables & Lambda Aliases
 - We create a stage variable to indicate the corresponding Lambda alias
 - Our API gateway will automatically invoke the right Lambda function!
 
-
+## 345. API Gateway Stages 
  
+API Gateway — Canary Deployment
+
+- Possibility to enable canary deployments for any stage (usually prod)
+- Choose the % of traffic the canary channel receives
+- Metrics & Logs are separate (for better monitoring)
+- Possibility to override stage variables for canary
+- This is blue / green deployment with AWS Lambda & API Gateway
+
+
