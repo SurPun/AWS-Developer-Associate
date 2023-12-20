@@ -96,4 +96,52 @@ API Gateway — Canary Deployment
 - Possibility to override stage variables for canary
 - This is blue / green deployment with AWS Lambda & API Gateway
 
+## 349. API Gateway Integration Types & Mappings
 
+API Gateway - Integration Types
+
+- Integration Type MOCK
+ - API Gateway returns a response without sending the request to the backend
+
+- Integration Type HTTP / AWS (Lambda & AWS Services)
+ - you must configure both the integration request and integration response
+ - Setup data mapping using mapping templates for the request & response
+
+API Gateway - Integration Types
+
+- Integration Type AWS_PROXY (Lambda Proxy):
+ - incoming request from the client is the input to Lambda
+ - The function is responsible for the logic of request / response
+ - No mapping template, headers, query string parameters... are passed as arguments
+
+API Gateway - Integration Types
+
+- Integration Type HT TP_PROXY
+ - No mapping template
+ - The HTTP request is passed to the backend
+ - The HTTP response from the backend is forwarded by API Gateway
+ - Possibility to add HTTP Headers if need be (ex: API key)
+
+Mapping Templates (AWS & HTTP Integration)
+
+- Mapping templates can be used to modify request / responses
+- Rename / Modify query string parameters
+- Modify body content
+- Add headers
+- Uses Velocity Template Language (VTL): for loop, if etc...
+- Filter output results (remove unnecessary data)
+- Content-Type can be set to application/json or application xml
+
+Mapping Example: JSON to XML with SOAP
+
+- SOAP API are XML based, whereas REST API are JSON based
+
+Client => RESTful, JSON Payload => API Gateway + Mapping Template => XML Payload => SOAP API
+
+- In this case, API Gateway should:
+ - Extract data from the request: either path, payload or header
+ - Build SOAP message based on request data (mapping template)
+ - Call SOAP service and receive XML response
+ - Transform XML response to desired format (like JSON), and respond to the user
+
+ 
