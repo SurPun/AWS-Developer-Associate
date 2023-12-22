@@ -144,4 +144,33 @@ Client => RESTful, JSON Payload => API Gateway + Mapping Template => XML Payload
  - Call SOAP service and receive XML response
  - Transform XML response to desired format (like JSON), and respond to the user
 
- 
+
+## 351. API Gateway Open API
+
+API Gateway - Open API spec
+
+- Common way of defining REST APIs, using API definition as code
+- Import existing OpenAPI 3.0 spec to AP! Gateway
+ - Method
+ - Method Request
+ - Integration Request
+ - Method Response
+ - + AWS extensions for API gateway and setup every single option
+- Can export current API as OpenAPI spec
+- OpenAPI specs can be written inYAML or JSON
+- Using OpenAPI we can generate SDK for our applications
+
+REST API — Request Validation
+
+- You can configure AP! Gateway to perform basic validation of an API request before proceeding with the integration request
+- When the validation fails, AP! Gateway immediately fails the request
+ - Returns a 400-error response to the caller
+
+- This reduces unnecessary calls to the backend
+- Checks:
+ - The required request parameters in the URI, query string, and headers of an incoming request are included and non-blank
+ - The applicable request payload adheres to the configured JSON Schema request model of the method
+
+REST API — RequestValidation — OpenAPI
+
+- Setup request validation by importing OpenAPI definitions file
