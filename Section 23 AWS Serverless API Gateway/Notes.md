@@ -174,3 +174,22 @@ REST API — Request Validation
 REST API — RequestValidation — OpenAPI
 
 - Setup request validation by importing OpenAPI definitions file
+
+## 353. API Gateway Caching
+
+Caching API responses 
+
+- Caching reduces the number of calls made to the backend
+- Default TTL (time to live) is 300 seconds (min: Os, max: 3600s)
+- Caches are defined per stage
+- Possible to override cache settings per method
+- Cache encryption option
+- Cache capacity between 0.5GB to 237GB
+- Cache is expensive, makes sense in production, may not make sense in dev / test
+
+API Gateway Cache Invalidation
+
+- Able to flush the entire cache (invalidate tt) immediately
+- Clients can invalidate the cache with header: Cache- Control: max-age=0 (with proper IAM authorization)
+- If you don't impose an InvalidateCache policy (or choose the Require authorization check box in the console), any client can invalidate the API cache
+
