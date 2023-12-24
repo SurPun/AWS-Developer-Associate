@@ -193,3 +193,34 @@ API Gateway Cache Invalidation
 - Clients can invalidate the cache with header: Cache- Control: max-age=0 (with proper IAM authorization)
 - If you don't impose an InvalidateCache policy (or choose the Require authorization check box in the console), any client can invalidate the API cache
 
+## 354. API Gateway Usage Pans & API Keys
+
+API Gateway — Usage Plans & API Keys
+
+- If you want to make an API available as an offering ($) to your customers
+- Usage Plan:
+ - who can access one or more deployed API stages and methods
+ - how much and how fast they can access them
+ - uses API keys to identify API clients and meter access
+ - configure throttling limits and quota limits that are enforced on individual client
+
+- API Keys:
+ - alphanumeric string values to distribute to your customers
+ - Ex: WBjHxNtoAb4WPKBC7cGm64CBiblb24b4bt8jJHo9
+ - Can use with usage plans to control access
+ - Throttling limits are applied to the API keys
+ - Quotas limits is the overall number of maximum requests
+
+API Gateway — Correct Order for API keys
+
+- To configure a usage plan
+
+1. Create one or more APIs, configure the methods to require an API key, and deploy the APIs to stages.
+
+2. Generate or import API keys to distribute to application developers (your customers) who will be using your API.
+
+3. Create the usage plan with the desired throttle and quota limits.
+
+4. Associate API stages and API keys with the usage plan.
+
+- Callers of the API must supply an assigned API key in the x-api-key header in requests to the API.
