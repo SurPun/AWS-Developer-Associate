@@ -224,3 +224,51 @@ API Gateway — Correct Order for API keys
 4. Associate API stages and API keys with the usage plan.
 
 - Callers of the API must supply an assigned API key in the x-api-key header in requests to the API.
+
+## 335. API Gateway Monitoring, Logging and Tracing
+
+API Gateway — Logging & Tracing
+
+- CloudWatch Logs
+ - Log contains information about request/response body
+ - Enable CloudWatch logging at the Stage level (with Log Level - ERROR, DEBUG, INFO)
+ - Can override settings on a per API basis
+
+- X-Ray
+ - Enable tracing to get extra information about requests in API Gateway
+ - X-Ray API Gateway + AWS Lambda gives you the full picture
+
+API Gateway — CloudWatch Metrics
+
+- Metrics are by stage, Possibility to enable detailed metrics
+- CacheHitCount & CacheMissCount: efficiency of the cache
+- Count: The total number API requests in a given period.
+- IntegrationLatency: The time between when API Gateway relays a request to the backend and when it receives a response from the backend.
+- Latency: The time between when API Gateway receives a request from a client and when it returns a response to the client. The latency includes the integration latency and other API Gateway overhead.
+- 4XXxError (client-side) & 5XxXError (server-side)
+
+API Gateway Throttling
+
+- Account Limit
+ - API Gateway throttles requests at!0000 rps across all API
+ - Soft limit that can be increased upon request
+
+- In case of throttling => 429 Too Many Requests (retriable error)
+- Can set Stage limit & Method limits to improve performance
+- Or you can define Usage Plans to throttle per customer
+- Just like Lambda Concurrency, one API that is overloaded, if not limited, can cause the other APIs to be throttled
+
+- Just like Lambda Concurrency, one API that is overloaded, if not limited, can cause the other APIs to be throttled
+
+API Gateway - Errors
+
+- 4xx means Client errors
+ - 400: Bad Request
+ - 403:Access Denied, WAF filtered
+ - 429: Quota exceeded, Throttle
+
+- 5x means Server errors
+ - 502: Bad Gateway Exception, usually for an incompatible output returned from a Lambda proxy integration backend and occasionally for out-of-order invocations due to heavy loads.
+- 503: Service Unavailable Exception
+- 504: Integration Failure — ex Endpoint Request Timed-out Exception API Gateway requests time out after 29 second maximum
+
