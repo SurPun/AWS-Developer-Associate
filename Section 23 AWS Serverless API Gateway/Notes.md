@@ -272,3 +272,14 @@ API Gateway - Errors
 - 503: Service Unavailable Exception
 - 504: Integration Failure — ex Endpoint Request Timed-out Exception API Gateway requests time out after 29 second maximum
 
+## 356. API Gateway CORS
+
+AWS API Gateway - CORS
+
+- CORS must be enabled when you receive API calls from another domain.
+- The OPTIONS pre-flight request must contain the following headers:
+ - Access-Control-Allow-Methods
+ - Access-Control-Allow-Headers
+ - Access-Control-Allow-Origin
+- CORS can be enabled through the console
+
