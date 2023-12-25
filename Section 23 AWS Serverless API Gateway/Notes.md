@@ -283,3 +283,50 @@ AWS API Gateway - CORS
  - Access-Control-Allow-Origin
 - CORS can be enabled through the console
 
+## API Gateway - Security IAM Permissions
+
+API Gateway — Security IAM Permissions
+
+- Create an IAM policy authorization and attach to User / Role
+- Authentication = IAM | Authorization = IAM Policy
+- Good to provide access within AWS (EC2, Lambda, IAM users...)
+- Leverages “Sig v4” capability where IAM credential are in headers
+
+API Gateway — Resource Policies
+
+- Resource policies (similar to Lambda Resource Policy)
+- Allow for Cross Account Access (combined with IAM Security)
+- Allow for a specific source IP address
+- Allow for a VPC Endpoint
+
+API Gateway — Security Cognito User Pools
+
+- Cognito fully manages user lifecycle, token expires automatically
+- API gateway verifies identity automatically from AWS Cognito
+- No custom implementation required
+- Authentication = Cognito User Pools | Authorization = API Gateway Methods
+
+API Gateway — Security Lambda Authorizer (formerly Custom Authorizers)
+
+- Token-based authorizer (bearer token) — ex JWT (JSON Web Token) or Oauth
+- A request parameter-based Lambda authorizer (headers, query string, stage var)
+- Lambda must return an IAM policy for the user, result policy is cached
+- Authentication = External | Authorization = Lambda function
+
+API Gateway — Security — Summary
+
+- IAM:
+ - Great for users / roles already within your AWS account, + resource policy for cross account
+ - Handle authentication + authorization
+ - Leverages Signature v4
+
+- Custom Authorizer:
+ - Great for 3 party tokens
+ - Very flexible in terms of what IAM policy is returned
+ - Handle Authentication verification + Authorization in the Lambda function
+ - Pay per Lambda invocation, results are cached
+
+- Cognito User Pool:
+ - You manage your own user pool (can be backed by Facebook, Google login etc...)
+ - No need to write any custom code
+ - Must implement authorization in the backend
