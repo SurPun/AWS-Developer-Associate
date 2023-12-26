@@ -26,6 +26,7 @@ Logs :
 
 - <del>[ ] Get Cert by end of 2023
 - <del>[ ] Get Associate Developer Cert by October 2023
+- [ ] Complete Course Before 2024
 - [x] Learn EKS Fargate
 - [x] Learn Docker Image
 - [x] Learn CloudFormation
