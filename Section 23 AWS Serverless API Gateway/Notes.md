@@ -419,11 +419,21 @@ Example INCOMING DATA:
 }
 `
 
-Route Key Table - API Gateway
-$connect
-$disconnect
-$default
-join => Backend integration on Exmaple
-quit
-delete
+- Route Key Table - API Gateway
+ - $connect
+ - $disconnect
+ - $default
+ - join => Backend integration on Exmaple
+ - quit
+ - delete
+
+## 361. API Gateway - Architecture
+
+API Gateway - Architecture
+
+- Create a single interface for all the microservices in your company
+- Use API endpoints with various resources
+- Apply a simple domain name and SSL certificates
+- Can apply forwarding and transformation rules at the API Gateway level
+
 
