@@ -435,5 +435,3 @@ API Gateway - Architecture
 - Use API endpoints with various resources
 - Apply a simple domain name and SSL certificates
 - Can apply forwarding and transformation rules at the API Gateway level
-
-
