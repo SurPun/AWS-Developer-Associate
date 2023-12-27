@@ -344,3 +344,86 @@ API Gateway — HTTP API vs REST API
 - REST APIs
  - All features (except Native OpenID Connect / OAuth 2.0)
 
+## 360. API Gateway Websocket API
+
+API Gateway - WebSocket API - Overview
+
+- What's WebSocket?
+ - Two-way interactive communication between a user's browser and a server
+ - Server can push information to the client
+ - This enables stateful application use cases
+
+- WebSocket APIs are often used in real- time applications such as chat applications, collaboration platforms, multiplayer games, and financial trading platforms.
+- Works with AWS Services (Lambda, DynamoDB) or HTTP endpoints
+
+Connecting to the API
+
+WebSocket URL Example:
+wss://[some-uniqueid].execute-api.[region].amazonaws.com/[stage-name]
+
+Clients - connect => Amazon API Gateway WebSocket API - invoke (cinnectionid) => Lambda function (onConnect) - connectionid => Amazon DynamoDB
+
+Client to Server Messaging ConnectionID is re-used
+
+WebSocket URL Example:
+wss://abcdef.execute-api.us-west-1.amazonaws.com/dev
+
+Clients - [frames] - send message - [frames] => Amazon API Gateway Websocket API - invoke (connectionid) => Lambda function (sendMessage) - connectionid => Amazon DynamoDB
+
+Server to Client Messaging
+
+WebSocket URL Example:
+wss://abcdef.execute-api.us-west-1.amazonaws.com/dev
+
+Clients - send message => Amazon API Gateway Websocket API - invoke (connectionid) => Lambda function (send message):
+    - connectionid => Amazon DynamoDB
+    Or
+    - HTTP POST (IAM Sig v4) => Connection URL callback => Clients
+
+    Connection URL Example:
+        - wss://abcdef.execute-api.us-west-1.amazonaws.com/dev @connections/connectionid
+
+Connection URL Operations
+
+Connection URL Example: 
+wss://abcdef.execute-api.us-west-1.amazonaws.com/dev/@connections/connection!d
+
+Operation
+- Post 
+- Get
+- Delete
+
+Action
+- Post (Sends a message from the Server to the connected WS Client)
+- Get (Gets the latest connection status of the connected WS Client)
+- DELETE (Disconnect the connected Client from the WS connection)
+
+API Gateway —WebSocket API - Routing
+
+- Incoming JSON messages are routed to different backend
+- If no routes => sent to $default
+- You request a route selection expression to select the field on JSON to route from
+- Sample expression: $request.body.action
+- The result is evaluated against the route keys available in your API Gateway
+- The route is then connected to the backend
+you've setup through API Gateway
+
+Example INCOMING DATA:
+`
+{
+    "service" : "chat",
+    "action" : "join",
+    "data" : {
+        "room" : "room1234"
+    }
+}
+`
+
+Route Key Table - API Gateway
+$connect
+$disconnect
+$default
+join => Backend integration on Exmaple
+quit
+delete
+
