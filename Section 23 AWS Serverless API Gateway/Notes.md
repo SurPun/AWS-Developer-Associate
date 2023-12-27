@@ -283,7 +283,7 @@ AWS API Gateway - CORS
  - Access-Control-Allow-Origin
 - CORS can be enabled through the console
 
-## API Gateway - Security IAM Permissions
+## 357. API Gateway Authentication and Authorization
 
 API Gateway — Security IAM Permissions
 
@@ -330,3 +330,17 @@ API Gateway — Security — Summary
  - You manage your own user pool (can be backed by Facebook, Google login etc...)
  - No need to write any custom code
  - Must implement authorization in the backend
+
+## 359. API Gateway REST API vs HTTP API
+
+API Gateway — HTTP API vs REST API
+
+- HTTP APIs
+ - low-latency, cost-effective AWS
+ - Lambda proxy, HTTP proxy APIs and private integration (no data mapping)
+ - support OIDC and OAuth 2.0 authorization, and built-in support for CORS
+ - No usage plans and API keys
+
+- REST APIs
+ - All features (except Native OpenID Connect / OAuth 2.0)
+
