@@ -20,3 +20,31 @@
 
 - Mapping Templates
 
+6. Which specification allows you to import/export your API as code?
+
+- Swagger / OpenAPI
+
+7. You are running an API that's backed by a Lambda function. Your API receives a large number of GET requests which results in your Lambda function becomes overloaded and your bill starts to substantially increase. The response returns the same payload and changes once each day. What should you do to handle all these requests and reduce your bill?
+
+- Enable Caching for your Stage
+
+8. API Gateway Caching is defined per ..................... with the default TTL .....................
+
+- Stage, 300 seconds
+
+9. How can clients invalidate the cache of an API from the client-side?
+
+- Pass the HTTP header `Cache-Control: max-age=0`
+
+10. You are serving a Machine Learning API through API Gateway to a number of customers that they're using in their applications. You offer this as a free service, but you plan to purchase each customer with paid plans. Which API Gateway feature allows you to do so?
+
+- Usage Plans & API Keys
+
+11. You have a Serverless application consists of an API Gateway, Lambda functions, and DynamoDB tables. Lately, users begin to complain that they receive exceptions in some requests. Also, there's a delay in some API calls. What should you use to troubleshoot and detect where the issues take place?
+
+- X-Ray
+
+12. You have an API that's consumed by a large number of users from different domains. You need to ....................
+
+- Enable CORS
+
