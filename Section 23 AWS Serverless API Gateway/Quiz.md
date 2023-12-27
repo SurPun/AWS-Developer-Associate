@@ -48,3 +48,22 @@
 
 - Enable CORS
 
+13. You want to authenticate requests made to your API. All requests contain a Bearer token provided in the Authorization HTTP header. These tokens must be validated against a 3rd party provider. What should you use?
+
+- API Gateway Lambda Authorizer
+
+14. You would like to authenticate your users against Facebook before they are able to make requests to your API hosted by API Gateway. What should you use to make a seamless authentication integration?
+
+- Cognito User Pools
+
+15. Which of the following HTTP error code API Gateway returns where there are too many requests?
+
+- 429
+
+16. Which of the following CloudWatch metrics helps you analyze the timeout issues between your API Gateway and a Lambda function?
+
+- IntegrationLatency
+
+17. API Gateway supports the WebSocket protocol for real-time APIs.
+
+- True
