@@ -6,7 +6,7 @@ AWS Developer Associate
 
 Goals :
 
-- [ ] Complete Udemy Course
+- [ ] Complete Udemy Course By 2024
 - [ ] Developer Associate Certification
 - [x] Aws DynamoDB
 - [x] CICD
