@@ -17,6 +17,7 @@ Goals :
 - [x] Aws CDK
 - [x] Aws Clodwatch
 - [x] Aws Cognito
+- [ ] AppSync
 
 NOTES :
 
