@@ -90,7 +90,7 @@ CodeCommit — Security
  - Do NOT share your SSH keys or your AWS credentials
  - Use an IAM Role in your AWS account and use AWS STS (AssumeRole API)
 
-## 368. CodePipeline Overview
+## 367. CodePipeline Overview
 
 AWS CodePipeline
 
@@ -120,3 +120,45 @@ CodePipeline — Troubleshooting
 - If CodePipeline fails a stage, your pipeline stops, and you can get information in the console
 - If pipeline can't perform an action, make sure the “IAM Service Role attached does have enough IAM permissions (IAM Policy)
 - AWS CloudTrail can be used to audit AWS API calls
+
+## 370. CodeBuild Overview
+
+AWS CodeBuild
+
+- Source — CodeCommit, 3, Bitbucket, GitHub
+- Build instructions: Code file buildspec.yml or insert manually in Console
+- Output logs can be stored in Amazon S3 & CloudWatch Logs
+- Use CloudWatch Metrics to monitor build statistics
+- Use EventBridge to detect failed builds and trigger notifications
+- Use CloudWatch Alarms to notify if you need “thresholds” for failures
+
+- Build Projects can be defined within CodePipeline or CodeBuild
+
+CodeBuild — Supported Environments
+
+- Java
+- Ruby
+- Python
+- Go
+- Node,js
+- Android
+- NET Core
+- PHP
+- Docker — extend any environment you like
+
+CodeBuild — buildspec.yml
+
+- buildspec.yml file must be at the root of your code
+- env — define environment variables
+ - variables — plaintext variables
+ - parameter-store — variables stored in SSM Parameter Store
+ - secrets-manager — variables stored in AWS Secrets Manager
+
+- phases — specify commands to run:
+ - install — install dependencies you may need for your build
+ - pre_build — final commands to execute before build
+ - Build — actual build commands
+ - post_build — finishing touches (e.g,, zip output)
+
+- artifacts — what to upload to S3 (encrypted with KMS)
+- cache — files to cache (usually dependencies) to S3 for future build speedup
