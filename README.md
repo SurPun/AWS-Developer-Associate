@@ -18,3 +18,4 @@ Logs :
 - <del>[ ] Get Cert by end of 2023
 - <del>[ ] Get Associate Developer Cert by October 2023
 - <del>[ ] Complete Course Before 2024
+- [ ] Complete Course By End of Jan 2024
