@@ -162,3 +162,55 @@ CodeBuild — buildspec.yml
 
 - artifacts — what to upload to S3 (encrypted with KMS)
 - cache — files to cache (usually dependencies) to S3 for future build speedup
+
+## 373. CodeDeploy Overview
+
+AWS CodeDeploy
+
+- Deployment service that automates application deployment
+- Deploy new applications versions to EC2 Instances, On-premises servers, Lambda functions, ECS Services
+- Automated Rollback capability in case of failed deployments, or trigger CloudWatch Alarm
+- Gradual deployment control
+- A file named appspec.yml defines how the deployment happens
+
+CodeDeploy — EC2/On-premises Platform
+
+- Can deploy to EC2 Instances & on-premises servers
+- Perform in-place deployments or blue/green deployments
+- Must run the CodeDeploy Agent on the target instances
+- Define deployment speed
+ - AllAtOnce: most downtime
+ - HalfAtATime: reduced capacity by 50%
+ - OneAtATime: slowest, lowest availability impact
+ - Custom: define your %
+
+CodeDeploy Agent
+
+- The CodeDeploy Agent must be running on the EC2 instances as a pre- requisites
+- It can be installed and updated automatically if you're using Systems Manager
+- The EC2 Instances must have sufficient permissions to access Amazon S3 to get deployment bundles
+
+CodeDeploy — Lambda Platform
+
+- CodeDeploy can help you automate traffic shift for Lambda aliases
+- Feature is integrated within the SAM framework
+- Linear: grow traffic every N minutes until 100%
+ - LambdaLinear 1OPercentEvery3Minutes
+ - LambdaLinear 1OPercentEvery1OMinutes
+- Canary: try X percent then 100%
+ - LambdaCanary 1OPercent5Minutes
+ - LambdaCanary 1OPercent30Minutes
+- AllAtOnce: immediate
+
+CodeDeploy — ECS Platform
+
+- CodeDeploy can help you automate the deployment of a new ECS Task Definition
+- Only Blue/Green Deployments
+- Linear: grow traffic every N minutes until 100%
+ - ECSLinear 1OPercentEvery3Minutes
+ - ECSLinear 10PercentEvery1OMinutes
+- Canary: try X percent then 100%
+ - ECSCanary 1OPercent5Minutes
+ - ECSCanary 1OPercent30Minutes
+ - AllAtOnce: immediate
+
