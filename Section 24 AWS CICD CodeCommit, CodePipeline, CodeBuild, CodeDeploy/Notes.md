@@ -240,3 +240,16 @@ CodeDeploy — Redeploy & Rollbacks
  - Manually
 - Disable Rollbacks — do not perform rollbacks for this deployment
 - If a roll back happens, CodeDeploy redeploys the last known good revision as a new deployment (not a restored version)
+
+## 376. CodeStar - Overview
+
+AWS CodeStar
+
+- An integrated solution that groups: GitHub, CodeCommit, CodeBuild, CodeDeploy, CloudFormation, CodePipeline, CloudWatch, ...
+- Quickly create “ClCD-ready’” projects for EC2, Lambda, Elastic Beanstalk
+- Supported languages: C#, Go, HTML 5, Java, Node.js, PHP Python, Ruby
+- Issue tracking integration with JIRA / GitHub Issues
+- Ability to integrate with Cloud9 to obtain a web IDE (not all regions)
+- One dashboard to view all your components
+- Free service, pay only for the underlying usage of other services
+- Limited Customization
