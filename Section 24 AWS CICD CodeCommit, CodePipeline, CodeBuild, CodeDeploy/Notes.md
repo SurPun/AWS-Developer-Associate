@@ -253,3 +253,19 @@ AWS CodeStar
 - One dashboard to view all your components
 - Free service, pay only for the underlying usage of other services
 - Limited Customization
+
+## 378. AWS CodeArtifact
+
+AWS CodeArtifact
+
+- Software packages depend on each other to be built (also called code dependencies), and new ones are created
+- Storing and retrieving these dependencies is called artifact management
+- Traditionally you need to setup your own artifact management system
+- CodeArtifact is a secure, scalable, and cost-effective artifact management for software development
+- Works with common dependency management tools such as Maven, Gradle, npm, yarn, twine, pip, and NuGet
+- Developers and CodeBuild can then retrieve dependencies straight from CodeArtifact
+
+CodeArtifact - Resource Policy
+
+- Can be used to authorize another account to access CodeArrtifact
+- A given principal can either read all the packages in a repository or none of them
