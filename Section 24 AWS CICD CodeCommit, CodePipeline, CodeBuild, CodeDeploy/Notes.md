@@ -300,3 +300,16 @@ Amazon CodeGuru Profiler
  - Anomaly Detection
 - Support applications running on AWS or on-premise
 - Minimal overhead on application
+
+## 381. CodeGuru - Agent Configuration
+
+Amazon CodeGuru — Agent Configuration
+
+- MaxStackDepth — the maximum depth of the stacks in the code that is represented in the profile
+ - Example: if CodeGuru Profiler finds a method A, which calls method B, which calls method C, which calls method D, then the depth is 4
+ - Ifthe MaxStackDepth is set to 2, then the profiler evaluates A and B
+- MemoryUsageLimitPercent — the memory percentage used by the profiler
+- MinimumTimeForReportinglnMilliseconds — the minimum time between sending reports (milliseconds)
+- ReportinglntervallnMilliseconds — the reporting interval used to report profiles (milliseconds)
+- SamplinglntervallnMilliseconds — the sampling interval that is used to profile samples (milliseconds)
+ - Reduce to have a higher sampling rate
