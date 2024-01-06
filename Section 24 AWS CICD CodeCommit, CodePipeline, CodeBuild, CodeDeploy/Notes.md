@@ -313,3 +313,14 @@ Amazon CodeGuru — Agent Configuration
 - ReportinglntervallnMilliseconds — the reporting interval used to report profiles (milliseconds)
 - SamplinglntervallnMilliseconds — the sampling interval that is used to profile samples (milliseconds)
  - Reduce to have a higher sampling rate
+
+## 382. AWS Cloud9 - Overview
+
+AWS Cloud?
+
+- Cloud-based Integrated Development Environment (IDE)
+- Code editor, debugger, terminal in a browser
+- Work on your projects from anywhere with an Internet connection
+- Prepackaged with essential tools for popular pean languages (JavaScript, Python, PHP,...)
+- Share your development environment with your team (pair programming)
+- Fully integrated with AWS SAM & Lambda to éasily Build serverless applications
