@@ -28,4 +28,24 @@ AWS CodeDeploy is a fully managed deployment service that automates software dep
 
 AWS CodeBuild is a fully managed continuous integration (CI) service that compiles source code, runs tests, and produces software packages that are ready to deploy. It is an alternative to Jenkins.
 
-6. 
+6. You plan to create a CICD for your application in AWS. You want to run some automated tests on your application before the deployment process. Which AWS service allows you to do so?
+
+- AWS CodeBuild
+
+7. You're using CodeCommit as your code repository where developers push code changes to it. To prevent developers from committing any secret credentials, you want to automatically trigger code analysis after each commit. How can you achieve this?
+
+- Setup AWS SNS/Lambda integration in CodeCommit
+
+8. AWS CodeCommit supports the following authentication methods, EXCEPT ............................
+
+- WebSoket
+
+9. Your colleague has an IAM user in another AWS Account who wants to access your CodeCommit repository. What should you do?
+
+- Create an IAM role in your AWS account with the required permissions, then tell him to use STS cross-account access to assume this IAM role
+
+10. A CodePipeline pipeline that you manage just failed to deploy your code to Elastic Beanstalk even though the code has been pushed successfully to your CodeCommit repository. The pipeline just working fine 10 minutes ago. What is most likely the reason for this?
+
+- Your CodeBuild stage probably failed some tests
+
+11. 
