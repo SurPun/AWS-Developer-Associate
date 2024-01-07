@@ -48,4 +48,25 @@ AWS CodeBuild is a fully managed continuous integration (CI) service that compil
 
 - Your CodeBuild stage probably failed some tests
 
-11. 
+11. Your manager wants to receive emails when your CodePipeline pipeline fails so he can identify and troubleshoot the problems. How can you achieve this?
+
+- Setup an AWS CloudWatch Event Rule
+
+12. Which AWS service allows you to track and audit API calls made to and from AWS CodePipeline?
+
+- AWS CloudTrail
+
+13. The buildspec.yml file must be placed .......................... so CodeBuild can work properly.
+
+- at the root of your code
+
+14. When your CodeBuild build project fails, you can do the following to troubleshoot the issues, EXCEPT ..........................
+
+- SSH into the CodeBuild container to debug from there
+
+CodeBuild containers are deleted at the end of their execution (success or failure). You can't SSH into them, even while they're running.
+
+15. You're using CodeBuild to build your application as part of the CICD process. The build process takes a long time, so you investigated this and found that 15 minutes at each build is spent on pulling dependencies from remote repositories. What should you do to drastically speed up the build process?
+
+- Modify the buildspec.yml to enable Dependencies Caching in Amazon S3
+
