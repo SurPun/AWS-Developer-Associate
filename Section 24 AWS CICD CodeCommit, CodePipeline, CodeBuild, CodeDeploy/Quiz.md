@@ -70,3 +70,36 @@ CodeBuild containers are deleted at the end of their execution (success or failu
 
 - Modify the buildspec.yml to enable Dependencies Caching in Amazon S3
 
+16. (Hard Question - think outside the box!!)
+
+You would like to automatically deploy a Single Page Application (SPA) to the S3 bucket, after generating the static files from a set of markdown files. Which AWS services should you use for this?
+
+- CodePipeline + CodeBuild
+
+CodeBuild can run any commands, so you can use it to run commands including build a static website and copy your static web files to an S3 bucket.
+
+17. What's the proper order of Lifecycle Events in CodeDeploy for an EC2/on-premises deployment?
+
+- ApplicationStop, DownloadBundle, BeforeInstall, Install, AfterInstall, ApplicationStart, ValidateService
+
+18. Which Lifecycle Event hook should be used in the appspec.yml file to ensure the application is properly running after being deployed?
+
+- ValidateService
+
+19. You manage a fleet of EC2 and on-premises instances where you're trying to run your first deployment using AWS CodeDeploy, but it doesn't work. Which of the following could be a possible cause?
+
+- You've probably forgotten to install and start the CodeDeploy agent on the instances
+
+20. You would like to have a one-stop dashboard for all the CICD needs for all of your projects. You don't need heavy control of the individual configuration for all the components in your CICD, but need to be able to get a holistic view of your projects. Which AWS service do you recommend?
+
+- AWS CodeStar
+
+21. CodeBuild containers are run outside of a VPC and it's impossible to connect to resources in your VPC.
+
+- False
+
+You can configure CodeBuild to run its build containers in a VPC, so they can access private resources in a VPC such as databases, internal load balancers, ...
+
+22. CodeDeploy supports the following predefined deployment configurations for EC2/on-premises instances, EXCEPT .......................
+
+- Immutable
