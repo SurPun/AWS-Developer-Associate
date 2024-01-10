@@ -32,3 +32,14 @@ SAM — CLI Debugging
 - SAM CLI + AWS Toolkits => step-through and debug your code
 - Supported IDEs: AWS Cloud9, Visual Studio Code, JetBrains, PyCharm, IntelliJ, ..
 - AWS Toolkits: IDE plugins which allots you to build, test, debug, deploy, and cee Lambda functions built using AWS SAM
+
+## 391. SAM Policy Templates
+
+SAM Policy Templates
+
+- List of templates to apply permissions to your lambda Functiions
+- Full list available here: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-policy-templates.html#serverless-policy-template-table
+- Important examples:
+ - S3ReadPolicy: Gives read only permissions to objects in S3
+ - SQSPollerPolicy: Allows to poll an SQS queue
+ - DynamoDBCrudPolicy: CRUD = create read update delete
