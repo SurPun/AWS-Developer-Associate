@@ -14,6 +14,8 @@ NOTES :
 
 - [AWS Regional Services](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4)
 
+- [SAM Policy Templates](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-policy-templates.html#serverless-policy-template-table) 
+
 Logs :
 
 - <del>[ ] Get Cert by end of 2023
