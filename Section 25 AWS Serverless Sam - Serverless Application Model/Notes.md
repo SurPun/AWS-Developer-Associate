@@ -93,4 +93,15 @@ SAM — Local Capabilities
  - Generate sample payloads for event sources
  - S3, API Gateway, SNS, Kinesis, DynamoDB...
 
- 
+## 394. SAM Section Summary
+
+SAM - Exam Summary
+
+- SAM is built on CloudFormation -
+- SAM requires the Transform and Resources sections
+- Commands to know:
+ - sam build: fetch dependencies and create local deployment artifacts
+ - sam package: package and upload to Amazon S3, generate CF template
+ - sam deploy: deploy to CloudFormation
+- SAM Policy templates for easy IAM policy definition
+- SAM is integrated with CodeDeploy to do deploy to Lambda aliases
