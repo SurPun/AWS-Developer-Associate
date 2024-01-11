@@ -43,3 +43,27 @@ SAM Policy Templates
  - S3ReadPolicy: Gives read only permissions to objects in S3
  - SQSPollerPolicy: Allows to poll an SQS queue
  - DynamoDBCrudPolicy: CRUD = create read update delete
+
+## 392. SAM with CodeDeploy
+
+SAM and CodeDeploy
+
+- SAM framework natively uses CodeDeploy to update Lambda functions
+- Traffic Shifting feature
+- Pre and Post traffic hooks features to validate deployment (before the traffic shift starts and after it ends)
+- Easy & automated rollback using CloudWatch Alarms
+
+SAM and CodeDeploy
+
+- AutoPublishAlias
+ - Detects when new code is being deployed
+ - Creates and publishes an updated
+ - Points of that function with the latest code
+ - Points the alias to the updated version of the Lambda function
+
+- DeploymentPreference
+ - Canary, Linear, AllAtOnce
+- Alarms
+ - Alarms that can trigger a rollback
+- Hooks
+ - Pre and post traffic shifting Lambda functions to test your deployment
