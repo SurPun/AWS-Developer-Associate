@@ -67,3 +67,30 @@ SAM and CodeDeploy
  - Alarms that can trigger a rollback
 - Hooks
  - Pre and post traffic shifting Lambda functions to test your deployment
+
+## 393. SAM - Local Capabilities 
+
+SAM — Local Capabilities
+
+- Locally start AWS Lambda
+ - sam local start-lambda
+ - Starts a local endpoint that emulates AVS Lambda
+ - Can run automated tests against this local endpoint
+
+- Locally Invoke Lambda Function
+ - sam local invoke
+ - Invoke Lambda function with payload once and quit after invocation completes
+ - Helpful for generating test cases
+ - If the function make API calls to AWS, make sure you are using the correct --profile option
+
+- Locally Start an API Gateway Endpoint
+ - sam local start-api
+ - Starts a local HTTP server that hosts all your functions
+ - Changes to functions are automatically reloaded
+
+- Generate AWS Events for Lambda Functions
+ - sam local generate-event
+ - Generate sample payloads for event sources
+ - S3, API Gateway, SNS, Kinesis, DynamoDB...
+
+ 
