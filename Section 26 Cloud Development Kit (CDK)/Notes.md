@@ -126,3 +126,16 @@ CDK — Bootstrapping
 - You must run the following command for each new environment:
  - cdk bootstrap aws://<aws_account>/<aws_region>
  - Otherwise, you will get an error “Policy contains a statement with one or more invalid principal”
+
+## 399. CDK - Unit Testing
+
+CDK — Testing
+
+- To test CDK apps, use CDK Assertions Module combined with popular test frameworks such as Jest (JavaScript) or Pytest (Python)
+- Verify we have specific resources, rules, conditions, parameters...
+- Two types of tests:
+ - Fine-grained Assertions (common) — test specific aspects of the CloudFormation template (e.g., check if a resource has this property with this value)
+ - Snapshot Tests — test the synthesized CloudFormation template against a previously stored baseline template
+- To import a template
+ - Template.fromStack(MyStack) : stack built in CDK
+ - Template.fromString(mystring) : stack build outside CDK
