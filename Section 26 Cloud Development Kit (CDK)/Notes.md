@@ -96,4 +96,33 @@ const item = items.addResource('{item}');
 item.addMethod('GET');  // GET /items/{item}
 
 item. addMethod('DELETE', new apigateway.HttpIntegration('http://amazon.com'));
- `
+`
+
+## 398. CDK - Commands & Bootsraping
+
+CDK — Important Commands to know
+
+- `npm install` -g aws-cdk-lib - Install the CDK CLI and libraries
+
+- `cdk init app` - Create a new CDK project from a specified template
+
+- `cdk synth` - Synthesizes and prints the CloudFormation template
+
+- `cdk bootstrap` - Deploys the CDK Toolkit staging Stack
+
+- `cdk deploy` - Deploy the Stack(s)
+
+- `cdk diff` - View differences of local CDK and deployed Stack
+
+- `cdk destroy` - Destroy the Stack(s)
+
+CDK — Bootstrapping
+
+- The process of provisioning resources for CDK before you can deploy CDK apps into an AWS environmen
+- AWS Environment = account & region
+- CloudFormation Stack called CDKToolkit is created and contains:
+ - S3 Bucket — to store files
+ - IAM Roles — to grant permissions to perform deployments
+- You must run the following command for each new environment:
+ - cdk bootstrap aws://<aws_account>/<aws_region>
+ - Otherwise, you will get an error “Policy contains a statement with one or more invalid principal”
