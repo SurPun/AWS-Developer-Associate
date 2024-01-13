@@ -14,3 +14,16 @@ Amazon Cognito
  - Integrate with Cognito User Pools as an identity provider
 
 - Cognito vs IAM: ‘hundreds of users’, "mobile users”, “authenticate with SAML"’
+
+## 401. Cognito User Pools
+
+Cognito User Pools (CUP) — User Features
+
+- Create a serverless database of user for your web & mobile apps
+- Simple login: Username (or email) / password combination
+- Password reset
+- Email & Phone Number Verification
+- Multi-factor authentication (MFA)
+- Federated Identities: users from Facebook, Google, SAML...
+- Feature: block users if their credentials are compromised elsewhere
+- Login sends back a JSON Web Token (JWT)
