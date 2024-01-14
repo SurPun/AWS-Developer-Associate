@@ -116,3 +116,27 @@ ALB — Auth. Through an Identity Provider (IdP) That is OpenID Connect (OIDC) C
 - Allow redirect from OIDC to your Application Load Balancer DNS name (AWS provided) and CNAME (DNS Alias of your app)
  - https://DNS/oauth2/idpresponse
  - https://CNAME/oauth2/idpresponse
+
+## 405. Cognito Identity Pools (Federated Identities)
+
+Cognito Identity Pools (Federated Identities)
+
+- Get identities for “users” so they obtain temporary AWS credentials
+- Your identity pool (e.g identity source) can include:
+ - Public Providers (Login with Amazon, Facebook, Google, Apple)
+ - Users in an Amazon Cognito user pool
+ - OpenID Connect Providers & SAML Identity Providers
+ - Developer Authenticated Identities (custom login server)
+ - Cognito Identity Pools allow for unauthenticated (guest) access
+
+- Users can then access AWS services directly or through API Gateway
+ - The IAM policies applied to the credentials are defined in Cognito
+ - They can be customized based on the user_id for fine grained control
+
+Cognito Identity Pools — IAM Roles
+
+- Default IAM roles for authenticated and guest users
+- Define rules to choose the role for each user based on the user's ID
+- You can partition your users’ access using policy variables
+- IAM credentials are obtained by Cognito Identity Pools through STS
+- The roles must have a “‘trust” policy of Cognito Identity Pools
