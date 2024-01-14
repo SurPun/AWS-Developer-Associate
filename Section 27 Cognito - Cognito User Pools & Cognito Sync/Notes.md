@@ -84,3 +84,35 @@ Decoding  ID Token; JWT - JSON Web Token
 - The Payload will contain the user information (sub UUID, given_name, email, phone_number, attributes...)
 - From the sub UUID, you can retrieve all users details from Cognito / OIDC
 
+## 404. Application Load Balancer - User Authentication
+
+Application Load Balancer — Authenticate Users
+
+- Your Application Load Balancer can securely authenticate users
+ - Offload the work of authenticating users to your load balancer
+ - Your applications can focus on their business logic
+- Authenticate users through:
+ - Identity Provider (IdP): OpenID Connect (OIDC) compliant
+ - Cognito User Pools:
+  - Social IdPs, such as Amazon, Facebook, or Google
+  - Corporate identities using SAML, LDAP or Microsoft AD
+
+- Must use an HTTPS listener to set authenticate-oidc & authenticate-cognito rules
+- OnUnauthenticatedRequest — authenticate (default), deny, allow
+
+ALB - Auth through Cognito User Pools
+
+- Create Cognito User Pool, Client and Domain
+- Make sure an ID token is returned
+- Add the social or Corporate IdP if needed
+- Several URL redirections are necessary
+- Allow your Cognito User Pool Domain on your IdP app's callback URL. For example:
+ - https://domain-prefix.auth.region.amazoncognito.com/sam12/ idpresponse
+ - https://user-pool-domain/oauth2/idpresponse
+
+ALB — Auth. Through an Identity Provider (IdP) That is OpenID Connect (OIDC) Compliant
+
+- Configure a Client ID & Client Secret
+- Allow redirect from OIDC to your Application Load Balancer DNS name (AWS provided) and CNAME (DNS Alias of your app)
+ - https://DNS/oauth2/idpresponse
+ - https://CNAME/oauth2/idpresponse
