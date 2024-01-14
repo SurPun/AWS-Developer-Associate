@@ -140,3 +140,22 @@ Cognito Identity Pools — IAM Roles
 - You can partition your users’ access using policy variables
 - IAM credentials are obtained by Cognito Identity Pools through STS
 - The roles must have a “‘trust” policy of Cognito Identity Pools
+
+## 407. Cognito User Pools vs Cognito Identity Pools
+
+Cognito User Pools vs Identity Pools
+
+- Cognito User Pools (for authentication = identity verification)
+ - Database of users for your web and mobile application
+ - Allows to federate logins through Public Social, OIDC, SAML...
+ - Can customize the hosted UI for authentication (including the logo)
+ - Has triggers with AWS Lambda during the authentication flow
+ - Adapt the sign-in experience to different risk levels (MFA, adaptive authentication, etc...)
+
+- Cognito Identity Pools (for authorization = access control)
+ - Obtain AWS credentials for your users
+ - Users can login through Public Social, OIDC, SAML & Cognito User Pools
+ - Users can be unauthenticated (guests)
+ - Users are mapped to IAM roles & policies, can leverage policy variables
+
+- CUP + CIP = authentication + authorization
