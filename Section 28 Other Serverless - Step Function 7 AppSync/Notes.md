@@ -75,3 +75,17 @@ Step Functions - Catch (Task or Parallel State)
 Step Function — ResultPath
 
 - Include the error in the input
+
+## 413. Step Functions - Wait For Task Token
+
+Step Functions — Wait for Task Token
+
+- Allows you to pause Step Functions during a Task until a Task Token is returned
+- Task might wait for other AWS services, human approval, 3rd party integration, call legacy systems...
+- Append .waitForTaskToken to the Resource field to tell Step Functions to wait for the Task Token to be returned
+
+`
+“Resource”: “arn:aws:states:::sqs:sendMessage.waitForTaskToken"
+`
+
+- Task will pause until it receives that Task Token back with a Send TaskSuccess or SendTaskFailure API call
