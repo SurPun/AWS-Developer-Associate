@@ -133,3 +133,48 @@ KNS Symmetric - API Summary
  - DEK that is encrypted under the CMK that you specify (must use Decrypt later)
 - Decrypt: decrypt up to 4 KB of data (including Data Encryption Keys)
 - GenerateRandom: Returns a random byte string
+
+## 430. KMS Limits
+
+KMS Request Quotas
+
+- When you exceed a request quota, you get a ThrottlingException:
+
+`
+You have exceeded the rate at which you may call KMS, Reduce the frequency of your calls.
+Service: ANSOIS; Status Code: 400; Error Code;Throttlingéxception; Request ID. <ID>
+`
+
+- To respond, use exponential backoff (backoff and retry)
+- For cryptographic operations, they share a quota
+- This includes requests made by AWS on your behalf (ex: SSE-KMS)
+- For GenerateDataKey, consider using DEK caching from the Encryption SDK
+- You can request a Request Quotas increase through API or AWS support
+
+KMS Request Quotas
+
+API operation:
+
+- Decrypt
+- Encrypt
+- GenerateDataKey (symmetric)
+- GenerateDataKeyWithoutPlaintext (symmetric)
+- GenerateRandom
+- ReEncrypt
+- Sign (asymmetric)
+- Verify (asymmetric)
+
+Request quotas (per second)
+
+These shared quotas vary with the AWS Region and the type of CMK used in the request. Each quota is calculated separately.
+
+Symmetric CMK quota:
+- 5,500 (shared)
+- 10,000 (shared) in the following Regions:
+ - us-east-2, ap-southeast-1, ap-southeast-2, ap-northeast-1, eu-central-1, eu-west-2
+- 30,000 (shared) in the following Regions:
+ - us-east-1, us-west-2, eu-west-1
+
+Asymmetric CMK quota:
+- 500 (shared) for RSA CMKs
+- 300 (shared) for Elliptic curve (ECC) CMKs
