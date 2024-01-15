@@ -89,3 +89,21 @@ Step Functions — Wait for Task Token
 `
 
 - Task will pause until it receives that Task Token back with a Send TaskSuccess or SendTaskFailure API call
+
+## 414. Step Functions - Activity Tasks
+
+Step Functions — Activity Tasks
+
+- Enables you to have the Task work performed by an Activity Worker
+
+- Activity Worker apps can be running on EC2, Lambda, mobile device...
+
+- Activity Worker poll for a Task using GetActivityTask API
+
+- After Activity Worker completes its yore sends a response of tts success/failure using SendTaskSuccess or SendTaskFailure
+
+- To keep the Task active:
+ - Configure how long a task can wait by setting TimeoutSeconds
+ - Periodically send a heartbeat from your Aye using SendTaskHeartBeat within the time you set in HeartBeatSeconds
+
+- By configurin ape neo and actively sending a heartbeat, Activity Task can wait up to 1 year
