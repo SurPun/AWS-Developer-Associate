@@ -121,3 +121,22 @@ Inline vs Managed Policies
 - Inline
  - Strict one-to-one relationship between policy and principal
  - Policy is deleted if you delete the IAM principal
+
+## 422. Granting a User Permissions to Pass a Role to an AWS Service
+
+Granting a User Permissions to Pass a Role to an AWS Service
+
+- To configure many AWS services, you must pass an IAM role to the service (this happens only once during setup)
+- The service will later assume the role and perform actions
+- Example of passing a role:
+ - To an EC2 instance
+ - To a Lambda function
+ - To an ECS task
+ - To CodePipeline to allow it to invoke other services
+- For this, you need the IAM permission iam:PassRole 
+- It often comes with iam:GetRole to view the role being passed
+
+Can a role be passed to any service?
+
+- No: Roles can only be passed to what their trust allows
+- A trust policy for the role that allows the service to assume the role
