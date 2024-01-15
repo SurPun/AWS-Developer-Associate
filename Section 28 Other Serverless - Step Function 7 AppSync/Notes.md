@@ -160,3 +160,83 @@ AppSync — Security
 - OPENID_CONNECT: OpenID Connect provider / JSON Web Token
 - AMAZON_COGNITO_USER_POOLS
 - For custom domain & HTTPS, use CloudFront in front of AppSync
+
+## 418. AWS Amplify
+
+AWS Amplify Create mobile and web applications
+
+- Amplify Studio
+ - Visually build a full-stack app, both front-end UI and a backend.
+
+- Amplify CLI
+ - Configure an Amplify backend With a guided CLI workflow
+
+- Amplify Libraries
+ - Connect your app to existing AWS Services (Cognito, S3 and more)
+
+- Amplify Hosting
+ - Host secure, reliable, fast web apps or websites via the AWS content delivery network.
+
+AWS Amplify
+
+- Set of tools to get started with creating mobile and web applications
+
+- “Elastic Beanstalk for mobile and web applications”
+
+- Must-have features such as data storage, authentication, storage, and machine-learning, all powered by AWS services
+
+- Front-end libraries with ready-to-use components for React.js, Vue, Javascript, iOS, Android, Flutter, etc...
+
+- Incorporates AWS best practices to for reliability, security, scalability
+
+- Build and deploy with the Amplify CLI or Amplify Studio
+
+AWS Amplify - Important Features
+
+`amplify add auth`:
+
+    AUTHENTICATION
+     - Leverages Amazon Cognito
+
+     - User registration, authentication, account recovery & other operations
+
+     - Support MFA, Social Sign-in, etc...
+
+     - Pre-built Ul components
+    
+     - Fine-grained authorization
+
+`amplify add api`:
+
+    DATASTORE
+
+     - Leverages Amazon AppSync and Amazon DynamoDB
+
+     - Work with local data and have automatic synchronization to the cloud without complex code
+
+     - Powered by GraphQL
+    
+     - Offline and real-time capabilities
+    
+     - Visual data modeling w/ Amplify Studio
+
+AWS Amplify Hosting
+
+- Build and Host Modern Web Apps
+- CICD (build, test, deploy)
+- Pull Request Previews
+- Custom Domains
+- Monitoring
+- Redirect and Custom Headers
+- Password protection
+
+AWS Amplify - End-toEnd (E2E) Testing
+
+- Run end-to-end (E2E) tests in the test phase in Amplify
+- Catch regressions before pushing code to production
+- Use the test step to run any test commands at build time (amplify.yml)
+- Integrated with Cypress testing framework
+ - Allows you to generate UI report for your tests
+
+Build (Unit test) run tests while the app is being built
+Test (E2E test) run tests while the app is deployed (staging)
