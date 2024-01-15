@@ -1,4 +1,4 @@
-# Section 26 Cloud Development Kit (CDK)
+# Section 26: Cloud Development Kit (CDK)
 
 ## 395. AWS Cloud Development Kit (CDK)
 

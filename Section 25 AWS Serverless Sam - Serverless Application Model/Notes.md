@@ -1,4 +1,4 @@
-# Section 25 AWS Serverless Sam - Serverless Application Model
+# Section 25: AWS Serverless Sam - Serverless Application Model
 
 ## 385. SAM Overview
 

@@ -1,4 +1,4 @@
-# Section 27 Cognito - Cognito User Pools & Cognito Sync
+# Section 27: Cognito - Cognito User Pools & Cognito Sync
 
 ## 400. Amazon Cognito
 

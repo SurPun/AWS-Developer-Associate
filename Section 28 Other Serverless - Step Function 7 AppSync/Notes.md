@@ -1,4 +1,4 @@
-# Section 28 Other Serverless - Step Function 7 AppSync
+# Section 28: Other Serverless - Step Function 7 AppSync
 
 ## 408. Step Function Overview
 
