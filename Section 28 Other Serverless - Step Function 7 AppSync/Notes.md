@@ -107,3 +107,33 @@ Step Functions — Activity Tasks
  - Periodically send a heartbeat from your Aye using SendTaskHeartBeat within the time you set in HeartBeatSeconds
 
 - By configurin ape neo and actively sending a heartbeat, Activity Task can wait up to 1 year
+
+## 415. Step Functions - Standard vs Express
+
+Step Functions - Standars vs Express
+
+Step Functions Workflows:
+
+Standard (default):
+ - Max. Duration = Up to 1 year
+ - Execution Model = Exactly-once Execution
+ - Execution Rate = Over 2000 / second
+ - Execution History = Up to 90 days or using CloudWatch
+ - Pricing = # of State Transitions
+ - Use cases = Non-idempotent actions (e.g., processing Payments)
+
+Express:
+ - Max. Duration = Up to 5 minutes
+ - Execution Rate = Over 100,000 / second
+ - Execution History = CloudWatch Logs
+ - Pricing = # of executions, duration, and memory consumption
+ - Use cases = IOT data ingestion, streaming data, mobile app backends,...
+
+ Asynchronous (At-least once)
+ - Doesn't wait for WorkFlow to complete (get results from CW Logs)
+ - You don't need an immediate response (e.g., messaging services)
+ - Must manage idempotence
+
+ Synchronous (At-most once)
+  - You need an immediate response (e.g., orchestrate microservice)
+  - Can be invoked from API Gateway or Lambda function
