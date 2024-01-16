@@ -265,3 +265,36 @@ Principal Options in IAM Policies
 
 “Principal": "*"
 "Principal": { "AWS": "*" }
+
+## 434. CloudHSM Overview
+
+CloudHSM
+
+- KMS => AWS manages the software for encryption
+- CloudHSM => AWS provisions encryption hardware
+- Dedicated Hardware (HSM = Hardware Security Module)
+- You manage your own encryption keys entirely (not AWS)
+- HSM device is tamper resistant, FIPS |40-2 Level 3 compliance
+- Supports both symmetric and asymmetric encryption (SSL/TLS keys)
+- No free tier available
+- Must use the CloudHSM Client Software
+- Redshift supports CloudHSM for database encryption and key management
+- Good option to use with SSE-C encryption
+
+CloudHSM — High Availability
+
+- CloudHSM clusters are spread across Multi AZ (HA)
+- Great for availability and durability
+
+CloudHSM - Integration with AWS Services
+
+- Through integration with AWS KMS
+- Configure KMS Custom Key Store with CloudHSM
+- Example: EBS, S3, RDS ...
+
+CloudHSM vs. KMS
+
+| Feature    | AWS KMS | AWS CloudHSM|
+| ----------- | ----------- | ----------- |
+| Tenancy | Multi-Tenant | Single-Tenant |
+| Standard | FIPS 140-2 Level 3 | FIPS 140-2 Level 3 |
