@@ -188,3 +188,80 @@ Asymmetric CMK quota:
  - A “S3 bucket key” is generated
  - That key is used to encrypt KMS objects with new data keys
 - You will see less KMS CloudTrail events in CloudTrail
+
+## 433. KMS Key Policies & IAM Principals
+
+KMS Key / KMS Key Policy
+
+Defaukt KMS Key Policy
+
+`
+{
+    "Effect": "Allow",
+    "Action": "kms:*",
+    "Principal": {
+        “AWS": “arn:aws: iam: :123456789012: root"
+    },
+    "Resource": "*"
+}
+`
+
+Allow Federated User
+
+`
+{
+    "Effect": "Allow",
+    “kms": [
+        "kms:Encrypt",
+        “kms:Decrypt",
+        “kms:ReEncrypt*",
+        “kms:GenerateDataKey*",
+        “kms:DescribeKey"
+    ],
+    “Principal": {
+        "AWS": “arn:aws:sts::123456789012:federated-user/user-name"
+    },
+    “Resource” "*":
+}
+`
+
+Principal Options in IAM Policies
+
+- AWS Account and Root User
+
+    "Principal": { "AWS": "123456789012" }
+    "Principal": { "AWS": "“arn:aws: iam::123456789012:root" }
+
+- IAM Roles
+
+    "Principal": { "AWS": “arn:aws:iam::123456789012:role/role-name" }
+
+- IAM Role Sessions
+
+    "Principal": { "AWS": “arn:aws:sts::123456789012:assumed-role/role-name/role-session-name" }
+    "Principal": { "Federated": “cognito-identity.amazonaws.com" }
+    "Principal": { "Federated": “arn:aws:iam::123456789012:saml-provider/provider-name" }
+
+Principal Options in IAM Policies
+
+- IAM Users
+
+"Principal": { "AWS": “arn:aws:iam::123456789012:user/user-name" }
+
+- Federated User Sessions
+
+"Principal": { "AWS": "“arn:aws:sts::123456789012:federated-user/user-name" }
+
+- AWS Services
+
+"Principal": {
+    "Service": [
+        “ecs.amazonaws.com",
+        “elasticloadbalancing.amazonaws.com"
+    ]
+}
+
+- All Principals
+
+“Principal": "*"
+"Principal": { "AWS": "*" }
