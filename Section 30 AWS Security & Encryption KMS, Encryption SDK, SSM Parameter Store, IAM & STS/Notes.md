@@ -309,3 +309,82 @@ CloudHSM vs. KMS
 | Cryptographic Acceleration | None | SSL/TLS Acceleration |
 | | | Oracle TDE Acceleration |
 | Access & Authentication | AWS IAM | You create users and manage their permissions |
+
+## 435. SSM Parameter Store Overview
+
+SSM Parameter Store
+
+- Secure storage for configuration and secrets
+- Optional Seamless Encryption using KMS
+- Serverless, scalable, durable, easy SDK
+- Version tracking of configurations / secrets
+- Security through IAM
+- Notifications with Amazon EventBridge
+- Integration with CloudFormation
+
+SSM Parameter Store Hierarchy
+
+- /my-department/
+    - my-app/
+        - dev/
+            - db-url
+            - db-password
+        - prod/
+            - db-url
+            - db-password
+    - other-app/
+- /other-department/
+- /aws/reference/secretsmanager/secret_ID_in_Secrets_Manager
+- /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 (public)
+
+Standard and advanced parameter tiers
+| | Standard | Advanced |
+| --- | --- | --- |
+| Total number of parameters allowed (per AWS account and Region) | 10,000 | 100,000 |
+| Maximum size of a parameter value | 4KB | 8KB |
+| Parameter policies available | No | Yes |
+| Cost | No additional charge | Charges apply |
+| Storage Pricing | Free | $0.05 per advanced parameter per month |
+
+Parameters Policies (for advanced parameters)
+
+- Allow to assign aT TL to a parameter (expiration date) to force updating or deleting sensitive data such as passwords
+- Can assign multiple policies at a time
+
+Expiration (to delete a parameter)
+
+`
+{
+    "Type": "Expiration",
+    "Version": "1.0",
+    "Attributes": {
+        "Timestamp": "2020-12-02T21:34:33.00Z"
+    }
+}
+`
+
+ExpirationNotification (EventBridge)
+
+`
+{
+    "Type": "ExpirationNotification",
+    "Version": "1.0",
+    "Attributes": {
+        "Before": "15",
+        "Unit": "Days"
+    }
+}
+`
+
+NoChangeNotification (EventBridge)
+
+`
+{
+    "Type": "NoChangeNotification",
+    "Version": "1.0",
+    "Attributes": {
+        "After": "20",
+        "Unit": "Days"
+    }
+}
+`
