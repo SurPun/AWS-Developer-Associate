@@ -298,3 +298,14 @@ CloudHSM vs. KMS
 | ----------- | ----------- | ----------- |
 | Tenancy | Multi-Tenant | Single-Tenant |
 | Standard | FIPS 140-2 Level 3 | FIPS 140-2 Level 3 |
+| Master Keys| AWS Owned CMK | FIPS 140-2 Level 3 |
+| | AWS Managed CMK | |
+| | Customer Managed CMK |  |
+| Key Types | Symmetric | Symmetric |
+|  | Asymmetric | Asymmetric |
+|  | Digital Signing | Digital Signing & Hashing |
+| Key Accessibility| Accessible in multiple AWS regions (can't access keys outside the region it's created in)| Deployed and managed in a VPC |
+| | | Can be shared across VPCs (VPC Peering) |
+| Cryptographic Acceleration | None | SSL/TLS Acceleration |
+| | | Oracle TDE Acceleration |
+| Access & Authentication | AWS IAM | You create users and manage their permissions |
