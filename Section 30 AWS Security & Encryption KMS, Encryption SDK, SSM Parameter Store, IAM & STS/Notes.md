@@ -178,3 +178,13 @@ Symmetric CMK quota:
 Asymmetric CMK quota:
 - 500 (shared) for RSA CMKs
 - 300 (shared) for Elliptic curve (ECC) CMKs
+
+## 432. S3 Bucket Keys
+
+- New setting to decrease...
+ - Number of API calls made to KMS from S3 by 99%
+ - Costs of overall KMS encryption with Amazon S3 by 99%
+- This leverages data keys
+ - A “S3 bucket key” is generated
+ - That key is used to encrypt KMS objects with new data keys
+- You will see less KMS CloudTrail events in CloudTrail
