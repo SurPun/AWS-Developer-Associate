@@ -406,3 +406,46 @@ AWS Secrets Manager — Multi-Region Secrets
 - Secrets Manager keeps read replicas in sync with the primary Secret
 - Ability to promote a read replica Secret to a standalone Secret
 - Use cases: multi-region apps, disaster recovery strategies, multi-region DB...
+
+## 440. Secrets Manager - CloudFormation Integration
+
+Secrets Manager CloudFormation Integration RDS & Aurora
+
+- ManageMasterUserPassword — creates admin secret implicitly
+- RDS, Aurora will manage the secret in Secrets Manager and its rotation
+
+Secrets Manager CloudFormation - Dynamic Reference
+
+```
+
+Resources:
+    # Secret resource with a randomly generated password in its SecureString JSON
+    MyRDSDBInstanceRotationSecret:
+        Type: AWS::SecretsManager::Secret
+        Properties:
+            GenerateSecretString:
+                SecretStringTemplate: ‘{"username": “admin"}'
+                GenerateStringKey: password
+                PasswordLength: 16
+                ExcludeCharacters: "\"@/\\"
+
+    # RDS Instance resource. Its master username and password use dynamic references
+    # to resolve values from Secrets Manager
+    MyRDSDBInstance:
+        Type: AWS::RDS::DBInstance
+        Properties:
+            DBInstanceClass: db.t2.micro
+            Engine: mysql
+            MasterUsername: !Sub "{{resolve:secretsmanager:${MyRDSDBInstanceRotationSecret}::username}}"
+            MasterUserPassword: !Sub "{{resolve:secretsmanager:${MyRDSDBInstanceRotationSecret}::password}}"
+
+    # SecretTargetAttachment resource which updates the referenced Secret with properties
+    # about the referenced RDS instance
+    SecretRDSDBInstanceAttachment:
+        Type: AWS::SecretsManager::SecretTargetAttachment
+        Properties:
+            TargetType: AWS::RDS::DBInstance
+            SecretId: !Ref MyRDSDBInstanceRotationSecret
+            TargetId: !Ref MyRDSDBInstance
+
+```
