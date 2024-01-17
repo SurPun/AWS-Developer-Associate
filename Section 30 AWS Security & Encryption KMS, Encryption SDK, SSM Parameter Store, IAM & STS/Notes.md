@@ -449,3 +449,32 @@ Resources:
             TargetId: !Ref MyRDSDBInstance
 
 ```
+
+## 441. SSM Parameter Store vs Secrets Manager
+
+SSM Parameter Store vs Secrets Manager
+
+- Secrets Manager ($$$):
+ - Automatic rotation of secrets with AWS Lambda
+ - Lambda function is provided for RDS, Redshift, DocumentDB
+ - KMS encryption is mandatory
+ - Can integration with CloudFormation
+
+- SSM Parameter Store ($):
+ - Simple API
+ - No secret rotation (can enable rotation using Lambda triggered by EventBridge)
+ - KMS encryption is optional
+ - Can integration with CloudFormation
+ - Can pull a Secrets Manager secret using the SSM Parameter Store API
+
+SSM Parameter Store vs Secrets Manager Rotation
+
+AWS Secrets Manager:
+- AWS Secrets Manager (every 30 days) Invoke:
+    - Lambda Function - change password => Amazon RDS
+
+SSM Parameter Store:
+- EventBridge (every 30 days) Invoke:
+    - Lambda Function:
+        - change password => Amazon RDS
+        - change value => SSM Parameter Store
