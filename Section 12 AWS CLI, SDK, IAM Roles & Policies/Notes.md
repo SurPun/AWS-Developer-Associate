@@ -8,11 +8,11 @@ EC2 Instance Metadata (IMDS)
 features to developers
 - It allows AWS EC2 instances to "learn about themselves” without using an
 IAM Role for that purpose.
--The URL is http://169.254, 169.254/latest/meta-data
--You can retrieve the IAM Role name from the metadata, but you CANNOT
+- The URL is http://169.254, 169.254/latest/meta-data
+- You can retrieve the IAM Role name from the metadata, but you CANNOT
 retrieve the IAM Policy.
--Metadata = Info about the EC2 instance
--Userdata = launch script of the EC2 instance
+- Metadata = Info about the EC2 instance
+- Userdata = launch script of the EC2 instance
 
 ## 129. AWS CLI with MFA
 
@@ -39,23 +39,23 @@ us-east-1 will be chosen by default
 AWS Limits (Quotas)
 
 - API Rate Limits
- - Describelnstances API for EC2 has a limit of 100 calls per seconds
- - GetObject on S3 has a limit of 5500 GET per second per prefix
- - For Intermittent Errors: implement Exponential Backoff
- - For Consistent Errors: request an API throttling limit increase
+    - Describelnstances API for EC2 has a limit of 100 calls per seconds
+    - GetObject on S3 has a limit of 5500 GET per second per prefix
+    - For Intermittent Errors: implement Exponential Backoff
+    - For Consistent Errors: request an API throttling limit increase
 
 - Service Quotas (Service Limits)
- - Running On-Demand Standard Instances: | 152 vCPU
- - You can request a service limit increase by opening a ticket
- - You can request a service quota increase by using the Service Quotas API
+    - Running On-Demand Standard Instances: | 152 vCPU
+    - You can request a service limit increase by opening a ticket
+    - You can request a service quota increase by using the Service Quotas API
 
 Exponential Backoff (any AWS service)
 
 - If you get ThrottlingException intermittently, use exponential backoff
 - Retry mechanism already included in AWS SDK API calls
 - Must implement yourself if using the AWS API as-is or in specific cases
- - Must only implement the retries on 5xx server errors and throttling
- - Do not implement on the 4x client errors
+    - Must only implement the retries on 5xx server errors and throttling
+    - Do not implement on the 4x client errors
 
 ## 132. AWS Credentials Provider & Chain
 
@@ -88,8 +88,8 @@ AWS Credentials Scenario
 - An application deployed on an EC2 instance Is using environment variables with credentials from an IAM user to call the Amazon S3 API.
 - The IAM user has S3FullAccess permissions.
 - The application only uses one S3 bucket, so according to best practices:
- - An IAM Role & EC2 Instance Profile was created for the EC2 instance
- - The Role was assigned the minimum permissions to access that one S3 bucket
+    - An IAM Role & EC2 Instance Profile was created for the EC2 instance
+    - The Role was assigned the minimum permissions to access that one S3 bucket
 - The IAM Instance Profile was assigned to the EC2 instance, but it still had access to all S3 buckets. Why? the credentials chain is still giving priorities to the environment variables
 
 AWS Credentials Best Practices
@@ -98,9 +98,9 @@ AWS Credentials Best Practices
 - Best practice Is for credentials to be inherited from the credentials chain
 
 - If using working within AWS, use IAM Roles
- - => EC? Instances Roles for EC2 Instances
- - => ECS Roles for ECS tasks
- - => Lambda Roles for Lambda functions
+    - => EC? Instances Roles for EC2 Instances
+    - => ECS Roles for ECS tasks
+    - => Lambda Roles for Lambda functions
 
 - If working outside of AWS, use environment variables / named profiles
 
