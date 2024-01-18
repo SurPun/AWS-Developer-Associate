@@ -5,8 +5,8 @@
 AWS Step Functions
 
 - Model your workflows as state machines (one per workflow)
- - Order fulfillment, Data processing
- - Web applications, Any workflow
+  - Order fulfillment, Data processing
+  - Web applications, Any workflow
 - Written in JSON
 - Visualization of the workflow and the execution of the workflow, as well as history
 - Start workflow with SDK call, API Gateway, Event Bridge (CloudWatch Event)
@@ -16,17 +16,17 @@ Step Function - Task States
 
 - Do some work in your state machine
 - Invoke one AWS service
- - Can invoke a Lambda function
- - Run an AWS Batch job
- - Run an ECS task and wait for it to complete
- - Insert an item from DynamoDB
- - Publish message to SNS, SQS
- - Launch another Step Function workflow...
+  - Can invoke a Lambda function
+  - Run an AWS Batch job
+  - Run an ECS task and wait for it to complete
+  - Insert an item from DynamoDB
+  - Publish message to SNS, SQS
+  - Launch another Step Function workflow...
 
 - Run an one Activity
- - EC2, Amazon ECS, on-premises
- - Activities poll the Step functions for work
- - Activities send results back to Step Functions
+  - EC2, Amazon ECS, on-premises
+  - Activities poll the Step functions for work
+  - Activities send results back to Step Functions
 
 Step Function - States
 
@@ -42,17 +42,17 @@ Step Function - States
 Error Handling in Step Functions
 
 - Any state can encounter runtime errors for various reasons:
- - State machine definition issues (for example, no matching rule in a Choice state)
- - Task failures (for example, an exception in a Lambda function)
- - Transient issues (for example, network partition events)
+  - State machine definition issues (for example, no matching rule in a Choice state)
+  - Task failures (for example, an exception in a Lambda function)
+  - Transient issues (for example, network partition events)
 
 - Use Retry (to retry failed state) and Catch (transition to failure path) in the State Machine to handle the errors instead of inside the Application Code
 
 - Predefined error codes:
- - States.ALL : matches any error name
- - States. Timeout: Task ran longer than TimeoutSeconds or no heartbeat received
- - States. TaskFailed: execution failure
- - States.Permissions: insufficient privileges to execute code
+  - States.ALL : matches any error name
+  - States. Timeout: Task ran longer than TimeoutSeconds or no heartbeat received
+  - States. TaskFailed: execution failure
+  - States.Permissions: insufficient privileges to execute code
 
 - The state may report is own errors
 
@@ -103,8 +103,8 @@ Step Functions — Activity Tasks
 - After Activity Worker completes its yore sends a response of tts success/failure using SendTaskSuccess or SendTaskFailure
 
 - To keep the Task active:
- - Configure how long a task can wait by setting TimeoutSeconds
- - Periodically send a heartbeat from your Aye using SendTaskHeartBeat within the time you set in HeartBeatSeconds
+  - Configure how long a task can wait by setting TimeoutSeconds
+  - Periodically send a heartbeat from your Aye using SendTaskHeartBeat within the time you set in HeartBeatSeconds
 
 - By configurin ape neo and actively sending a heartbeat, Activity Task can wait up to 1 year
 
@@ -145,9 +145,9 @@ AWS AppSync - Overview
 - AppSync is a managed service that uses GraphQL
 - GraphQL makes it easy for applications to get exactly the data they need.
 - This includes combining data from one or more sources
- - NoSQL data stores, Relational databases, HTTP APIs...
- - Integrates with DynamoDB, Aurora, OpenSearch & others
- - Custom sources with AWS Lambda
+  - NoSQL data stores, Relational databases, HTTP APIs...
+  - Integrates with DynamoDB, Aurora, OpenSearch & others
+  - Custom sources with AWS Lambda
 - Retrieve data in real-time with WebSocket or MQTT on WebSocket
 - For mobile apps: local data access & data synchronization
 - It all starts with uploading one GraphQL schema
@@ -166,16 +166,16 @@ AppSync — Security
 AWS Amplify Create mobile and web applications
 
 - Amplify Studio
- - Visually build a full-stack app, both front-end UI and a backend.
+  - Visually build a full-stack app, both front-end UI and a backend.
 
 - Amplify CLI
- - Configure an Amplify backend With a guided CLI workflow
+  - Configure an Amplify backend With a guided CLI workflow
 
 - Amplify Libraries
- - Connect your app to existing AWS Services (Cognito, S3 and more)
+  - Connect your app to existing AWS Services (Cognito, S3 and more)
 
 - Amplify Hosting
- - Host secure, reliable, fast web apps or websites via the AWS content delivery network.
+  - Host secure, reliable, fast web apps or websites via the AWS content delivery network.
 
 AWS Amplify
 
@@ -236,7 +236,7 @@ AWS Amplify - End-toEnd (E2E) Testing
 - Catch regressions before pushing code to production
 - Use the test step to run any test commands at build time (amplify.yml)
 - Integrated with Cypress testing framework
- - Allows you to generate UI report for your tests
+  - Allows you to generate UI report for your tests
 
 Build (Unit test) run tests while the app is being built
 Test (E2E test) run tests while the app is deployed (staging)
