@@ -6,12 +6,12 @@ Amazon s3 — Object Encryption
 
 - You can encrypt objects in S3 buckets using one of 4 methods
 - Server-Side Encryption (SSE)
- - Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3) — Enabled by Default
-  - Encrypts s3 objects using keys handled, managed, and owned by AWS
- - Server-Side Encryption with KMS Keys stored in AWS KMS (SSE-KMS)
-  - Leverage AWS Key Management Service (AWS KMS) to manage encryption keys
- - Server-Side Encryption with Customer-Provided Keys (SSE-C)
-  - When you want to manage your own encryption keys
+  - Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3) — Enabled by Default
+    - Encrypts s3 objects using keys handled, managed, and owned by AWS
+  - Server-Side Encryption with KMS Keys stored in AWS KMS (SSE-KMS)
+    - Leverage AWS Key Management Service (AWS KMS) to manage encryption keys
+  - Server-Side Encryption with Customer-Provided Keys (SSE-C)
+    - When you want to manage your own encryption keys
 - Client-Side Encryption
 - It's important to understand which ones are for which situation for the exam
 
@@ -57,8 +57,8 @@ Amazon s3 — Encryption in transit (SSL/TLS)
 - Encryption in flight is also called SSL/TLS
 
 - Amazon S3 exposes two endpoints:
- - HTTP Endpoint — non encrypted
- - HTTPS Endpoint — encryption in flight
+  - HTTP Endpoint — non encrypted
+  - HTTPS Endpoint — encryption in flight
 
 - HTTPS is recommended
 - HTTPS is mandatory for SSE-C
@@ -84,7 +84,7 @@ What is CORS?
 
 - Cross-Origin Resource Sharing (CORS)
 - Origin = scheme (protocol) + host (domain) + port
- - example: https://www.example.com (implied port is 443 for HTTPS, 80 for HTTP)
+  - example: https://www.example.com (implied port is 443 for HTTPS, 80 for HTTP)
 - Web Browser based mechanism to allow requests to other origins while visiting the main origin
 - Same origin: http://example.com/app | & Sh le.com/app2
 - Different origins: http://www.example.com & http://otherexample.com
@@ -103,11 +103,11 @@ Amazon S3 — MFA Delete
 - MFA (Multi-Factor Authentication) — force users to generate a code on a
 device (usually a mobile phone or hardware) before doing important operations on s3
 - MFA will be required to:
- - Permanently delete an object version
- - Suspend Versioning on the bucket
+  - Permanently delete an object version
+  - Suspend Versioning on the bucket
 - MFA won't be required to:
- - Enable Versioning
- - List deleted versions
+  - Enable Versioning
+  - List deleted versions
 - To use MFA Delete, Versioning must be enabled on the bucket
 - Only the bucket owner (root account) can enable/disable MFA Delete
 
@@ -120,7 +120,7 @@ S3 Access Logs
 - That data can be analyzed using data analysis tools...
 - The target logging bucket must be in the same AWS region
 - The log format is at:
- - https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
+  - https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
 
 S3 Access Logs: Warning
 
@@ -134,16 +134,16 @@ Amazon S3 — Pre-Signed URLs
 - Generate pre-signed URLs using the s3 Console, AWS CLI or SDK
 
 - URL Expiration
- - s3 Console — | min up to 720 mins (12 hours)
- - AWS CLI — configure expiration with —expires-in parameter in seconds (default 3600 secs, max. 604800 secs ~ 168 hours)
+  - s3 Console — | min up to 720 mins (12 hours)
+  - AWS CLI — configure expiration with —expires-in parameter in seconds (default 3600 secs, max. 604800 secs ~ 168 hours)
 
 - Users given a pre-signed URL inherit the permissions of the user
 that generated the URL for GET / PUT
 
 - Examples:
- - Allow only logged-in users to download a premium video from your s3 bucket
- - Allow an ever-changing list of users to download files by generating URLs dynamically
- - Allow temporarily a user to upload a file to a precise location in your s3 bucket
+  - Allow only logged-in users to download a premium video from your s3 bucket
+  - Allow an ever-changing list of users to download files by generating URLs dynamically
+  - Allow temporarily a user to upload a file to a precise location in your s3 bucket
 
 ## 153. S3 Access Points
 
@@ -151,8 +151,8 @@ S3 - Access Points
 
 - Access Points simplify security management for S3 Buckets
 - Each Access Point has:
- - its own DNS name (Internet Origin or VPC Origin)
- - an access point policy (similar to bucket policy) — manage security at scale
+  - its own DNS name (Internet Origin or VPC Origin)
+  - an access point policy (similar to bucket policy) — manage security at scale
 
 S3 - Access Points - VPC Origin
 
@@ -171,6 +171,6 @@ S3 Object Lambda
 - Only one S3 bucket is needed, on top of which we create S3 Access Point and S3 Object Lambda Access
 
 - Use Cases:
- - Redacting personally identifiable information for analytics or non- production environments.
- - Converting across data formats, such as converting XML to JSON.
- - Resizing and watermarking images on the fly using caller-specific details, such as the user who requested the object.
+  - Redacting personally identifiable information for analytics or non- production environments.
+  - Converting across data formats, such as converting XML to JSON.
+  - Resizing and watermarking images on the fly using caller-specific details, such as the user who requested the object.
