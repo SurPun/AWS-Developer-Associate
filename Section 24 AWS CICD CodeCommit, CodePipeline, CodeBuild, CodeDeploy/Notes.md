@@ -5,18 +5,18 @@
 CICD — Introduction
 
 - We have learned how to:
- - Create AWS resources, manually (fundamentals)
- - Interact with AWS programmatically (AWS CLI)
- - Deploy code to AWS using Elastic Beanstalk
+    - Create AWS resources, manually (fundamentals)
+    - Interact with AWS programmatically (AWS CLI)
+    - Deploy code to AWS using Elastic Beanstalk
 
 - All these manual steps make it very likely for us to do mistakes!
 
 - We would like our code “in a repository” and have it deployed onto AWS
- - Automatically
- - The right way
- - Making sure it's tested before being deployed
- - With possibility to go into different stages (dey, test, staging, prod)
- - With manual approval where needed
+    - Automatically
+    - The right way
+    - Making sure it's tested before being deployed
+    - With possibility to go into different stages (dey, test, staging, prod)
+    - With manual approval where needed
 
 - To be a proper AWS developer... we need to learn AWS CICD
 
@@ -25,13 +25,13 @@ CICD — Introduction
 - This section is all about automating the deployment we've done so far while adding increased safety
 
 - We'll learn about:
- - AWS CodeCommit — storing our code
- - AWS CodePipeline — automating our pipeline from code to Elastic Beanstalk
- - AWS CodeBuild — building and testing our code
- - AWS CodeDeploy — deploying the code to EC2 instances (not Elastic Beanstalk)
- - AWS CodeStar — manage software development activities in one place
- - AWS CodeArtifact — store, publish, and share software packages
- - AWS CodeGuru — automated code reviews using Machine Learning
+    - AWS CodeCommit — storing our code
+    - AWS CodePipeline — automating our pipeline from code to Elastic Beanstalk
+    - AWS CodeBuild — building and testing our code
+    - AWS CodeDeploy — deploying the code to EC2 instances (not Elastic Beanstalk)
+    - AWS CodeStar — manage software development activities in one place
+    - AWS CodeArtifact — store, publish, and share software packages
+    - AWS CodeGuru — automated code reviews using Machine Learning
 
 Continuous Integration (Cl)
 
@@ -58,37 +58,37 @@ AWS CodeCommit
 - All these are enabled by using a version control system such as Git
 - A Git repository can be synchronized on your computer, but it usually is uploaded on a central online repository
 - Benefits are:
- - Collaborate with other developers
- - Make sure the code is backed-up somewhere
- - Make sure it's fully viewable and auditable
+    - Collaborate with other developers
+    - Make sure the code is backed-up somewhere
+    - Make sure it's fully viewable and auditable
 
 AWS CodeCommit
 
 - Git repositories can be expensive
 - The industry includes GitHub, GitLab, Bitbucket, ...
 - And AWS CodeCommit:
- - Private Git repositories
- - No size limit on repositories (scale seamlessly)
- - Fully managed, highly available
- - Code only in AWS Cloud account => increased security and compliance
- - Security (encrypted, access control, ...)
- - Integrated with Jenkins, AWS CodeBuild, and other Cl tools
+    - Private Git repositories
+    - No size limit on repositories (scale seamlessly)
+    - Fully managed, highly available
+    - Code only in AWS Cloud account => increased security and compliance
+    - Security (encrypted, access control, ...)
+    - Integrated with Jenkins, AWS CodeBuild, and other Cl tools
 
 CodeCommit — Security
 
 - Interactions are done using Git (standard)
 - Authentication
- - SSH Keys —- AWS Users can configure SSH keys in their IAM Console
- - HTTPS — with AWS CLI Credential helper or Git Credentials for IAM user
+    - SSH Keys —- AWS Users can configure SSH keys in their IAM Console
+    - HTTPS — with AWS CLI Credential helper or Git Credentials for IAM user
 
 - Authorization
- - IAM policies to manage users/roles permissions to repositories
+    - IAM policies to manage users/roles permissions to repositories
 - Encryption
- - Repositories are automatically encrypted at rest using AWS KMS
- - Encrypted in transit (can only use HTTPS or SSH — both secure)
+    - Repositories are automatically encrypted at rest using AWS KMS
+    - Encrypted in transit (can only use HTTPS or SSH — both secure)
 - Cross-account Access
- - Do NOT share your SSH keys or your AWS credentials
- - Use an IAM Role in your AWS account and use AWS STS (AssumeRole API)
+    - Do NOT share your SSH keys or your AWS credentials
+    - Use an IAM Role in your AWS account and use AWS STS (AssumeRole API)
 
 ## 367. CodePipeline Overview
 
@@ -101,9 +101,9 @@ AWS CodePipeline
 - Deploy — CodeDeploy, Elastic Beanstalk, CloudFormation, ECS, S3, ...
 - Invoke — Lambda, Step Functions
 - Consists of stages:
- - Each stage can have sequential actions and/or parallel actions
- - Example: Build > Test Deploy => LoadTesting > ...
- - Manual approval can be defined at any stage
+    - Each stage can have sequential actions and/or parallel actions
+    - Example: Build > Test Deploy => LoadTesting > ...
+    - Manual approval can be defined at any stage
 
 CodePipeline — Artifacts
 
@@ -114,8 +114,8 @@ CodePipeline — Troubleshooting
 
 - For CodePipeline Pipeline/Action/Stage Execution State Changes
 - Use CloudWatch Events (Amazon EventBridge). Example:
- - You can create events for failed pipelines
- - You can create events for cancelled stages
+    - You can create events for failed pipelines
+    - You can create events for cancelled stages
 
 - If CodePipeline fails a stage, your pipeline stops, and you can get information in the console
 - If pipeline can't perform an action, make sure the “IAM Service Role attached does have enough IAM permissions (IAM Policy)
@@ -150,15 +150,15 @@ CodeBuild — buildspec.yml
 
 - buildspec.yml file must be at the root of your code
 - env — define environment variables
- - variables — plaintext variables
- - parameter-store — variables stored in SSM Parameter Store
- - secrets-manager — variables stored in AWS Secrets Manager
+    - variables — plaintext variables
+    - parameter-store — variables stored in SSM Parameter Store
+    - secrets-manager — variables stored in AWS Secrets Manager
 
 - phases — specify commands to run:
- - install — install dependencies you may need for your build
- - pre_build — final commands to execute before build
- - Build — actual build commands
- - post_build — finishing touches (e.g,, zip output)
+    - install — install dependencies you may need for your build
+    - pre_build — final commands to execute before build
+    - Build — actual build commands
+    - post_build — finishing touches (e.g,, zip output)
 
 - artifacts — what to upload to S3 (encrypted with KMS)
 - cache — files to cache (usually dependencies) to S3 for future build speedup
@@ -179,10 +179,10 @@ CodeDeploy — EC2/On-premises Platform
 - Perform in-place deployments or blue/green deployments
 - Must run the CodeDeploy Agent on the target instances
 - Define deployment speed
- - AllAtOnce: most downtime
- - HalfAtATime: reduced capacity by 50%
- - OneAtATime: slowest, lowest availability impact
- - Custom: define your %
+    - AllAtOnce: most downtime
+    - HalfAtATime: reduced capacity by 50%
+    - OneAtATime: slowest, lowest availability impact
+    - Custom: define your %
 
 CodeDeploy Agent
 
@@ -195,11 +195,11 @@ CodeDeploy — Lambda Platform
 - CodeDeploy can help you automate traffic shift for Lambda aliases
 - Feature is integrated within the SAM framework
 - Linear: grow traffic every N minutes until 100%
- - LambdaLinear 1OPercentEvery3Minutes
- - LambdaLinear 1OPercentEvery1OMinutes
+    - LambdaLinear 1OPercentEvery3Minutes
+    - LambdaLinear 1OPercentEvery1OMinutes
 - Canary: try X percent then 100%
- - LambdaCanary 1OPercent5Minutes
- - LambdaCanary 1OPercent30Minutes
+    - LambdaCanary 1OPercent5Minutes
+    - LambdaCanary 1OPercent30Minutes
 - AllAtOnce: immediate
 
 CodeDeploy — ECS Platform
@@ -207,12 +207,12 @@ CodeDeploy — ECS Platform
 - CodeDeploy can help you automate the deployment of a new ECS Task Definition
 - Only Blue/Green Deployments
 - Linear: grow traffic every N minutes until 100%
- - ECSLinear 1OPercentEvery3Minutes
- - ECSLinear 10PercentEvery1OMinutes
+    - ECSLinear 1OPercentEvery3Minutes
+    - ECSLinear 10PercentEvery1OMinutes
 - Canary: try X percent then 100%
- - ECSCanary 1OPercent5Minutes
- - ECSCanary 1OPercent30Minutes
- - AllAtOnce: immediate
+    - ECSCanary 1OPercent5Minutes
+    - ECSCanary 1OPercent30Minutes
+    - AllAtOnce: immediate
 
 ## 375. CodeDeploy for EC2 and ASG
 
@@ -225,19 +225,19 @@ CodeDeploy — Deployment to EC2
 CodeDeploy — Deploy to an ASG
 
 - In-place Deployment
- - Updates existing EC2 instances
- - Newly created EC2 instances by an ASG will also get automated deployments
+    - Updates existing EC2 instances
+    - Newly created EC2 instances by an ASG will also get automated deployments
 - Blue/Green Deployment
- - A new Auto-Scaling Group is created (settings are copied)
- - Choose how long to keep the old EC2 instances (old ASG)
- - Must be using an ELB
+    - A new Auto-Scaling Group is created (settings are copied)
+    - Choose how long to keep the old EC2 instances (old ASG)
+    - Must be using an ELB
 
 CodeDeploy — Redeploy & Rollbacks
 
 - Rollback = redeploy a previously deployed revision of your application
 - Deployments can be rolled back:
- - Automatically — rollback when a deployment fails or rollback when a CloudWatch Alarm thresholds are met
- - Manually
+    - Automatically — rollback when a deployment fails or rollback when a CloudWatch Alarm thresholds are met
+    - Manually
 - Disable Rollbacks — do not perform rollbacks for this deployment
 - If a roll back happens, CodeDeploy redeploys the last known good revision as a new deployment (not a restored version)
 
@@ -276,8 +276,8 @@ Amazon CodeGuru
 
 -An ML-powered service for automated code reviews and application performance recommendations
 - Provides two functionalities
- - CodeGuru Reviewer: automated code reviews for static code analysis (development)
- - CodeGuru Profiler: visibility/recommendations about application performance during runtime (production)
+    - CodeGuru Reviewer: automated code reviews for static code analysis (development)
+    - CodeGuru Profiler: visibility/recommendations about application performance during runtime (production)
 
 Amazon CodeGuru Reviewer
 
@@ -293,11 +293,11 @@ Amazon CodeGuru Profiler
 - Helps understand the runtime behavior of your application
 - Example: identify if your application is consuming excessive CPU capacity on a logging routine
 - Features:
- - Identify and remove code inefficiencies
- - Improve application performance (e.g., reduce CPU utilization)
- - Decrease compute costs
- - Provides heap summary (identify which objects using up memory)
- - Anomaly Detection
+    - Identify and remove code inefficiencies
+    - Improve application performance (e.g., reduce CPU utilization)
+    - Decrease compute costs
+    - Provides heap summary (identify which objects using up memory)
+    - Anomaly Detection
 - Support applications running on AWS or on-premise
 - Minimal overhead on application
 
@@ -306,13 +306,13 @@ Amazon CodeGuru Profiler
 Amazon CodeGuru — Agent Configuration
 
 - MaxStackDepth — the maximum depth of the stacks in the code that is represented in the profile
- - Example: if CodeGuru Profiler finds a method A, which calls method B, which calls method C, which calls method D, then the depth is 4
- - Ifthe MaxStackDepth is set to 2, then the profiler evaluates A and B
+    - Example: if CodeGuru Profiler finds a method A, which calls method B, which calls method C, which calls method D, then the depth is 4
+    - If the MaxStackDepth is set to 2, then the profiler evaluates A and B
 - MemoryUsageLimitPercent — the memory percentage used by the profiler
 - MinimumTimeForReportinglnMilliseconds — the minimum time between sending reports (milliseconds)
 - ReportinglntervallnMilliseconds — the reporting interval used to report profiles (milliseconds)
 - SamplinglntervallnMilliseconds — the sampling interval that is used to profile samples (milliseconds)
- - Reduce to have a higher sampling rate
+    - Reduce to have a higher sampling rate
 
 ## 382. AWS Cloud9 - Overview
 
