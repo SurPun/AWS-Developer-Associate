@@ -478,3 +478,14 @@ SSM Parameter Store:
     - Lambda Function:
         - change password => Amazon RDS
         - change value => SSM Parameter Store
+
+## 442. CloudWatch Logs Encryption
+
+CloudWatch Logs - Encryption
+
+- You can encrypt CloudWatch logs with KMS keys
+- Encryption is enabled at the log group level, by associating a CMK with a log group, either when you create the log group or after it exists.
+- You cannot associate a CMK with a log group using the CloudWatch console.
+- You must use the CloudWatch Logs API:
+ - associate-kms-key : if the log group already exists
+ - create-log-group: if the log group doesn't exist yet
