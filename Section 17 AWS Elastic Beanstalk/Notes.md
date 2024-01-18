@@ -18,8 +18,8 @@ Elastic Beanstalk — Overview
 - Elastic Beanstalk is a developer centric view of deploying an app on AWS
 - It uses all the component's we've seen before: EC2, ASG, ELB, RDS, ...
 - Managed service
- - Automatically handles capacity provisioning, load balancing, scaling application health monitoring, instance configuration, ...
- - Just the application code is the responsibility of the developer
+    - Automatically handles capacity provisioning, load balancing, scaling application health monitoring, instance configuration, ...
+    - Just the application code is the responsibility of the developer
 
 - We still have full control over the configuration
 - Beanstalk is free but you pay for the underlying instances
@@ -29,9 +29,9 @@ Elastic Beanstalk — Components
 - Application: collection of Elastic Beanstalk components (environments, versions, configurations, ...)
 - Application Version: an iteration of your application code
 - Environment
- - Collection of AWS resources running an application version (only one application version at a time)
- - Tiers: Web Server Environment Tier & Worker Environment Tier
- - You can create multiple environments (dey, test, prod, ...)
+    - Collection of AWS resources running an application version (only one application version at a time)
+    - Tiers: Web Server Environment Tier & Worker Environment Tier
+    - You can create multiple environments (dey, test, prod, ...)
 
 Elastic Beanstalk — Supported Platforms
 
@@ -120,23 +120,23 @@ Elastic Beanstalk CLI
 
 - We can install an additional CLI called the “EB cli” which makes working with Beanstalk from the CLI easier
 - Basic commands are:
- - eb create
- - eb status
- - eb health
- - eb events
- - eb logs
- - eb open
- - eb deploy
- - eb config
- - eb terminate
+    - eb create
+    - eb status
+    - eb health
+    - eb events
+    - eb logs
+    - eb open
+    - eb deploy
+    - eb config
+    - eb terminate
 - It’s helpful for your automated deployment pipelines!
 
 Elastic Beanstalk Deployment Process
 
 - Describe dependencies (requirements.txt for Python, package.json for Node.js)
 - Package code as zip, and describe dependencies
- - Python: requirements.txt
- - Nodes: package.json
+    - Python: requirements.txt
+    - Nodes: package.json
 - Console: upload zip file (creates new app version), and then deploy
 - CLI: create new app version using CLI (uploads zip), and then deploy
 - Elastic Beanstalk will deploy the zip on each EC2 instance, resolve dependencies and start the application
@@ -148,8 +148,8 @@ Beanstalk Lifecycle Policy
 - Elastic Beanstalk can store at most |000 application versions
 - If you don't remove old versions, you won't be able to deploy anymore
 - To phase out old application versions, use a lifecycle policy
- - Based on time (old versions are removed)
- - Based on space (when you have too many versions)
+    - Based on time (old versions are removed)
+    - Based on space (when you have too many versions)
 - Versions that are currently used won't be deleted
 - Option not to delete the source bundle in S3 to prevent data loss
 
@@ -160,11 +160,11 @@ Elastic Beanstalk Extensions
 - A zip file containing our code must be deployed to Elastic Beanstalk
 - All the parameters set in the Ul can be configured with code using files
 - Requirements:
- - in the .ebextensions/ directory in the root of source code
- - YAML / JSON format
- - .config extensions (example: logging.config)
- - Able to modify some default settings using: option_settings
- - Ability to add resources such as RDS, ElastiCache, DynamoDB, etc...
+    - in the .ebextensions/ directory in the root of source code
+    - YAML / JSON format
+    - .config extensions (example: logging.config)
+    - Able to modify some default settings using: option_settings
+    - Ability to add resources such as RDS, ElastiCache, DynamoDB, etc...
 
 - Resources managed by .ebextensions get deleted if the environment goes away
 
@@ -186,9 +186,9 @@ Elastic Beanstalk Cloning
 - Useful for deploying a "test" version of your application
 
 - All resources and configuration are preserved:
- - Load Balancer type and configuration
- - RDS database type (but the data is not preserved)
- - Environment variables
+    - Load Balancer type and configuration
+    - RDS database type (but the data is not preserved)
+    - Environment variables
 
 - After cloning an environment, you can change settings
 
