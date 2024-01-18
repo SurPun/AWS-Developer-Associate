@@ -5,40 +5,40 @@
 Why Monitoring is Important
 
 - We know how to deploy applications
- - Safely
- - Automatically
- - Using Infrastructure as Code
- - Leveraging the best AWS components!
+    - Safely
+    - Automatically
+    - Using Infrastructure as Code
+    - Leveraging the best AWS components!
 
 - Our applications are deployed, and our users don't care how we did it...
 
 - Our users only care that the application is working!
- - Application latency: will it increase over time?
- - Application outages: customer experience should not be degraded
- - Users contacting the IT department or complaining is not a good outcome
- - Troubleshooting and remediation
+    - Application latency: will it increase over time?
+    - Application outages: customer experience should not be degraded
+    - Users contacting the IT department or complaining is not a good outcome
+    - Troubleshooting and remediation
 
 - Internal monitoring:
- - Can we prevent issues before they happen?
- - Performance and Cost
- - Trends (scaling patterns)
- - Learning and Improvement
+    - Can we prevent issues before they happen?
+    - Performance and Cost
+    - Trends (scaling patterns)
+    - Learning and Improvement
 
 Monitoring in AWS
 
 - AWS CloudWatch:
- - Metrics: Collect and track key metrics
- - Logs: Collect, monitor analyze and store log files
- - Events: Send notifications when certain events happen in your AWS
- - Alarms: React in real-time to metrics / events
+    - Metrics: Collect and track key metrics
+    - Logs: Collect, monitor analyze and store log files
+    - Events: Send notifications when certain events happen in your AWS
+    - Alarms: React in real-time to metrics / events
 
 - AWS X-Ray:
- - Troubleshooting application performance and errors
- - Distributed tracing of microservices
+    - Troubleshooting application performance and errors
+    - Distributed tracing of microservices
 
 - AWS Cloud Trail:
- - Internal monitoring of API calls being made
- - Audit changes to AWS Resources by your users
+    - Internal monitoring of API calls being made
+    - Audit changes to AWS Resources by your users
 
 ## 243. CloudWatch Custom Metrics
 
@@ -49,12 +49,12 @@ CloudWatch Custom Metrics
 - Use API call PutMetricData
 
 - Ability to use dimensions (attributes) to segment metrics
- - Instance.id
- - Environment.name
+    - Instance.id
+    - Environment.name
  
 - Metric resolution (StorageResolution API parameter — two possible value):
- - Standard: 1 minute (60 seconds)
- - High Resolution: 1/5/10/30 second(s) — Higher cost
+    - Standard: 1 minute (60 seconds)
+    - High Resolution: 1/5/10/30 second(s) — Higher cost
 - Important: Accepts metric data points two weeks in the past and two hours in the future (make sure to configure your EC2 instance time correctly)
 
 ## 244. CloudWatch Logs
@@ -65,11 +65,11 @@ CloudWatch Logs
 - Log stream: instances within application / log files / containers
 - Can define log expiration policies (never expire, 1 day to 10 years...)
 - CloudWatch Logs can send logs to:
- - Amazon S3 (exports)
- - Kinesis Data Streams
- - Kinesis Data Firehose
- - AWS Lambda
- - OpenSearch
+    - Amazon S3 (exports)
+    - Kinesis Data Streams
+    - Kinesis Data Firehose
+    - AWS Lambda
+    - OpenSearch
 
 - Logs are encrypted by default
 - Can setup KMS-based encryption with your own keys
@@ -90,9 +90,9 @@ CloudWatch Logs Insights
 - Search and analyze log data stored in CloudWatch Logs
 - Example: find a specific IP inside a log, count occurrences of “ERROR" in your logs...
 - Provides a purpose-built query language
- - Automatically discovers fields from AWS services and JSON log events
- - Fetch desired event fields, fitter based on conditions, calculate aggregate statistics, sort events, limit number of events...
- - Can save queries and add them to CloudWatch Dashboards
+    - Automatically discovers fields from AWS services and JSON log events
+    - Fetch desired event fields, fitter based on conditions, calculate aggregate statistics, sort events, limit number of events...
+    - Can save queries and add them to CloudWatch Dashboards
 
 - Can query multiple Log Groups in different AWS accounts
 - It's a query engine, not a real-time engine
@@ -126,13 +126,13 @@ CloudWatch Logs Agent & Unified Agent
 
 - For virtual servers (EC2 instances, on-premise servers...)
 - CloudWatch Logs Agent
- - Old version of the agent
- - Can only send to CloudWatch Logs
+    - Old version of the agent
+    - Can only send to CloudWatch Logs
 
 - CloudWatch Unified Agent
- - Collect additional system-level metrics such as RAM processes, etc...
- - Collect logs to send to CloudWatch Logs
- - Centralized configuration using SSM Parameter Store
+    - Collect additional system-level metrics such as RAM processes, etc...
+    - Collect logs to send to CloudWatch Logs
+    - Centralized configuration using SSM Parameter Store
 
 CloudWatch Unified Agent — Metrics
 
@@ -150,9 +150,9 @@ CloudWatch Unified Agent — Metrics
 CloudWatch Logs Metric Filter
 
 - CloudWatch Logs can use filter expressions
- - For example, find a specific IP inside of a log
- - Or count occurrences of ERROR’ in your logs
- - Metric filters can be used to trigger alarms
+    - For example, find a specific IP inside of a log
+    - Or count occurrences of ERROR’ in your logs
+    - Metric filters can be used to trigger alarms
 
 - Filters do not retroactively filter data. Filters only publish the metric data points for events that happen after the filter was created.
 
@@ -165,13 +165,13 @@ CloudWatch Alarms
 - Alarms are used to trigger notifications for any metric
 - Various options (sampling, %, max, min, etc...)
 - Alarm States:
- - OK
- - INSUFFICIENT_DATA
- - ALARM
+    - OK
+    - INSUFFICIENT_DATA
+    - ALARM
 
 - Period:
- - Length of time in seconds to evaluate the metric
- - High resolution custom metrics: 10 sec, 30 sec or multiples of 60 sec
+    - Length of time in seconds to evaluate the metric
+    - High resolution custom metrics: 10 sec, 30 sec or multiples of 60 sec
 
 CloudWatch Alarm Targets
 
@@ -191,8 +191,8 @@ CloudWatch Alarms — Composite Alarms
 EC2 Instance Recovery
 
 - Status Check:
- - Instance status = check the EC2 VM
- - System status = check the underlying hardware
+    - Instance status = check the EC2 VM
+    - System status = check the underlying hardware
 
 - Recovery: Same Private, Public, Elastic IP metadata, placement group
 
@@ -251,9 +251,9 @@ Amazon EventBridge — Resource-based Policy
 AWS X-Ray
 
 - Debugging in Production, the good old way:
- - Test locally
- - Add log statements everywhere
- - Re-deploy in production
+    - Test locally
+    - Add log statements everywhere
+    - Re-deploy in production
 
 - Log formats differ across applications using CloudWatch and analytics is hard.
 - Debugging: monolith “easy”, distributed services “hard”
@@ -318,13 +318,13 @@ The X-Ray magic
 AWS X-Ray Troubleshooting
 
 - If X-Ray is not working on EC2
- - Ensure the EC2 IAM Role has the proper permissions
- - Ensure the EC2 instance is running the X-Ray Daemon
+    - Ensure the EC2 IAM Role has the proper permissions
+    - Ensure the EC2 instance is running the X-Ray Daemon
 
 - To enable on AWS Lambda:
- - Ensure it has an IAM execution role with proper policy (AWSX-RayWriteOnlyAccess)
- - Ensure that X-Ray is imported in the code
- - Enable Lambda X-Ray Active Tracing
+    - Ensure it has an IAM execution role with proper policy (AWSX-RayWriteOnlyAccess)
+    - Ensure that X-Ray is imported in the code
+    - Enable Lambda X-Ray Active Tracing
 
 ## 257. X-Ray: Instrumentation and Concepts
 
@@ -506,32 +506,32 @@ AWS Cloud Trail
 Cloud Trail Events
 
 - Management Events:
- - Operations that are performed on resources in your AWS account
- - Examples:
-  - Configuring security (IAM AttachRolePolicy)
-  - Configuring rules for routing data (Amazon EC2 CreateSubnet)
-  - Setting up logging (AWS CloudTrail CreateTrail)
+    - Operations that are performed on resources in your AWS account
+    - Examples:
+        - Configuring security (IAM AttachRolePolicy)
+        - Configuring rules for routing data (Amazon EC2 CreateSubnet)
+        - Setting up logging (AWS CloudTrail CreateTrail)
 - By default, trails are configured to log management events.
 - Can separate Read Events (that don’t modify resources) from Write Events (that may modify resources)
 
 - Data Events:
- - By default, data events are not logged (because high volume operations)
- - Amazon $3 object-level activity (ex: GetObject, DeleteObject, PutObject): can separate Read and Write Events
- - AWS Lambda function execution activity (the Invoke API)
+    - By default, data events are not logged (because high volume operations)
+    - Amazon $3 object-level activity (ex: GetObject, DeleteObject, PutObject): can separate Read and Write Events
+    - AWS Lambda function execution activity (the Invoke API)
 
 CloudTrail Insights
 
 - Enable CloudTrail Insights to detect unusual activity in your account:
- - inaccurate resource provisioning
- - hitting service limits
- - Bursts of AWS IAM actions
- - Gaps in periodic maintenance activity
+    - inaccurate resource provisioning
+    - hitting service limits
+    - Bursts of AWS IAM actions
+    - Gaps in periodic maintenance activity
 
 - CloudTrail Insights analyzes normal management events to create a baseline
 - And then continuously analyzes write events to detect unusual patterns
- - Anomalies appear in the CloudTrail console
- - Event is sent to Amazon S3
- - An EventBridge event is generated (for automation needs)
+    - Anomalies appear in the CloudTrail console
+    - Event is sent to Amazon S3
+    - An EventBridge event is generated (for automation needs)
 
 Cloud Trail Events Retention
 
@@ -551,15 +551,15 @@ User => *AssumeRole* => IAM Role => *API Call logs* => CloudTrail => *event* => 
 ## 266. CloudTrail vs CloudWatch vs X-Ray
 
 - Cloud Trail:
- - Audit API calls made by users / services / AWS console
- - Useful to detect unauthorized calls or root cause of changes
+    - Audit API calls made by users / services / AWS console
+    - Useful to detect unauthorized calls or root cause of changes
 
 - CloudWatch:
- - CloudWatch Metrics over time for monitoring
- - CloudWatch Logs for storing application log
- - CloudWatch Alarms to send notifications in case of unexpected metrics
+    - CloudWatch Metrics over time for monitoring
+    - CloudWatch Logs for storing application log
+    - CloudWatch Alarms to send notifications in case of unexpected metrics
 
 - X-Ray:
- - Automated Trace Analysis & Central Service Map Visualization
- - Latency, Errors and Fault analysis
- - Request tracking across distributed systems
+    - Automated Trace Analysis & Central Service Map Visualization
+    - Latency, Errors and Fault analysis
+    - Request tracking across distributed systems
