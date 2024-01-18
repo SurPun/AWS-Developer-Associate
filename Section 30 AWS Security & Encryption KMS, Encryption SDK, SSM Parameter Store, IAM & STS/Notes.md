@@ -35,37 +35,37 @@ AWS KMS (Key Management Service)
 - Able to audit KMS Key usage using Cloud Trail
 - Seamlessly integrated into most AWS services (EBS, $3, RDS, SSM...)
 - Never ever store your secrets in plaintext, especially in your code!
- - KMS Key Encryption also available through API calls (SDK, CLI)
- - Encrypted secrets can be stored in the code / environment variables
+    - KMS Key Encryption also available through API calls (SDK, CLI)
+    - Encrypted secrets can be stored in the code / environment variables
 
 KMS Keys Types
 
 - KMS Keys is the new name of KMS Customer Master Key
 - Symmetric (AES-256 keys)
- - Single encryption key that is used to Encrypt and Decrypt
- - AWS services that are integrated with KMS use Symmetric CMKs
- - You never get access to the KMS Key unencrypted (must call KMS API to use)
+    - Single encryption key that is used to Encrypt and Decrypt
+    - AWS services that are integrated with KMS use Symmetric CMKs
+    - You never get access to the KMS Key unencrypted (must call KMS API to use)
 
 - Asymmetric (RSA & ECC key pairs)
- - Public (Encrypt) and Private Key (Decrypt) pair
- - Used for Encrypt/Decrypt, or Sign/Verify operations
- - The public key is downloadable, but you can’t access the Private Key unencrypted
- - Use case: encryption outside of AWS by users who can’t call the KMS API
+    - Public (Encrypt) and Private Key (Decrypt) pair
+    - Used for Encrypt/Decrypt, or Sign/Verify operations
+    - The public key is downloadable, but you can’t access the Private Key unencrypted
+    - Use case: encryption outside of AWS by users who can’t call the KMS API
 
 AWS KMS (Key Management Service)
 
 - Types of KMS Keys:
- - AWS Owned Keys (free): SSE-S3, SSE-SQS, SSE-DDB (default key)
- - AWS Managed Key: free (aws/service-name, example: aws/rds or aws/ebs)
- - Customer managed keys created in KMS: $1 / month
- - Customer managed keys imported (must be symmetric key): $1 / month
- - + pay for API call to KMS ($0.03 / 10000 calls) Encryption key management
+    - AWS Owned Keys (free): SSE-S3, SSE-SQS, SSE-DDB (default key)
+    - AWS Managed Key: free (aws/service-name, example: aws/rds or aws/ebs)
+    - Customer managed keys created in KMS: $1 / month
+    - Customer managed keys imported (must be symmetric key): $1 / month
+    - (+) pay for API call to KMS ($0.03 / 10000 calls) Encryption key management
 
 Encryption key management
 
 - Owned by Amazon DynamoDB
 - AWS managed key Lea
- - Key alias: aws/dynamodb
+    - Key alias: aws/dynamodb
 
 - Stored in your account, and owned and managed by you
 
@@ -81,13 +81,13 @@ KMS Key Policies
 - Difference: you cannot control access without them
 
 - Default KMS Key Policy:
- - Created if you don't provide a specific KMS Key Policy
- - Complete access to the key to the root user = entire AWS account
+    - Created if you don't provide a specific KMS Key Policy
+    - Complete access to the key to the root user = entire AWS account
 
 - Custom KMS Key Policy:
- - Define users, roles that can access the KMS key
- - Define who can administer the key
- - Useful for cross-account access of your KMS key
+    - Define users, roles that can access the KMS key
+    - Define who can administer the key
+    - Useful for cross-account access of your KMS key
 
 Copying Snapshots across accounts
 
@@ -118,19 +118,19 @@ Encryption SDK
 - Implementations for Java, Python, C, JavaScript
 
 - Feature - Data Key Caching:
- - re-use data keys instead of creating new ones for each encryption
- - Helps with reducing the number of calls to KMS with a security trade-off
- - Use LocalCryptoMaterialsCache (max age, max bytes, max number of messages)
+    - re-use data keys instead of creating new ones for each encryption
+    - Helps with reducing the number of calls to KMS with a security trade-off
+    - Use LocalCryptoMaterialsCache (max age, max bytes, max number of messages)
 
 KNS Symmetric - API Summary
 
 - Encrypt: encrypt up to 4 KB of data through KMS
 - GenerateDataKey: generates a unique symmetric data key (DEK)
- - returns a plaintext copy of the data key
- - AND a copy that is encrypted under the CMK that you specify
+    - returns a plaintext copy of the data key
+    - AND a copy that is encrypted under the CMK that you specify
 - GenerateDataKeyWithoutPlaintext:
- - Generate a DEK to use at some point (not immediately)
- - DEK that is encrypted under the CMK that you specify (must use Decrypt later)
+    - Generate a DEK to use at some point (not immediately)
+    - DEK that is encrypted under the CMK that you specify (must use Decrypt later)
 - Decrypt: decrypt up to 4 KB of data (including Data Encryption Keys)
 - GenerateRandom: Returns a random byte string
 
@@ -171,9 +171,9 @@ These shared quotas vary with the AWS Region and the type of CMK used in the req
 Symmetric CMK quota:
 - 5,500 (shared)
 - 10,000 (shared) in the following Regions:
- - us-east-2, ap-southeast-1, ap-southeast-2, ap-northeast-1, eu-central-1, eu-west-2
+    - us-east-2, ap-southeast-1, ap-southeast-2, ap-northeast-1, eu-central-1, eu-west-2
 - 30,000 (shared) in the following Regions:
- - us-east-1, us-west-2, eu-west-1
+    - us-east-1, us-west-2, eu-west-1
 
 Asymmetric CMK quota:
 - 500 (shared) for RSA CMKs
@@ -182,11 +182,11 @@ Asymmetric CMK quota:
 ## 433. S3 Bucket Keys
 
 - New setting to decrease...
- - Number of API calls made to KMS from S3 by 99%
- - Costs of overall KMS encryption with Amazon S3 by 99%
+    - Number of API calls made to KMS from S3 by 99%
+    - Costs of overall KMS encryption with Amazon S3 by 99%
 - This leverages data keys
- - A “S3 bucket key” is generated
- - That key is used to encrypt KMS objects with new data keys
+    - A “S3 bucket key” is generated
+    - That key is used to encrypt KMS objects with new data keys
 - You will see less KMS CloudTrail events in CloudTrail
 
 ## 434. KMS Key Policies & IAM Principals
@@ -455,17 +455,17 @@ Resources:
 SSM Parameter Store vs Secrets Manager
 
 - Secrets Manager ($$$):
- - Automatic rotation of secrets with AWS Lambda
- - Lambda function is provided for RDS, Redshift, DocumentDB
- - KMS encryption is mandatory
- - Can integration with CloudFormation
+    - Automatic rotation of secrets with AWS Lambda
+    - Lambda function is provided for RDS, Redshift, DocumentDB
+    - KMS encryption is mandatory
+    - Can integration with CloudFormation
 
 - SSM Parameter Store ($):
- - Simple API
- - No secret rotation (can enable rotation using Lambda triggered by EventBridge)
- - KMS encryption is optional
- - Can integration with CloudFormation
- - Can pull a Secrets Manager secret using the SSM Parameter Store API
+    - Simple API
+    - No secret rotation (can enable rotation using Lambda triggered by EventBridge)
+    - KMS encryption is optional
+    - Can integration with CloudFormation
+    - Can pull a Secrets Manager secret using the SSM Parameter Store API
 
 SSM Parameter Store vs Secrets Manager Rotation
 
@@ -487,8 +487,8 @@ CloudWatch Logs - Encryption
 - Encryption is enabled at the log group level, by associating a CMK with a log group, either when you create the log group or after it exists.
 - You cannot associate a CMK with a log group using the CloudWatch console.
 - You must use the CloudWatch Logs API:
- - associate-kms-key : if the log group already exists
- - create-log-group: if the log group doesn't exist yet
+    - associate-kms-key : if the log group already exists
+    - create-log-group: if the log group doesn't exist yet
 
 ## 444. CodeBuild Security
 
@@ -499,5 +499,18 @@ CodeBuild Security
 - Secrets in CodeBuild:
 - Don't store them as plaintext in environment variables
 - Instead...
- - Environment variables can reference parameter store parameters
- - Environment variables can reference secrets manager secrets
+    - Environment variables can reference parameter store parameters
+    - Environment variables can reference secrets manager secrets
+
+## 445. AWS Nitro Enclaves
+
+AWS Nitro Enclaves
+
+- Process highly sensitive data in an isolated compute environment
+    - Personally Identifiable Information (PII), healthcare, financial, ...
+- Fully isolated virtual machines, hardened, and highly constrained
+    - Not a container, not persistent storage, no interactive access, no external networking
+- Helps reduce the attack surface for sensitive data processing apps
+    - Cryptographic Attestation — only authorized code can be running in your Enclave
+    - Only Enclaves can access sensitive data (integration with KMS)
+- Use cases: securing private keys, processing credit cards, secure multi-party computation...
