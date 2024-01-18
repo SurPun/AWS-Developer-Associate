@@ -10,19 +10,19 @@ Section Introduction
 - There are two patterns of application communication
 
 1. Synchronous communications (application to application)
- - Buying Service <-> Shipping Service
+    - Buying Service <-> Shipping Service
 
 2. Asynchronous / Event based (application to queue to application)
- - Buying Service -> Queue -> Shipping Service
+    - Buying Service -> Queue -> Shipping Service
 
 Section Introduction
 
 - Synchronous between applications can be problematic if there are sudden spikes of traffic
 - What if you need to suddenly encode !000 videos but usually it’s 10?
 - In that case, it's better to decouple your applications,
- - using SQS: queue model
- - using SNS: pub/sub model
- - using Kinesis: real-time streaming model
+    - using SQS: queue model
+    - using SNS: pub/sub model
+    - using Kinesis: real-time streaming model
 - These services can scale independently from our application!
 
 ## 214. Amazon SQS - Standard Queues
@@ -33,10 +33,10 @@ Amazon SQS — Standard Queue
 - Fully managed service, used to decouple applications
 
 - Attributes:
- - Unlimited throughput, unlimited number of messages in queue
- - Default retention of messages: 4 days, maximum of 14 days
- - Low latency (<10 ms on publish and receive)
- - Limitation of 256KB per message sent
+    - Unlimited throughput, unlimited number of messages in queue
+    - Default retention of messages: 4 days, maximum of 14 days
+    - Low latency (<10 ms on publish and receive)
+    - Limitation of 256KB per message sent
 
 - Can have duplicate messages (at least once delivery, occasionally)
 - Can have out of order messages (best effort ordering)
@@ -48,9 +48,9 @@ SQS — Producing Messages
 - Message retention: default 4 days, up to 14 days
 
 - Example: send an order to be processed
- - Order id
- - Customer id
- - Any attributes you want
+    - Order id
+    - Customer id
+    - Any attributes you want
 
 - SOS standard: unlimited throughput
 
@@ -72,15 +72,15 @@ SQS — Multiple EC2 Instances Consumers
 Amazon SQS - Security
 
 - Encryption:
- - In-flight encryption using HTTPS API
- - At-rest encryption using KMS keys
- - Client-side encryption if the client wants to perform encryption decryption itself
+    - In-flight encryption using HTTPS API
+    - At-rest encryption using KMS keys
+    - Client-side encryption if the client wants to perform encryption decryption itself
 
 - Access Controls: IAM policies to regulate access to the SQS API
 
 - SQS Access Policies (similar to $3 bucket policies)
- - Useful for cross-account access to SQS queues
- - Useful for allowing other services (SNS, S3...) to write to an SQS queue
+    - Useful for cross-account access to SQS queues
+    - Useful for allowing other services (SNS, S3...) to write to an SQS queue
 
 ## 216. SQS Queue Access Policy
 
@@ -113,7 +113,7 @@ SQS — Message Visibility Timeout
 - DLQ of a FIFO queue must also be a FIFO queue
 - DLQ of a Standard queue must also be a Standard queue
 - Make sure to process the messages in the DLQ before they expire:
- - Good to set a retention of |4 days in the DLQ
+    - Good to set a retention of |4 days in the DLQ
 
 SQS DLO — Redrive to Source
 
@@ -170,16 +170,16 @@ SQS FIFO — Deduplication
 
 - De-duplication interval is 5 minutes
 - Two de-duplication methods:
- - Content-based deduplication: will do a SHA-256 hash of the message body
- - Explicitly provide a Message Deduplication ID
+    - Content-based deduplication: will do a SHA-256 hash of the message body
+    - Explicitly provide a Message Deduplication ID
 
 SQS FIFO — Message Grouping
 
 - If you specify the same value of MessageGroupID in an SQS FIFO queue, you can only have one consumer, and all the messages are in order
 - To get ordering at the level of a subset of messages, specify different values for MessageGroupID
- - Messages that share a common Message Group ID will be in order within the group
- - Each Group ID can have a different consumer (parallel processing!)
- - Ordering across groups is not guaranteed
+    - Messages that share a common Message Group ID will be in order within the group
+    - Each Group ID can have a different consumer (parallel processing!)
+    - Ordering across groups is not guaranteed
 
 ## 224. Amazon SNS
 
@@ -202,28 +202,28 @@ SNS integrates with a lot of AWS services
 AWS SNS — How to publish
 
 - Topic Publish (using the SDK)
- - Create a topic
- - Create a subscription (or many)
- - Publish to the topic
+    - Create a topic
+    - Create a subscription (or many)
+    - Publish to the topic
 
 - Direct Publish (for mobile apps SDK)
- - Create a platform application
- - Create a platform endpoint
- - Publish to the platform endpoint
- - Works with Google GCM, Apple APNS, Amazon ADM...
+    - Create a platform application
+    - Create a platform endpoint
+    - Publish to the platform endpoint
+    - Works with Google GCM, Apple APNS, Amazon ADM...
 
 Amazon SNS — Security
 
 - Encryption:
- - In-flight encryption using HTTPS API
- - At-rest encryption using KMS keys
- - Client-side encryption if the client wants to perform encryption/decryption itself
+    - In-flight encryption using HTTPS API
+    - At-rest encryption using KMS keys
+    - Client-side encryption if the client wants to perform encryption/decryption itself
 
 - Access Controls: IAM policies to regulate access to the SNS API
 
 - SNS Access Policies (similar to S3 bucket policies)
- - Useful for cross-account access to SNS topics
- - Useful for allowing other services ( S3...) to write to an SNS topic
+    - Useful for cross-account access to SNS topics
+    - Useful for allowing other services ( S3...) to write to an SNS topic
 
 ## 225. Amazon SNS and SQS - Fan Out Pattern
 
@@ -251,8 +251,8 @@ Amazon SNS — FIFO Topic
 
 - FIFO = First In First Out (ordering of messages in the topic)
 - Similar features as SQS FIFO:
- - Ordering by Message Group ID (all messages in the same group are ordered)
- - Deduplication using a Deduplication ID or Content Based Deduplication
+    - Ordering by Message Group ID (all messages in the same group are ordered)
+    - Deduplication using a Deduplication ID or Content Based Deduplication
 
 - Can only have SOS FIFO queues as subscribers
 - Limited throughput (same throughput as SQS FIFO)
@@ -288,22 +288,22 @@ Kinesis Data Streams
 - Data that shares the same partition goes to the same shard (ordering)
 - Producers: AWS SDK, Kinesis Producer Library (KPL), Kinesis Agent
 - Consumers:
- - Write your own: Kinesis Client Library (KCL), AWS SDK
- - Managed: AWS Lambda, Kinesis Data Firehose, Kinesis Data Analytics,
+    - Write your own: Kinesis Client Library (KCL), AWS SDK
+    - Managed: AWS Lambda, Kinesis Data Firehose, Kinesis Data Analytics,
 
 Kinesis Data Streams — Capacity Modes
 
 - Provisioned mode:
- - You choose the number of shards provisioned, scale manually or using API
- - Each shard gets 1MB/s in (or 1000 records per second)
- - Each shard gets 2MB/s out (classic or enhanced fan-out consumer)
- - You pay per shard provisioned per hour
+    - You choose the number of shards provisioned, scale manually or using API
+    - Each shard gets 1MB/s in (or 1000 records per second)
+    - Each shard gets 2MB/s out (classic or enhanced fan-out consumer)
+    - You pay per shard provisioned per hour
 
 - On-demand mode:
- - No need to provision or manage the capacity
- - Default capacity provisioned (4 MB/s in or 4000 records per second)
- - Scales automatically based on observed throughput peak during the last 30 days
- - Pay per stream per hour & data in/out per GB
+    - No need to provision or manage the capacity
+    - Default capacity provisioned (4 MB/s in or 4000 records per second)
+    - Scales automatically based on observed throughput peak during the last 30 days
+    - Pay per stream per hour & data in/out per GB
 
 Kinesis Data Streams Security
 
@@ -320,13 +320,13 @@ Kinesis Producers
 
 - Puts data records into data streams
 - Data record consists of.
- - Sequence number (unique per partition-key within shard)
- - Partition key (must specify while put records into stream)
- - Data blob (up to 1 MB)
+    - Sequence number (unique per partition-key within shard)
+    - Partition key (must specify while put records into stream)
+    - Data blob (up to 1 MB)
 - Producers:
- - AWS SDK: simple producer
- - Kinesis Producer Library (KPL): C++, Java, batch, compression retries
- - Kinesis Agent: monitor log files
+    - AWS SDK: simple producer
+    - Kinesis Producer Library (KPL): C++, Java, batch, compression retries
+    - Kinesis Agent: monitor log files
 
 - Write throughput: 1 MB/sec or 1000 records/sec per shard
 - PutRecord API
@@ -378,16 +378,16 @@ Kinesis Client Library (KCL)
 
 - A Java library that helps read record from a Kinesis Data Stream with distributed applications sharing the read workload
 - Each shard is to be read by only one KCL instance
- - 4 shards = max. 4 KCL instances
- - 6 shards = max. 6 KCL instances
+    - 4 shards = max. 4 KCL instances
+    - 6 shards = max. 6 KCL instances
 
 - Progress is checkpointed into DynamoDB (needs IAM access)
 - Track other workers and share the work amongst shards using DynamoDB
 - KCL can run on EC2, Elastic Beanstalk, and on-premises
 - Records are read in order at the shard level
 - Versions:
- - KCL 1.x (supports shared consumer)
- - KCL 2.x (supports shared & enhanced fan-out consumer)
+    - KCL 1.x (supports shared consumer)
+    - KCL 2.x (supports shared & enhanced fan-out consumer)
 
 ## 233. Kinesis Operations
 
@@ -411,14 +411,14 @@ Kinesis Operation — Merging Shards
 Kinesis Data Firehose
 
 - Fully Managed Service, no administration, automatic scaling, serverless
- - AWS: Redshift / Amazon $3 / OpenSearch
- - 3rd party partner: Splunk / MongoDB / DataDog / NewRelic / ...
- - Custom: send to any HTTP endpoint
+    - AWS: Redshift / Amazon $3 / OpenSearch
+    - 3rd party partner: Splunk / MongoDB / DataDog / NewRelic / ...
+    - Custom: send to any HTTP endpoint
 
 - Pay for data going through Firehose
 - Near Real Time
- - 60 seconds latency minimum for non full batches
- - Or minimum 1 MB of data at a time
+    - 60 seconds latency minimum for non full batches
+    - Or minimum 1 MB of data at a time
 
 - Supports many data formats, conversions, transformations, compression
 - Supports custom data transformations using AWS Lambda
@@ -452,21 +452,21 @@ Kinesis Data Analytics (SQL application)
 - Automatic scaling
 - Pay for actual consumption rate
 - Output:
- - Kinesis Data Streams: create streams out of the real-time analytics queries
- - Kinesis Data Firehose: send analytics query results to destinations
+    - Kinesis Data Streams: create streams out of the real-time analytics queries
+    - Kinesis Data Firehose: send analytics query results to destinations
 - Use cases:
- - Time-series analytics
- - Real-time dashboards
- - Real-time metrics
+    - Time-series analytics
+    - Real-time dashboards
+    - Real-time metrics
 
 Kinesis Data Analytics for Apache Flink
 
 - Use Flink (Java, Scala or SQL) to process and analyze streaming data
 - Run any Apache Flink application on a managed cluster on AWS
- - provisioning compute resources, parallel computation, automatic scaling
- - application backups (implemented as checkpoints and snapshots)
- - Use any Apache Flink programming features
- - Flink does not read from Firehose (use Kinesis Analytics for SQL instead)
+    - provisioning compute resources, parallel computation, automatic scaling
+    - application backups (implemented as checkpoints and snapshots)
+    - Use any Apache Flink programming features
+    - Flink does not read from Firehose (use Kinesis Analytics for SQL instead)
 
 ## 237. Data Ordering for Kinesis vs SQS FIFO
 
@@ -489,16 +489,16 @@ Kinesis vs SOS ordering
 
 - Let’s assume 100 trucks, 5 kinesis shards, 1 SQS FIFO
 - Kinesis Data Streams:
- - On average you'll have 20 trucks per shard
- - Trucks will have their data ordered within each shard
- - The maximum amount of consumers in parallel we can have is 5
- - Can receive up to 5 MB/s of data
+    - On average you'll have 20 trucks per shard
+    - Trucks will have their data ordered within each shard
+    - The maximum amount of consumers in parallel we can have is 5
+    - Can receive up to 5 MB/s of data
 
 - SOS FIFO
- - You only have one SQS FIFO queue
- - You will have 100 Group ID
- - You can have up to 100 Consumers (due to the 100 Group ID)
- - You have up to 300 messages per second (or 3000 if using batching)
+    - You only have one SQS FIFO queue
+    - You will have 100 Group ID
+    - You can have up to 100 Consumers (due to the 100 Group ID)
+    - You have up to 300 messages per second (or 3000 if using batching)
 
 ## 238. SQS vs SNS vs Kinesis
 
@@ -525,9 +525,9 @@ SNS:
 Kinesis:
 
 - Standard: pull data
- - 2MB per shard
+    - 2MB per shard
 - Enhanced-fan out: push data
- - 2MB per shard per consumer
+    - 2MB per shard per consumer
 - Possibility to replay data
 - Meant for real-time big data, analytics and ETL
 - Ordering at the shard level
