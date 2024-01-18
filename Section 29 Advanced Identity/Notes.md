@@ -8,8 +8,8 @@ AWS STS - Security Token Service
 - AssumeRole: Assume roles within your account or cross account
 - AssumeRoleWithSAML: return credentials for users logged with SAML
 - AssumeRoleWithWebldentity
- - return creds for users logged with an IdP (Facebook Login, Google Login, OIDC compatible...)
- - AWS recommends against using this, and using Cognito Identity Pools instead
+    - return creds for users logged with an IdP (Facebook Login, Google Login, OIDC compatible...)
+    - AWS recommends against using this, and using Cognito Identity Pools instead
 - GetSessionToken: for MFA, from a user or AWS account root user
 - GetFederationToken: obtain temporary creds for a federated user
 - GetCalleridentity: return details about the IAM user or role used in the API call
@@ -28,10 +28,10 @@ STS with MFA
 - Appropriate IAM policy using IAM Conditions
 - aws:MultiFactorAuthPresent:true
 - Reminder, GetSession Token returns:
- - Access ID
- - Secret Key
- - Session Token
- - Expiration date
+    - Access ID
+    - Secret Key
+    - Session Token
+    - Expiration date
 
 ## 421. Advanced IAM
 
@@ -49,7 +49,7 @@ Decision starts at DENY => Evaluate all applicable Policies => Explicit Deny?
         - Final decision = "deny"
  - Yes => Final decision = "deny"
 
-IAM Policies & $3 Bucket Policies
+IAM Policies & s3 Bucket Policies
 
 - IAM Policies are attached to users, roles, groups
 - S3 Bucket Policies are attached to buckets
@@ -112,15 +112,15 @@ Dynamic Policy example
 Inline vs Managed Policies
 
 - AWS Managed Policy
- - Maintained by AWS
- - Good for power users and administrators
- - Updated in case of new services / new APIs
+    - Maintained by AWS
+    - Good for power users and administrators
+    - Updated in case of new services / new APIs
 - Customer Managed Policy
- - Best Practice, re-usable, can be applied to many principals
- - Version Controlled + rollback, central change management
+    - Best Practice, re-usable, can be applied to many principals
+    - Version Controlled + rollback, central change management
 - Inline
- - Strict one-to-one relationship between policy and principal
- - Policy is deleted if you delete the IAM principal
+    - Strict one-to-one relationship between policy and principal
+    - Policy is deleted if you delete the IAM principal
 
 ## 422. Granting a User Permissions to Pass a Role to an AWS Service
 
@@ -129,10 +129,10 @@ Granting a User Permissions to Pass a Role to an AWS Service
 - To configure many AWS services, you must pass an IAM role to the service (this happens only once during setup)
 - The service will later assume the role and perform actions
 - Example of passing a role:
- - To an EC2 instance
- - To a Lambda function
- - To an ECS task
- - To CodePipeline to allow it to invoke other services
+    - To an EC2 instance
+    - To a Lambda function
+    - To an ECS task
+    - To CodePipeline to allow it to invoke other services
 - For this, you need the IAM permission iam:PassRole 
 - It often comes with iam:GetRole to view the role being passed
 
@@ -154,13 +154,13 @@ What is Microsoft Active Directory (AD)?
 AWS Directory Services
 
 - AWS Managed Microsoft AD
- - Create your own AD in AWS, manage users locally, supports MFA
- - Establish ‘trust’ connections with your on- premise AD
+    - Create your own AD in AWS, manage users locally, supports MFA
+    - Establish ‘trust’ connections with your on- premise AD
 
 - AD Connector
- - Directory Gateway (proxy) to redirect to on-premise AD, support MFA
- - Users are managed on the on-premise AD
+    - Directory Gateway (proxy) to redirect to on-premise AD, support MFA
+    - Users are managed on the on-premise AD
 
 - Simple AD
- - AD-compatible managed directory on AWS
- - Cannot be joined with on-premise AD
+    - AD-compatible managed directory on AWS
+    - Cannot be joined with on-premise AD
