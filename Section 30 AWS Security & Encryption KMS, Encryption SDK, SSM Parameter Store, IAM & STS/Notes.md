@@ -1,6 +1,6 @@
 # Section 30: AWS Security & Encryption KMS, Encryption SDK, SSM Parameter Store, IAM & STS
 
-## 425. Encryption 101
+## 426. Encryption 101
 
 Why encryption? Encryption in flight (TLS / SSL)
 
@@ -24,7 +24,7 @@ Client-side encryption
 - The server should not be able to decrypt the data
 - Could leverage Envelope Encryption
 
-## 426. KMS Overview
+## 427. KMS Overview
 
 AWS KMS (Key Management Service)
 
@@ -101,7 +101,7 @@ Copying Snapshots across accounts
 
 5. Create a volume from the snapshot
 
-## 428. KMS Encryption Patterns and Envelope Encryption
+## 429. KMS Encryption Patterns and Envelope Encryption
 
 Envelope Encryption
 
@@ -134,7 +134,7 @@ KNS Symmetric - API Summary
 - Decrypt: decrypt up to 4 KB of data (including Data Encryption Keys)
 - GenerateRandom: Returns a random byte string
 
-## 430. KMS Limits
+## 431. KMS Limits
 
 KMS Request Quotas
 
@@ -179,7 +179,7 @@ Asymmetric CMK quota:
 - 500 (shared) for RSA CMKs
 - 300 (shared) for Elliptic curve (ECC) CMKs
 
-## 432. S3 Bucket Keys
+## 433. S3 Bucket Keys
 
 - New setting to decrease...
  - Number of API calls made to KMS from S3 by 99%
@@ -189,7 +189,7 @@ Asymmetric CMK quota:
  - That key is used to encrypt KMS objects with new data keys
 - You will see less KMS CloudTrail events in CloudTrail
 
-## 433. KMS Key Policies & IAM Principals
+## 434. KMS Key Policies & IAM Principals
 
 KMS Key / KMS Key Policy
 
@@ -266,7 +266,7 @@ Principal Options in IAM Policies
 “Principal": "*"
 "Principal": { "AWS": "*" }
 
-## 434. CloudHSM Overview
+## 435. CloudHSM Overview
 
 CloudHSM
 
@@ -310,7 +310,7 @@ CloudHSM vs. KMS
 | | | Oracle TDE Acceleration |
 | Access & Authentication | AWS IAM | You create users and manage their permissions |
 
-## 435. SSM Parameter Store Overview
+## 436. SSM Parameter Store Overview
 
 SSM Parameter Store
 
@@ -389,7 +389,7 @@ NoChangeNotification (EventBridge)
 }
 `
 
-## 438. Secrets Manager - Overview
+## 439. Secrets Manager - Overview
 
 AWS Secrets Manager
 
@@ -407,7 +407,7 @@ AWS Secrets Manager — Multi-Region Secrets
 - Ability to promote a read replica Secret to a standalone Secret
 - Use cases: multi-region apps, disaster recovery strategies, multi-region DB...
 
-## 440. Secrets Manager - CloudFormation Integration
+## 441. Secrets Manager - CloudFormation Integration
 
 Secrets Manager CloudFormation Integration RDS & Aurora
 
@@ -450,7 +450,7 @@ Resources:
 
 ```
 
-## 441. SSM Parameter Store vs Secrets Manager
+## 442. SSM Parameter Store vs Secrets Manager
 
 SSM Parameter Store vs Secrets Manager
 
@@ -479,7 +479,7 @@ SSM Parameter Store:
         - change password => Amazon RDS
         - change value => SSM Parameter Store
 
-## 442. CloudWatch Logs Encryption
+## 443. CloudWatch Logs Encryption
 
 CloudWatch Logs - Encryption
 
@@ -489,3 +489,15 @@ CloudWatch Logs - Encryption
 - You must use the CloudWatch Logs API:
  - associate-kms-key : if the log group already exists
  - create-log-group: if the log group doesn't exist yet
+
+## 444. CodeBuild Security
+
+CodeBuild Security
+
+- To access resources in your VPC, make sure you specify aVPC configuration for your CodeBuild
+
+- Secrets in CodeBuild:
+- Don't store them as plaintext in environment variables
+- Instead...
+ - Environment variables can reference parameter store parameters
+ - Environment variables can reference secrets manager secrets
