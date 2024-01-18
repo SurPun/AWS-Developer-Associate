@@ -44,14 +44,14 @@ API Gateway - Endpoint Types
 API Gateway — Security
 
 - User Authentication through
- - IAM Roles (useful for internal applications)
- - Cognito (identity for external users — example mobile users)
- - Custom Authorizer (your own logic)
+    - IAM Roles (useful for internal applications)
+    - Cognito (identity for external users — example mobile users)
+    - Custom Authorizer (your own logic)
 
 - Custom Domain Name HTTPS security through integration with AWS Certificate Manager (ACM)
- - If using Edge-Optimized endpoint, then the certificate must be in us-east- |
- - If using Regional endpoint, the certificate must be in the API Gateway region
- - Must setup CNAME or A-alias record in Route 53
+    - If using Edge-Optimized endpoint, then the certificate must be in us-east- |
+    - If using Regional endpoint, the certificate must be in the API Gateway region
+    - Must setup CNAME or A-alias record in Route 53
 
 ## 344. API Gateway Stages and Deployment
 
@@ -70,13 +70,13 @@ API Gateway — Stage Variables
 - Stage variables are like environment variables for API Gateway
 - Use them to change often changing configuration values
 - They can be used in:
- - Lambda function ARN
- - HTTP Endpoint
- - Parameter mapping templates
+    - Lambda function ARN
+    - HTTP Endpoint
+    - Parameter mapping templates
 
 - Use cases:
- - Configure HTTP endpoints your stages talk to (dey, test, prod...)
- - Pass configuration parameters to AWS Lambda through mapping templates
+    - Configure HTTP endpoints your stages talk to (dey, test, prod...)
+    - Pass configuration parameters to AWS Lambda through mapping templates
 
 - Stage variables are passed to the context’ object in AWS Lambda
 - Format: ${stageVariables.variableName}
@@ -101,26 +101,26 @@ API Gateway — Canary Deployment
 API Gateway - Integration Types
 
 - Integration Type MOCK
- - API Gateway returns a response without sending the request to the backend
+    - API Gateway returns a response without sending the request to the backend
 
 - Integration Type HTTP / AWS (Lambda & AWS Services)
- - you must configure both the integration request and integration response
- - Setup data mapping using mapping templates for the request & response
+    - you must configure both the integration request and integration response
+    - Setup data mapping using mapping templates for the request & response
 
 API Gateway - Integration Types
 
 - Integration Type AWS_PROXY (Lambda Proxy):
- - incoming request from the client is the input to Lambda
- - The function is responsible for the logic of request / response
- - No mapping template, headers, query string parameters... are passed as arguments
+    - incoming request from the client is the input to Lambda
+    - The function is responsible for the logic of request / response
+    - No mapping template, headers, query string parameters... are passed as arguments
 
 API Gateway - Integration Types
 
 - Integration Type HT TP_PROXY
- - No mapping template
- - The HTTP request is passed to the backend
- - The HTTP response from the backend is forwarded by API Gateway
- - Possibility to add HTTP Headers if need be (ex: API key)
+    - No mapping template
+    - The HTTP request is passed to the backend
+    - The HTTP response from the backend is forwarded by API Gateway
+    - Possibility to add HTTP Headers if need be (ex: API key)
 
 Mapping Templates (AWS & HTTP Integration)
 
@@ -139,10 +139,10 @@ Mapping Example: JSON to XML with SOAP
 Client => RESTful, JSON Payload => API Gateway + Mapping Template => XML Payload => SOAP API
 
 - In this case, API Gateway should:
- - Extract data from the request: either path, payload or header
- - Build SOAP message based on request data (mapping template)
- - Call SOAP service and receive XML response
- - Transform XML response to desired format (like JSON), and respond to the user
+    - Extract data from the request: either path, payload or header
+    - Build SOAP message based on request data (mapping template)
+    - Call SOAP service and receive XML response
+    - Transform XML response to desired format (like JSON), and respond to the user
 
 
 ## 351. API Gateway Open API
@@ -151,11 +151,11 @@ API Gateway - Open API spec
 
 - Common way of defining REST APIs, using API definition as code
 - Import existing OpenAPI 3.0 spec to AP! Gateway
- - Method
- - Method Request
- - Integration Request
- - Method Response
- - + AWS extensions for API gateway and setup every single option
+    - Method
+    - Method Request
+    - Integration Request
+    - Method Response
+    - (+) AWS extensions for API gateway and setup every single option
 - Can export current API as OpenAPI spec
 - OpenAPI specs can be written inYAML or JSON
 - Using OpenAPI we can generate SDK for our applications
@@ -164,12 +164,12 @@ REST API — Request Validation
 
 - You can configure AP! Gateway to perform basic validation of an API request before proceeding with the integration request
 - When the validation fails, AP! Gateway immediately fails the request
- - Returns a 400-error response to the caller
+    - Returns a 400-error response to the caller
 
 - This reduces unnecessary calls to the backend
 - Checks:
- - The required request parameters in the URI, query string, and headers of an incoming request are included and non-blank
- - The applicable request payload adheres to the configured JSON Schema request model of the method
+    - The required request parameters in the URI, query string, and headers of an incoming request are included and non-blank
+    - The applicable request payload adheres to the configured JSON Schema request model of the method
 
 REST API — RequestValidation — OpenAPI
 
@@ -199,17 +199,17 @@ API Gateway — Usage Plans & API Keys
 
 - If you want to make an API available as an offering ($) to your customers
 - Usage Plan:
- - who can access one or more deployed API stages and methods
- - how much and how fast they can access them
- - uses API keys to identify API clients and meter access
- - configure throttling limits and quota limits that are enforced on individual client
+    - who can access one or more deployed API stages and methods
+    - how much and how fast they can access them
+    - uses API keys to identify API clients and meter access
+    - configure throttling limits and quota limits that are enforced on individual client
 
 - API Keys:
- - alphanumeric string values to distribute to your customers
- - Ex: WBjHxNtoAb4WPKBC7cGm64CBiblb24b4bt8jJHo9
- - Can use with usage plans to control access
- - Throttling limits are applied to the API keys
- - Quotas limits is the overall number of maximum requests
+    - alphanumeric string values to distribute to your customers
+    - Ex: WBjHxNtoAb4WPKBC7cGm64CBiblb24b4bt8jJHo9
+    - Can use with usage plans to control access
+    - Throttling limits are applied to the API keys
+    - Quotas limits is the overall number of maximum requests
 
 API Gateway — Correct Order for API keys
 
@@ -230,13 +230,13 @@ API Gateway — Correct Order for API keys
 API Gateway — Logging & Tracing
 
 - CloudWatch Logs
- - Log contains information about request/response body
- - Enable CloudWatch logging at the Stage level (with Log Level - ERROR, DEBUG, INFO)
- - Can override settings on a per API basis
+    - Log contains information about request/response body
+    - Enable CloudWatch logging at the Stage level (with Log Level - ERROR, DEBUG, INFO)
+    - Can override settings on a per API basis
 
 - X-Ray
- - Enable tracing to get extra information about requests in API Gateway
- - X-Ray API Gateway + AWS Lambda gives you the full picture
+    - Enable tracing to get extra information about requests in API Gateway
+    - X-Ray API Gateway + AWS Lambda gives you the full picture
 
 API Gateway — CloudWatch Metrics
 
@@ -250,8 +250,8 @@ API Gateway — CloudWatch Metrics
 API Gateway Throttling
 
 - Account Limit
- - API Gateway throttles requests at!0000 rps across all API
- - Soft limit that can be increased upon request
+    - API Gateway throttles requests at!0000 rps across all API
+    - Soft limit that can be increased upon request
 
 - In case of throttling => 429 Too Many Requests (retriable error)
 - Can set Stage limit & Method limits to improve performance
@@ -263,12 +263,12 @@ API Gateway Throttling
 API Gateway - Errors
 
 - 4xx means Client errors
- - 400: Bad Request
- - 403:Access Denied, WAF filtered
- - 429: Quota exceeded, Throttle
+    - 400: Bad Request
+    - 403:Access Denied, WAF filtered
+    - 429: Quota exceeded, Throttle
 
 - 5x means Server errors
- - 502: Bad Gateway Exception, usually for an incompatible output returned from a Lambda proxy integration backend and occasionally for out-of-order invocations due to heavy loads.
+    - 502: Bad Gateway Exception, usually for an incompatible output returned from a Lambda proxy integration backend and occasionally for out-of-order invocations due to heavy loads.
 - 503: Service Unavailable Exception
 - 504: Integration Failure — ex Endpoint Request Timed-out Exception API Gateway requests time out after 29 second maximum
 
@@ -278,9 +278,9 @@ AWS API Gateway - CORS
 
 - CORS must be enabled when you receive API calls from another domain.
 - The OPTIONS pre-flight request must contain the following headers:
- - Access-Control-Allow-Methods
- - Access-Control-Allow-Headers
- - Access-Control-Allow-Origin
+    - Access-Control-Allow-Methods
+    - Access-Control-Allow-Headers
+    - Access-Control-Allow-Origin
 - CORS can be enabled through the console
 
 ## 357. API Gateway Authentication and Authorization
@@ -316,42 +316,42 @@ API Gateway — Security Lambda Authorizer (formerly Custom Authorizers)
 API Gateway — Security — Summary
 
 - IAM:
- - Great for users / roles already within your AWS account, + resource policy for cross account
- - Handle authentication + authorization
- - Leverages Signature v4
+    - Great for users / roles already within your AWS account, + resource policy for cross account
+    - Handle authentication + authorization
+    - Leverages Signature v4
 
 - Custom Authorizer:
- - Great for 3 party tokens
- - Very flexible in terms of what IAM policy is returned
- - Handle Authentication verification + Authorization in the Lambda function
- - Pay per Lambda invocation, results are cached
+    - Great for 3 party tokens
+    - Very flexible in terms of what IAM policy is returned
+    - Handle Authentication verification + Authorization in the Lambda function
+    - Pay per Lambda invocation, results are cached
 
 - Cognito User Pool:
  - You manage your own user pool (can be backed by Facebook, Google login etc...)
- - No need to write any custom code
- - Must implement authorization in the backend
+    - No need to write any custom code
+    - Must implement authorization in the backend
 
 ## 359. API Gateway REST API vs HTTP API
 
 API Gateway — HTTP API vs REST API
 
 - HTTP APIs
- - low-latency, cost-effective AWS
- - Lambda proxy, HTTP proxy APIs and private integration (no data mapping)
- - support OIDC and OAuth 2.0 authorization, and built-in support for CORS
- - No usage plans and API keys
+    - low-latency, cost-effective AWS
+    - Lambda proxy, HTTP proxy APIs and private integration (no data mapping)
+    - support OIDC and OAuth 2.0 authorization, and built-in support for CORS
+    - No usage plans and API keys
 
 - REST APIs
- - All features (except Native OpenID Connect / OAuth 2.0)
+    - All features (except Native OpenID Connect / OAuth 2.0)
 
 ## 360. API Gateway Websocket API
 
 API Gateway - WebSocket API - Overview
 
 - What's WebSocket?
- - Two-way interactive communication between a user's browser and a server
- - Server can push information to the client
- - This enables stateful application use cases
+    - Two-way interactive communication between a user's browser and a server
+    - Server can push information to the client
+    - This enables stateful application use cases
 
 - WebSocket APIs are often used in real- time applications such as chat applications, collaboration platforms, multiplayer games, and financial trading platforms.
 - Works with AWS Services (Lambda, DynamoDB) or HTTP endpoints
@@ -420,12 +420,12 @@ Example INCOMING DATA:
 `
 
 - Route Key Table - API Gateway
- - $connect
- - $disconnect
- - $default
- - join => Backend integration on Exmaple
- - quit
- - delete
+    - $connect
+    - $disconnect
+    - $default
+    - join => Backend integration on Exmaple
+    - quit
+    - delete
 
 ## 361. API Gateway - Architecture
 
