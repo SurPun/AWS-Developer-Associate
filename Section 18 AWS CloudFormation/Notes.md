@@ -6,9 +6,9 @@ Infrastructure as Code
 
 - Currently, we have been doing a lot of manual work
 - All this manual work will be very tough to reproduce:
- - In another region
- - in another AWS account
- - Within the same region if everything was deleted
+    - In another region
+    - in another AWS account
+    - Within the same region if everything was deleted
 
 - Wouldn't it be great, if all our infrastructure was... code?
 - That code would be deployed and create / update / delete our infrastructure
@@ -17,41 +17,41 @@ What is CloudFormation
 
 - CloudFormation is a declarative way of outlining your AWS Infrastructure, for any resources (most of them are supported).
 - For example, within a CloudFormation template, you say:
- - I want a security group
- - I want two EC2 machines using this security group
- - I want two Elastic IPs for these EC2 machines
- - I want an s3 bucket
- - I want a load balancer (ELB) in front of these machines
+    - I want a security group
+    - I want two EC2 machines using this security group
+    - I want two Elastic IPs for these EC2 machines
+    - I want an s3 bucket
+    - I want a load balancer (ELB) in front of these machines
 
 - Then CloudFormation creates those for you, in the right order, with the exact configuration that you specify
 
 Benefits of AWS CloudFormation (1/2)
 
 - Infrastructure as code
- - No resources are manually created, which is excellent for control
- - The code can be version controlled for example using git
- - Changes to the infrastructure are reviewed through code
+    - No resources are manually created, which is excellent for control
+    - The code can be version controlled for example using git
+    - Changes to the infrastructure are reviewed through code
 
 - Cost
- - Each resources within the stack is staged with an identifier so you can easily see how much a stack costs you
- - You can estimate the costs of your resources using the CloudFormation template
- - Savings strategy: In Dev, you could automation deletion of templates at 5 PM and recreated at 8 AM, safely
+    - Each resources within the stack is staged with an identifier so you can easily see how much a stack costs you
+    - You can estimate the costs of your resources using the CloudFormation template
+    - Savings strategy: In Dev, you could automation deletion of templates at 5 PM and recreated at 8 AM, safely
 
 Benefits of AWS CloudFormation (2/2)
 
 - Productivity
- - Ability to destroy and re-create an infrastructure on the cloud on the fly
- - Automated generation of Diagram for your templates!
- - Declarative programming (no need to figure out ordering and orchestration)
+    - Ability to destroy and re-create an infrastructure on the cloud on the fly
+    - Automated generation of Diagram for your templates!
+    - Declarative programming (no need to figure out ordering and orchestration)
 
 - Separation of concern: create many stacks for many apps, and many layers. Ex:
- - VPC stacks
- - Network stacks
- - App stacks
+    - VPC stacks
+    - Network stacks
+    - App stacks
 
 - Don't re-invent the wheel
- - Leverage existing templates on the web!
- - Leverage the documentation
+    - Leverage existing templates on the web!
+    - Leverage the documentation
 
 How CloudFormation Works
 
@@ -63,13 +63,13 @@ How CloudFormation Works
 Deploying CloudFormation templates
 
 - Manual way:
- - Editing templates in the CloudFormation Designer
- - Using the console to input parameters, etc
+    - Editing templates in the CloudFormation Designer
+    - Using the console to input parameters, etc
 
 - Automated way:
- - Editing templates in aYAML file
- - Using the AWS CLI (Command Line Interface) to deploy the templates
- - Recommended way when you fully want to automate your flow
+    - Editing templates in aYAML file
+    - Using the AWS CLI (Command Line Interface) to deploy the templates
+    - Recommended way when you fully want to automate your flow
 
 CloudFormation Building Blocks
 
@@ -112,7 +112,7 @@ What are resources?
 - AWS figures out creation, updates and deletes of resources for us
 - There are over 224 types of resources (!)
 - Resource types identifiers are of the form:
- - AWS: :aws-product-name: :data-type-name
+    - AWS: :aws-product-name: :data-type-name
 
 How do i find resources documentation?
 
@@ -121,16 +121,16 @@ How do i find resources documentation?
 
 - Then, we just read the docs
 - Example here (for an EC2 instance):
- - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aw s-properties-ec2-instance.html
+    - http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aw s-properties-ec2-instance.html
 
 FAO for resources
 
 - Can i create a dynamic amount of resources?
- - No, you can’t. Everything in the CloudFormation template has to be declared. You can’t perform code generation there
+    - No, you can’t. Everything in the CloudFormation template has to be declared. You can’t perform code generation there
 
 - Is every AWS Service supported?
- - Almost. Only a select few niches are not there yet
- - You can work around that using AWS Lambda Custom Resources
+    - Almost. Only a select few niches are not there yet
+    - You can work around that using AWS Lambda Custom Resources
 
 ## 202. CloudFormation Parameters
 
@@ -138,14 +138,14 @@ What are parameters?
 
 - Parameters are a way to provide inputs to your AWS CloudFormation template
 - They're important to know about if:
- - You want to reuse your templates across the company
- - Some inputs can not be determined ahead of time
+    - You want to reuse your templates across the company
+    - Some inputs can not be determined ahead of time
 
 - Parameters are extremely powerful, controlled, and can prevent errors from happening in your templates thanks to types.
 
 When should you use a parameter?
 - Ask yourself this:
- - Is this CloudFormation resource configuration likely to change in the future?
+    - Is this CloudFormation resource configuration likely to change in the future?
 - If so, make it a parameter.
 
 - You won't have to re-upload a template to change its content 
@@ -155,11 +155,11 @@ Parameters Settings
 Parameters can be controlled by all these settings:
 
 - Type:
- - String
- - Number
- - CommaDelimitedList
- - List<Type>
- - AWS Parameter (to help catch invalid values — match against existing values in the AWS Account)
+    - String
+    - Number
+    - CommaDelimitedList
+    - List<Type>
+    - AWS Parameter (to help catch invalid values — match against existing values in the AWS Account)
 
 - Description
 - Constraints
@@ -190,11 +190,11 @@ What are mappings?
 When would you use mappings vs parameters ?
 
 - Mappings are great when you know in advance all the values that can be taken and that they can be deduced from variables such as
- - Region
- - Availability Zone
- - AWS Account
- - Environment (dev vs prod)
- - Etc...
+    - Region
+    - Availability Zone
+    - AWS Account
+    - Environment (dev vs prod)
+    - Etc...
 
 - They allow safer control over the template.
 - Use parameters when the values are really user specific
@@ -242,20 +242,20 @@ What are conditions used for?
 
 - Conditions are used to control the creation of resources or outputs based on a condition.
 - Conditions can be whatever you want them to be, but common ones are:
- - Environment (dev / test / prod)
- - AWS Region
- - Any parameter value
+    - Environment (dev / test / prod)
+    - AWS Region
+    - Any parameter value
 - Each condition can reference another condition, parameter value or mapping
 
 How to define a condition?
 
 - The logical ID is for you to choose. It’s how you name condition
 - The intrinsic function (logical) can be any of the following:
- - Fn::And
- - Fn::Equals
- - Fn::If
- - Fn::Not
- - Fn::Or
+    - Fn::And
+    - Fn::Equals
+    - Fn::If
+    - Fn::Not
+    - Fn::Or
 
 Using a Condition
 
@@ -276,8 +276,8 @@ CloudFormation Must Know Intrinsic Functions
 Fn::Ref
 
 - The Fn::Ref function can be leveraged to reference
- - Parameters => returns the value of the parameter
- - Resources => returns the physical ID of the underlying resource (ex: EC2 ID)
+    - Parameters => returns the value of the parameter
+    - Resources => returns the physical ID of the underlying resource (ex: EC2 ID)
 - The shorthand for this inYAML is !Ref
 
 Fn::GetAtt
@@ -299,9 +299,9 @@ Fn::ImportValue
 Fn::Join
 
 - Join values with a delimiter
- - `!Join [ delimiter, [ comma-delimited list of values ] ]`
+    - `!Join [ delimiter, [ comma-delimited list of values ] ]`
 - This creates “a:b:c”
- -  `!Join [ “:", [ a, b, c ) ]`
+    -  `!Join [ “:", [ a, b, c ) ]`
 
 Function Fn::Sub
 
@@ -313,23 +313,23 @@ Condition Functions
 
 - The logical ID is for you to choose. It's how you name condition
 - The intrinsic function (logical) can be any of the following:
- - Fn::And
- - Fn::Equals
- - Fn::If
- - Fn::Not
- - Fn::Or
+    - Fn::And
+    - Fn::Equals
+    - Fn::If
+    - Fn::Not
+    - Fn::Or
 
 ## 207. CloudFormation Rollbacks
 
 CloudFormation Rollbacks
 
 - Stack Creation Fails:
- - Default: everything rolls back (gets deleted). We can look at the log
- - Option to disable rollback and troubleshoot what happened
+    - Default: everything rolls back (gets deleted). We can look at the log
+    - Option to disable rollback and troubleshoot what happened
 
 - Stack Update Fails:
- - The stack automatically rolls back to the previous known working state
- - Ability to see in the log what happened and error messages
+    - The stack automatically rolls back to the previous known working state
+    - Ability to see in the log what happened and error messages
 
 ## 208. CloudFormation Stack Notification
 
@@ -350,22 +350,22 @@ Nested stacks
 - Nested stacks are stacks as part of other stacks
 - They allow you to isolate repeated patterns / common components in separate stacks and call them from other stacks
 - Example:
- - Load Balancer configuration that is re-used
- - Security Group that is re-used
+    - Load Balancer configuration that is re-used
+    - Security Group that is re-used
 - Nested stacks are considered best practice
 - To update a nested stack, always update the parent (root stack)
 
 CloudFormation — Cross vs Nested Stacks
 
 - Cross Stacks
- - Helpful when stacks have different life cycles
- - Use Outputs Export and Fn::importValue
- - When you need to pass export values to many stacks (VPC ld, etc...)
+    - Helpful when stacks have different life cycles
+    - Use Outputs Export and Fn::importValue
+    - When you need to pass export values to many stacks (VPC ld, etc...)
 
 - Nested Stacks
- - Helpful when components must be re-used
- - Ex:re-use how to properly configure an Application Load Balancer
- - The nested stack only is important to the higher level stack (it's not shared)
+    - Helpful when components must be re-used
+    - Ex:re-use how to properly configure an Application Load Balancer
+    - The nested stack only is important to the higher level stack (it's not shared)
 
 CloudFormation - StackSets
 
@@ -383,7 +383,7 @@ CloudFormation Drift
 - How do we know if our resources have drifted?
 - We can use CloudFormation drift!
 - Not all resources are supported yet:
- - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html
+    - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html
 
 ## 211. CloudFormation Stack Policies
 
