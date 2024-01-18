@@ -64,8 +64,7 @@ Amazon Aurora
 
 - Aurora is a proprietary technology from AWS (not open sourced)
 - Postgres and MySQL are both supported as Aurora DB (that means your drivers will work as if Aurora was a Postgres or MySQL database)
-- Aurora is “AWS cloud optimized” and claims 5x performance improvement
-  over MySQL on RDS, over 3x the performance of Postgres on RDS
+- Aurora is “AWS cloud optimized” and claims 5x performance improvement over MySQL on RDS, over 3x the performance of Postgres on RDS
 - Aurora storage automatically grows in increments of |OGB, up to 128 TB.
 - Aurora can have up to |5 replicas and the replication process is faster than MySQL (sub 10 ms replica lag)
 - Failover in Aurora is instantaneous. It’s HA native.
