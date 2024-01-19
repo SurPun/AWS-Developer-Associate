@@ -56,3 +56,32 @@ This is the most secure solution amongst these options.
 
 SSM Parameters Store can be used to store secrets and has built-in version tracking capability. Each time you edit the value of a parameter, SSM Parameter Store creates a new version of the parameter and retains the previous versions. You can view the details, including the values, of all versions in a parameter's history.
 
+11. You would like to externally maintain the configuration values of your main database, to be picked up at runtime by your application. What's the best place to store them to maintain control and version history?
+
+- SSM Parameter Store
+
+12. What is the most suitable AWS service for storing RDS DB passwords which also provides you automatic rotation?
+
+- AWS Secrets Manager
+
+13. You would like to encrypt 400 KB of data. You should use ..........................
+
+- KMS GenerateDataKey API call and encrypt client-side
+
+Use Envelope Encryption if you want to encrypt > 4 KB of data.
+
+14. You have critical data stored in an S3 bucket with SSE:KMS encryption enabled. You're running an application on an EC2 instance in which you want to download some files from the bucket. So, you have created an IAM role with s3:GetObject permissions and attached it to the EC2 instance, but when the application tries to download files from the S3 bucket, it gets a denied exception. What is a possible cause for this issue?
+
+- Add permission for KMS:Decrypt
+
+Because the bucket encrypted using SSE:KMS, you must give permissions to the EC2 instance to access the KMS Keys and to make decrypt operations.
+
+15. How would you encrypt existing CloudWatch Log Group with a KMS key?
+
+- Encrypt them with the associate-kms-key API call
+
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html
+
+16. Which IAM policy condition allows you to enforce SSL requests to objects stored in your S3 bucket?
+
+- aws:SecureTranport
