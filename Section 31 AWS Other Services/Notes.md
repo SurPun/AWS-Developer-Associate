@@ -85,3 +85,17 @@ Kinesis Data Streams vs Amazon MSK
 | Shard Splitting & Merging | Can only add partitions to a topic |
 | TLS In-flight encryption | PLAINTEST or TLS In-flight Encryption |
 | KMS at-rest encryption | KMS at-rest encryption |
+
+## 452. Amaon Certificate Manager
+
+AWS Certificate Manager (ACM)
+
+- Let's you easily provision, manage, and deploy SSL/TLS Certitcates
+- Used to provide in-flight encryption for websites (HTTPS)
+- Supports both public and private TLS certificates
+- Free of charge for public TLS certificates
+- Automatic TLS certificate renewal
+- Integrations with (load TLS certificates on)
+    - Elastic Load Balancers
+    - CloudFront Distributions
+    - APls on API Gateway
