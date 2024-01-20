@@ -137,3 +137,15 @@ AWS AppConfig
 - Validate configuration changes before deployment using:
     - JSON Schema (syntactic check) or
     - Lambda Function — run code to perform validation (semantic check)
+
+## 457. CloudWatch Evidently
+
+CloudWatch Evidently
+
+- Safely validate new features by serving them to a specified % of your users
+    - Reduce risk and identify unintended consequences
+    - Collect experiment data, analyze using stats, monitor performance
+- Launches (= feature flags): enable and disable features for a subset of users
+- Experiments (= A/B testing): compare multiple versions of the same feature
+- Overrides: pre-define a variation for a specific user
+- Store evaluation events in CloudWatch Logs or S3
