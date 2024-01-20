@@ -122,3 +122,18 @@ Amazon Macie
 - Macie helps identify and alert you to sensitive data, such as personally identifiable information (PII)
 
 S3 - Analyse => Macie (Discover Sensitive Data (PII)) - notify => Amazon EventBridge - integrations ...
+
+## 456. AWS AppConfig - Overview
+
+AWS AppConfig
+
+- Configure, validate, and deploy dynamic configurations
+- Deploy dynamic configuration changes to your applications independently of any code deployments
+    - You don't need to restart the application
+
+- Feature flags, application tuning, allow/block listing...
+- Use with apps on EC2 instances, Lambda, ECS, EKS...
+- Gradually deploy the configuration changes and rollback If issues occur
+- Validate configuration changes before deployment using:
+    - JSON Schema (syntactic check) or
+    - Lambda Function — run code to perform validation (semantic check)
