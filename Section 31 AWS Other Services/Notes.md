@@ -61,3 +61,27 @@ Amazon Athena - Federated Query
 - Allows you to run SQL queries across data stored in relational, non-relational, object, and custom data sources (AWS or on-premises)
 - Uses Data Source Connectors that run on AWS Lambda to run Federated Queries (e.g., CloudWatch Logs, DynamoDB, RDS, ...)
 - Store the results back in Amazon s3
+
+## 451. Amazon MSK - Overview
+
+Amazon Managed Streaming for Apache Kafka (Amazon MSK)
+
+- Alternative to Amazon Kinesis
+- Fully managed Apache Kafka on AWS
+    - Allow you to create, update, delete clusters
+    - MSK creates & manages Kafka brokers nodes & Zookeeper nodes for you
+    - Deploy the MSK cluster in yourVPC, multi-AZ (up to 3 for HA)
+    - Automatic recovery from common Apache Kafka failures
+    - Data is stored on EBS volumes for as long as you want
+- MSK Serverless
+    - Run Apache Kafka on MSK without managing the capacity
+
+Kinesis Data Streams vs Amazon MSK
+
+| Kinesis Data Streams | Amazon MSK |
+| --- | --- |
+| 1 MB message size limit | 1 MB default, configure for higher (ex: 10MB) |
+| Data Streams with Shards | Kafka Topics with Partitions |
+| Shard Splitting & Merging | Can only add partitions to a topic |
+| TLS In-flight encryption | PLAINTEST or TLS In-flight Encryption |
+| KMS at-rest encryption | KMS at-rest encryption |
