@@ -112,3 +112,13 @@ AWS Private Certificate Authority (CA)
     - Encrypted TLS communication, Cryptographically signing code
     - Authenticate users, computers, API endpoints, and IoT devices
     - Enterprise customers building a Public Key Infrastructure (PK!)
+
+## 455. Amazon Macie
+
+Amazon Macie
+
+- Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS.
+
+- Macie helps identify and alert you to sensitive data, such as personally identifiable information (PII)
+
+S3 - Analyse => Macie (Discover Sensitive Data (PII)) - notify => Amazon EventBridge - integrations ...
