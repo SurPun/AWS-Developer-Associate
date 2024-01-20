@@ -80,3 +80,135 @@ Get into the AWS Community
 - Read online blogs
 - Attend local meetups and discuss with other AWS engineers
 - Watch re-invent videos on Youtube (AWS Conference)
+
+# AWS Certification Paths
+
+## AWS Certification Paths — Architecture
+
+Architecture (Solutions Architect)
+
+- Design, develop, and manage cloud infrastructure and assets, work with DevOps to migrate applications to the cloud
+
+    - Cloud Practitioner (Foundational)
+    - Solutions Architect (Associate)
+    - Solutions Architect (Professional)
+    - Security (Specialty)
+
+Architecture (Application Architect)
+
+- Design significant aspects of application architecture including user interface, middleware, and infrastructure, and ensure enterprise-wide scalable, reliable, and manageable systems
+
+    - Cloud Practitioner (Foundational)
+    - Solutions Architect (Associate)
+    - Developer (Associate)
+    - DevOps Engineer (Professional)
+    - Solutions Architect (Professional)
+
+## AWS Certification Paths — Operations
+
+Operations (Systems Administrator)
+
+- Install, upgrade, and maintain computer components and software, and integrate automation processes
+
+    - Cloud Practitioner (Foundational)
+    - SysOps Administrator (Associate)
+    - DevOps Engineer (Professional)
+
+Operations (Cloud Engineer)
+
+- Implement and operate an organization’s networked computing infrastructure and Implement security systems to maintain data safety
+
+    - Cloud Practitioner (Foundational)
+    - SysOps Administrator (Associate)
+    - Security (Specialty)
+    - DevOps Engineer (Professional)
+    - Advanced Networking (Specialty)
+
+## AWS Certification Paths — DevOps
+
+DevOps (Test Engineer)
+
+- Embed testing and quality best practices for software development from design to release, throughout the product life cycle
+
+    - Cloud Practitioner (Foundational)
+    - Developer (Associate)
+    - DevOps Engineer (Professional)
+
+DevOps (Cloud DevOps Engineer)
+
+- Design, deployment, and operations of large-scale global hybrid cloud computing environment, advocating for end-to-end automated CI/CD DevOps pipelines
+
+    - Cloud Practitioner (Foundational)
+    - Developer (Associate)
+    - SysOps Administrator (Associate)
+    - DevOps Engineer (Professional)
+
+DevOps (DevSecOps Engineer)
+
+- Accelerate enterprise cloud adoption while enabling rapid and stable delivery of capabilities using CI/CD principles, methodologies, and technologies
+
+    - Cloud Practitioner (Foundational)
+    - SysOps Administrator (Associate)
+    - DevOps Engineer (Professional)
+    - Security (Specialty)
+
+## AWS Certification Paths — Security
+
+Security (Cloud Security Engineer)
+
+- Design computer security architecture and develop detailed cyber security designs. Develop, execute, and track performance of security measures to protect information
+
+    - Cloud Practitioner (Foundational)
+    - SysOps Administrator (Associate)
+    - Security (Specialty)
+    - DevOps Engineer (Professional)
+    - Advanced Networking (Specialty)
+
+Security (Cloud Security Architect)
+
+- Design and implement enterprise cloud solutions applying governance to identify, communicate, and minimize business and technical risks
+
+    - Cloud Practitioner (Foundational)
+    - Solutions Architect (Associate)
+    - Security (Specialty)
+    - Solutions Architect (Professional)
+
+## AWS Certification Paths — Data Analytics & Development
+
+Data Analytics (Cloud Data Engineer)
+
+- Automate collection and processing of structured/semi-structured data and monitor data pipeline performance
+
+    - Cloud Practitioner (Foundational)
+    - Solutions Architect (Associate)
+    - Data Analytics (Specialty)
+    - Security (Specialty)
+
+Development (Software Development Engineer)
+
+- Develop, construct, and maintain software across platforms and devices
+
+    - Cloud Practitioner (Foundational)
+    - Developer (Associate)
+    - DevOps Engineer (Professional)
+
+## AWS Certification Paths — Networking & AI/ML
+
+Networking (Network Engineer)
+
+- Design and implement computer and information networks, such as local area networks (LAN), wide area networks (WAN), intranets, extranets, etc.
+
+    - Cloud Practitioner (Foundational)
+    - Solutions Architect (Associate)
+    - Advanced Networking (Specialty)
+    - Security (Specialty)
+
+AI/ML (Machine Learning Engineer)
+
+- Research, build, and design artificial intelligence (Al) systems to automate predictive models, and design machine learning systems, models, and schemes
+
+    - Cloud Practitioner (Foundational)
+    - Solutions Architect (Associate)
+    - SysOps Adminstrator (Associate)
+    - Developer (Associate)
+    - Machine Learning (Specialty)
