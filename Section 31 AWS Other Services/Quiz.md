@@ -15,4 +15,3 @@
 4. You are running a gaming website that is using DynamoDB as its data store. Users have been asking for a search feature to find other gamers by name, with partial matches if possible. Which AWS technology do you recommend to implement this feature?
 
 - Amazon OpenSearch Service
-
