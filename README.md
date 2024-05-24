@@ -7,7 +7,7 @@ AWS Developer Associate
 Goals :
 
 - [x] Complete Udemy Course
-- [ ] Study for Exam
+- [x] Study for Exam
 - [ ] Developer Associate Certification
 
 NOTES :
